@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Políticas de garantías — Auto Dealer. Taller multimarca en Bogotá y Cali, red nacional para flotas." />
+  <title>Políticas de garantías | Auto Dealer</title>
+  <link rel="icon" type="image/png" href="favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="apple-touch-icon.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="logo-shine.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #000000;
+      --bg: #0d0b0e;
+      --bg-elevated: #17151a;
+      --accent: #ff0000;
+      --text: #ffffff;
+      --text-soft: #e0e0e0;
+      --text-muted: rgba(255, 255, 255, 0.58);
+      --nav-h: 64px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font: "Inter", system-ui, sans-serif;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--void);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .container {
+      width: min(1220px, 100% - 2rem);
+      margin-inline: auto;
+    }
+    .legal-inner {
+      width: min(900px, 100% - 2rem);
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      min-height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(0.75rem, 3vw, 1.5rem);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav__inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo-link .logo-shine > img { height: 34px; width: auto; object-fit: contain; }
+    @media (min-width: 600px) { .logo-link .logo-shine > img { height: 40px; } }
+    .nav__back {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav__back:hover {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(255, 0, 0, 0.12);
+    }
+
+    .legal-hero {
+      padding: calc(var(--nav-h) + 3rem) 0 2.5rem;
+      background: linear-gradient(180deg, #0a0a0a 0%, var(--void) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      text-align: center;
+    }
+    .legal-hero__tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+    .legal-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 2.85rem);
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+    .legal-hero p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .legal-body {
+      padding: 2.5rem 0 4rem;
+    }
+    .legal-body .lead {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin: 0 0 2rem;
+      padding: 1.25rem 1.35rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .legal-table-wrap {
+      overflow-x: auto;
+      margin: 0 0 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    table.legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .legal-table th,
+    .legal-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      vertical-align: top;
+    }
+    .legal-table th {
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .legal-table tr:last-child td { border-bottom: none; }
+    .legal-table .svc { font-weight: 600; color: #fff; max-width: 14rem; }
+    .legal-table .svc .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.35rem;
+      height: 1.35rem;
+      margin-right: 0.45rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      background: rgba(255, 0, 0, 0.2);
+      color: #fff;
+      border-radius: 6px;
+      vertical-align: middle;
+    }
+    .legal-table .term { color: var(--text-soft); white-space: nowrap; }
+    .legal-table .sep { color: var(--text-muted); text-align: center; width: 2rem; }
+
+    .legal-section h2 {
+      font-family: var(--font);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 2.25rem 0 1rem;
+    }
+    .legal-footnotes {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+    .legal-footnotes li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.5rem 0.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .legal-footnotes strong {
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .legal-callout {
+      margin: 2rem 0;
+      padding: 1.25rem 1.35rem;
+      background: rgba(255, 0, 0, 0.08);
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      border-radius: 14px;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .legal-bullets {
+      margin: 1.5rem 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .legal-bullets li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.55;
+    }
+    .legal-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 1px;
+      transform: rotate(45deg);
+    }
+
+    .legal-terceros {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .legal-terceros strong { color: #fff; }
+
+    .legal-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .legal-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.4rem;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(255, 0, 0, 0.35);
+      transition: transform 0.2s;
+    }
+    .legal-cta a:hover { transform: translateY(-2px); }
+    .legal-cta a.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: none;
+      color: var(--text-soft);
+    }
+
+    .footer__brand-tagline {
+      margin: 0 0 0.55rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 34ch;
+      line-height: 1.6;
+    }
+    .footer__hours {
+      margin: 0 0 0.85rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #c4c4c4;
+      max-width: 36ch;
+    }
+    .footer__nav-cols {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem 1.5rem;
+    }
+    .footer__nav-col h4 { margin: 0 0 0.75rem; }
+    .footer__nav-col ul { margin: 0; padding: 0; list-style: none; }
+    .footer__nav-col li { margin-bottom: 0.5rem; }
+    .footer__nav-col--navegar .footer__nav-list--two-rows {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(5, auto);
+      grid-template-columns: repeat(2, minmax(0, max-content));
+      column-gap: clamp(1.25rem, 4vw, 2.25rem);
+      row-gap: 0.45rem;
+      align-content: start;
+      justify-content: start;
+    }
+    .footer__nav-col--navegar .footer__nav-list--two-rows a { font-size: 0.84rem; }
+    .footer__nav-col--navegar .footer__nav-list--two-rows li { margin-bottom: 0; }
+    .footer {
+      position: relative;
+      z-index: 2;
+      padding: 2.75rem 0 0;
+      margin-top: 0;
+      background: #0a0a0a;
+      border-top: 2px solid #ff0000;
+    }
+    .footer__grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+        gap: 3rem;
+        align-items: start;
+      }
+    }
+    .footer__brand-logo {
+      width: clamp(160px, 28vw, 220px);
+      min-width: 160px;
+      height: auto;
+      margin-bottom: 1.1rem;
+    }
+    .footer a.mail {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+    .footer ul { list-style: none; margin: 0; padding: 0; }
+    .footer li { margin-bottom: 0.45rem; }
+    .footer li a { color: var(--text-muted); font-size: 0.84rem; }
+    .footer li a:hover { color: #fff; }
+    .footer__social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer__social-icon {
+      display: flex;
+      flex-shrink: 0;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .footer__social-icon svg {
+      width: 1.125rem;
+      height: 1.125rem;
+      display: block;
+    }
+    .footer__social:hover .footer__social-icon { color: #fff; }
+    .footer h4 {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0 0 1rem;
+    }
+    .footer__main { padding-bottom: 2.5rem; }
+    .footer__strip {
+      background: #050505;
+      padding: 0.9rem 1.25rem;
+      text-align: center;
+    }
+    .footer__strip p {
+      margin: 0;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.38);
+      max-width: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="logo-link" href="index.html" aria-label="Auto Dealer inicio">
+        <span class="logo-shine">
+          <img src="Bibliotecaimagenesautodealer/logo.png" alt="Auto Dealer" width="200" height="48" />
+          <span class="logo-shine__sweep" aria-hidden="true"></span>
+        </span>
+      </a>
+      <a class="nav__back" href="index.html">← Volver al sitio</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="legal-hero">
+      <div class="container">
+        <p class="legal-hero__tag">Información al cliente</p>
+        <h1>Políticas de garantías</h1>
+        <p>Tú mereces más, tu carro también.</p>
+      </div>
+    </div>
+
+    <div class="legal-body">
+      <div class="legal-inner">
+        <p class="lead">
+          <strong style="color:#fff">Garantía en todos los servicios:</strong> salvo las excepciones indicadas, aplican <strong style="color:#fff">6 meses u 10.000 km</strong> — <strong style="color:#fff">lo primero que ocurra</strong> (véase nota 1).
+        </p>
+
+        <div class="legal-table-wrap">
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Servicio</th>
+                <th>Plazo</th>
+                <th class="sep"></th>
+                <th>Kilometraje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="svc"><span class="num">—</span> Regla general</td>
+                <td class="term">6 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">10.000 km</td>
+              </tr>
+              <tr>
+                <td class="svc" colspan="4" style="font-weight:800;letter-spacing:0.06em;text-transform:uppercase;font-size:0.65rem;color:var(--accent)">Excepto</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">3</span> Pintura exterior</td>
+                <td class="term">12 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">—</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">4</span> Baterías</td>
+                <td class="term">12 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">—</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">5</span> Reparación de motor</td>
+                <td class="term">12 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">20.000 km</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">6</span> Carga de aire acondicionado</td>
+                <td class="term">6 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">5.000 km</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">7</span> Frenos</td>
+                <td class="term">6 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">5.000 km</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">8</span> Reparaciones de latonería</td>
+                <td class="term">12 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">—</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">9</span> Alineación y balanceo</td>
+                <td class="term">30 días</td>
+                <td class="sep">ó</td>
+                <td class="term">500 km</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">10</span> Servicios eléctricos</td>
+                <td class="term">30 días</td>
+                <td class="sep">ó</td>
+                <td class="term">—</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">11</span> Cambio de aceite — sintéticos</td>
+                <td class="term">12 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">7.500 km</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">11</span> Cambio de aceite — semi-sintéticos y minerales</td>
+                <td class="term">6 meses</td>
+                <td class="sep">ó</td>
+                <td class="term">4.000 km</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">12</span> Revisiones y diagnóstico</td>
+                <td class="term">8 días</td>
+                <td class="sep">ó</td>
+                <td class="term">200 km</td>
+              </tr>
+              <tr>
+                <td class="svc"><span class="num">13</span> Peritaje</td>
+                <td class="term">8 días</td>
+                <td class="sep">ó</td>
+                <td class="term">200 km</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="legal-callout">
+          Esta política de garantías <strong>no aplica para taxis ni vehículos de servicio público</strong>.
+        </div>
+
+        <div class="legal-section">
+          <h2>Notas aclaratorias</h2>
+          <ol class="legal-footnotes">
+            <li><strong>1</strong><span>Lo primero que ocurra entre tiempo y kilometraje.</span></li>
+            <li><strong>2</strong><span>La política de garantías para vehículos de servicio especial y marcas con particularidades puede tener condiciones adicionales por escrito al respaldo de la orden de trabajo. Si el servicio fue mantenimiento al sistema de refrigeración, consulte las recomendaciones entregadas tras el servicio.</span></li>
+            <li><strong>3</strong><span>La pintura aplicada será del mismo tono que el original, lo que puede generar diferencias con el color actual por desgaste. Si hay retoques sin pintar la pieza completa, no se asegura el mismo tono en toda la pieza. La garantía no cubre golpes o rayones posteriores al servicio.</span></li>
+            <li><strong>4</strong><span>Las baterías pueden requerir prueba con equipos especializados del fabricante para determinar si hay daños en el sistema eléctrico o falla prematura de la batería.</span></li>
+            <li><strong>5</strong><span>Consulte las recomendaciones entregadas tras el mantenimiento al motor cuando aplique.</span></li>
+            <li><strong>6</strong><span>La carga de refrigerante tiene garantía si no hay indicios de daño por agentes externos (golpes, accidentes).</span></li>
+            <li><strong>7</strong><span>Aplica a partes de fricción (pastillas, bandas, discos y campanas, discos de embrague, anillos de pistón, volantes de inercia, entre otros). Consulte las recomendaciones del servicio de frenos.</span></li>
+            <li><strong>8</strong><span>Las piezas plásticas reparadas pueden no quedar iguales al estado previo al golpe o rayón. Puede afectar líneas y ajuste respecto al original.</span></li>
+            <li><strong>9</strong><span>Solo garantía en mano de obra del servicio. Si se daña o falla suspensión por mal manejo o golpes, se pierde la garantía.</span></li>
+            <li><strong>10</strong><span>Solo garantía en mano de obra del servicio; no repuestos eléctricos.</span></li>
+            <li><strong>11</strong><span>Aplica a mano de obra y aceite del servicio. El filtro de aceite: 1 año o 6.000 km. El filtro de aire: 2 meses.</span></li>
+            <li><strong>12</strong><span>Revisiones y diagnósticos son inspecciones (visuales, sonoras, juego) sin desarmes mayores. Determinar el origen de una falla puede requerir desarme no incluido en el valor inicial; pueden encontrarse daños en varios sistemas.</span></li>
+            <li><strong>13</strong><span>El peritaje es revisión técnico-mecánica e inspección del estado general sin desarmes mayores para determinar fallas. Igual que en (12), desarmes específicos y hallazgos adicionales pueden no estar incluidos en el valor del peritaje.</span></li>
+          </ol>
+        </div>
+
+        <div class="legal-section" style="margin-top:2rem">
+          <h2>Condiciones generales</h2>
+        </div>
+        <ul class="legal-bullets">
+          <li>Las políticas aplican principalmente para <strong style="color:#fff">repuestos nuevos instalados por Auto Dealer</strong>. Para iniciar una garantía, coordine por nuestros canales (WhatsApp o sede) y el vehículo debe ingresar al taller para inspección por calidad y/o proveedores cuando corresponda.</li>
+          <li>Para repuestos remanufacturados o reparados, la garantía se define por tipo de parte y reparación, <strong style="color:#fff">por escrito al momento de la entrega</strong>, con sus términos.</li>
+          <li>Si la falla es por mal manejo, mal uso o causas externas a la responsabilidad de Auto Dealer, <strong style="color:#fff">la garantía se pierde</strong>.</li>
+          <li>Cualquier intervención al vehículo que no sea realizada por el personal de Auto Dealer <strong style="color:#fff">después de un servicio</strong> puede generar la pérdida de la garantía.</li>
+        </ul>
+
+        <div class="legal-terceros">
+          <h2 style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin:0 0 1rem">De la relación con terceros</h2>
+          <p>
+            <strong>AUTO DEALER</strong> puede publicar contenido de <strong>TERCEROS</strong> (enlaces, logos u otros materiales) previa validación de identidad. <strong>AUTO DEALER</strong> no representa a los <strong>TERCEROS</strong> y no es responsable frente a la calidad o garantía de sus servicios, ni por la certeza, legalidad o decencia de su contenido. El uso o interacción del usuario con <strong>TERCEROS</strong> es responsabilidad del usuario. Cuando se acceda a servicios ofertados por terceros a través de canales asociados, aplicarán los términos del respectivo proveedor.
+          </p>
+        </div>
+
+        <div class="legal-cta">
+          <a href="https://api.whatsapp.com/send?phone=573183419819&text=Hola%2C%20consulta%20sobre%20pol%C3%ADtica%20de%20garant%C3%ADas%20(Bogot%C3%A1).">WhatsApp Bogotá</a>
+          <a href="https://api.whatsapp.com/send?phone=573214414610&text=Hola%2C%20consulta%20sobre%20pol%C3%ADtica%20de%20garant%C3%ADas%20(Cali).">WhatsApp Cali</a>
+          <a class="secondary" href="index.html#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="contacto">
+        <div class="container footer__main">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <span class="logo-shine">
+                <img
+                  class="footer__brand-logo"
+                  src="Bibliotecaimagenesautodealer/logo.png"
+                  alt="Auto Dealer"
+                  width="220"
+                  height="57"
+                  loading="lazy"
+                />
+                <span class="logo-shine__sweep" aria-hidden="true"></span>
+              </span>
+              <p class="footer__brand-tagline">Taller multimarca — cobertura nacional.</p>
+              <p class="footer__hours">Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+              <a class="mail" href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a>
+            </div>
+            <div class="footer__nav">
+              <div class="footer__nav-cols">
+                <div class="footer__nav-col footer__nav-col--navegar">
+                  <h4>Navegar</h4>
+                  <ul class="footer__nav-list footer__nav-list--two-rows">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#sobre">Nosotros</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="landing-flotas-v2-offline.html">Flotas</a></li>
+                    <li><a href="index.html#resenas">Reseñas</a></li>
+                    <li><a href="index.html#video">Video</a></li>
+                    <li><a href="index.html#sedes">Sedes</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="politicas-de-garantias.html">Garantías</a></li>
+                    <li><a href="politica-tratamiento-datos.html">Política de tratamiento de datos</a></li>
+                  </ul>
+                </div>
+                <div class="footer__nav-col">
+                  <h4>Contáctanos</h4>
+                  <ul>
+                    <li><a href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp Bogotá</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp Cali</a></li>
+                    <li>
+                      <a class="footer__social" href="https://www.instagram.com/autodealer_col/" rel="noopener noreferrer" target="_blank">
+                        <span class="footer__social-icon" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none"/></svg>
+                        </span>
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a class="footer__social" href="https://www.facebook.com/Autodealercol/" rel="noopener noreferrer" target="_blank">
+                        <span class="footer__social-icon" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </span>
+                        Facebook
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__strip" aria-label="Copyright">
+          <p>© <span id="yr"></span> Auto Dealer. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

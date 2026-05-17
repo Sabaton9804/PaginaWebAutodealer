@@ -1,0 +1,3030 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Taller multimarca en Cali y Bogotá: diagnóstico computarizado, mecánica, electrónica, pintura y detailing. Flotas con red nacional. Agenda cita en Auto Dealer." />
+  <title>Auto Dealer | Taller multimarca — Cali &amp; Bogotá</title>
+  <link rel="canonical" href="https://www.autodealer.com.co/" />
+  <!-- Favicon: logo completo escalado (no recorte del auto a 32px) -->
+  <link rel="icon" type="image/png" href="favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="apple-touch-icon.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="logo-shine.css" />
+  <link rel="preload" href="Bibliotecaimagenesautodealer/hero-lift.mp4" as="video" type="video/mp4" />
+  <link rel="preload" href="Bibliotecaimagenesautodealer/hero-lift-poster.jpg" as="image" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:url" content="https://www.autodealer.com.co/" />
+  <meta property="og:site_name" content="Auto Dealer" />
+  <meta property="og:title" content="Auto Dealer | Taller multimarca — Cali &amp; Bogotá" />
+  <meta property="og:description" content="Taller multimarca en Cali y Bogotá: diagnóstico computarizado, mecánica, electrónica, pintura y detailing. Flotas con red nacional. Agenda cita en Auto Dealer." />
+  <meta property="og:image" content="https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Auto Dealer — instantánea del video del taller (elevación)" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Auto Dealer | Taller multimarca — Cali &amp; Bogotá" />
+  <meta name="twitter:description" content="Taller multimarca en Cali y Bogotá: diagnóstico, mecánica, pintura y detailing. Flotas con cobertura nacional." />
+  <meta name="twitter:image" content="https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #000000;
+      --bg: #0d0b0e;
+      --bg-elevated: #17151a;
+      --accent: #ff0000;
+      --accent-glow: rgba(255, 0, 0, 0.45);
+      --text: #ffffff;
+      --text-soft: #e0e0e0;
+      --text-muted: rgba(255, 255, 255, 0.58);
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --paper-edge: #e8e8e8;
+      --nav-h: 64px;
+      --nav-flotas-strip: 34px;
+      --nav-total: calc(var(--nav-flotas-strip) + var(--nav-h));
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font: "Inter", system-ui, sans-serif;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+    }
+
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    section[id],
+    header[id],
+    footer[id],
+    #inicio {
+      scroll-margin-top: calc(var(--nav-total) + 20px);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--void);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Solo imágenes: `height:auto` en todos los <video> rompe el cover 100% en fondos full-bleed */
+    img { display: block; max-width: 100%; height: auto; }
+    video { display: block; }
+
+    .container {
+      width: min(1220px, 100% - 2rem);
+      margin-inline: auto;
+    }
+
+    /* —— Canvas partículas —— */
+    #fx-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* —— Nav —— */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.35s var(--ease), box-shadow 0.35s;
+    }
+
+    .nav__flotas-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      min-height: var(--nav-flotas-strip);
+      padding: 0.28rem 0.75rem;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.88);
+      background: linear-gradient(90deg, rgba(255, 0, 0, 0.12), rgba(255, 0, 0, 0.22), rgba(255, 0, 0, 0.12));
+      border-bottom: 1px solid rgba(255, 0, 0, 0.28);
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav__flotas-strip:hover,
+    .nav__flotas-strip:focus-visible {
+      background: linear-gradient(90deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.28), rgba(255, 0, 0, 0.2));
+      color: #fff;
+    }
+
+    .nav__flotas-strip-tag {
+      color: var(--accent);
+      letter-spacing: 0.18em;
+    }
+
+    .nav.scrolled {
+      background: rgba(0, 0, 0, 0.88);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .nav__inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      min-height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(0.5rem, 2vw, 1.25rem);
+      padding: 0 clamp(0.75rem, 3vw, 1.5rem);
+    }
+
+    .logo-link {
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    .logo-link .logo-shine > img {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    @media (min-width: 600px) {
+      .logo-link .logo-shine > img { height: 40px; }
+    }
+
+    /* Enlaces centrados, una sola línea con scroll suave si falta espacio */
+    .nav__links-wrap {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: none;
+      justify-content: center;
+      padding: 0 0.25rem;
+    }
+
+    @media (min-width: 900px) {
+      .nav__links-wrap {
+        display: flex;
+        mask-image: linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%);
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%);
+      }
+    }
+
+    .nav__links {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: clamp(0.55rem, 1.1vw, 1rem);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      max-width: min(680px, calc(100vw - 320px));
+      padding: 0.2rem 0;
+    }
+
+    .nav__links::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    .nav__links a {
+      flex-shrink: 0;
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.48);
+      padding: 0.4rem 0.15rem;
+      position: relative;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .nav__links a:hover,
+    .nav__links a:focus-visible {
+      color: rgba(255, 255, 255, 0.95);
+      outline: none;
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s var(--ease);
+    }
+
+    .nav__links a:hover::after,
+    .nav__links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .nav__actions {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      z-index: 2;
+    }
+
+    .nav__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 20px rgba(255, 0, 0, 0.28);
+      transition: transform 0.25s var(--ease), box-shadow 0.25s;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 600px) {
+      .nav__cta {
+        padding: 0.55rem 1.1rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+      }
+    }
+
+    .nav__cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(255, 0, 0, 0.4);
+    }
+
+    .nav__cta svg { flex-shrink: 0; width: 14px; height: 14px; }
+
+    @media (max-width: 399px) {
+      .nav__cta span.nav__cta-text { display: none; }
+      .nav__cta { padding: 0.55rem; border-radius: 50%; }
+    }
+
+    .nav__toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 8px;
+      margin-left: 0.1rem;
+      cursor: pointer;
+    }
+
+    @media (min-width: 900px) {
+      .nav__toggle { display: none; }
+    }
+
+    .nav__toggle span {
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 1px;
+      transition: transform 0.3s var(--ease), opacity 0.2s;
+    }
+
+    .nav--open .nav__toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav--open .nav__toggle span:nth-child(2) { opacity: 0; }
+    .nav--open .nav__toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav__drawer {
+      position: fixed;
+      top: var(--nav-total);
+      left: 0;
+      right: 0;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.75rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.35s var(--ease), opacity 0.3s, visibility 0.3s;
+      z-index: 199;
+    }
+
+    .nav--open .nav__drawer {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav__drawer a {
+      padding: 0.75rem 0.65rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+
+    .nav__drawer a:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    @media (min-width: 900px) {
+      .nav__drawer { display: none; }
+    }
+
+    /* —— Reveal —— */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+      transition-delay: var(--d, 0ms);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* —— Hero cine: video full-bleed + velo translúcido + glass —— */
+    .hero-pro {
+      position: relative;
+      min-height: 100svh;
+      min-height: 100dvh;
+      padding: calc(var(--nav-total) + 1rem) 0 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .hero-pro__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-pro__bg video {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Velo claro: el taller se ve “transparentoso”, texto encima legible */
+    .hero-pro__veil {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        185deg,
+        rgba(0, 0, 0, 0.25) 0%,
+        rgba(0, 0, 0, 0.38) 42%,
+        rgba(0, 0, 0, 0.52) 100%
+      );
+    }
+
+    .hero-pro__watermark {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      width: clamp(260px, 48vw, 640px);
+      max-width: 92%;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 2;
+      line-height: 0;
+    }
+
+    .hero-pro__watermark .logo-shine,
+    .hero-pro__watermark .logo-shine > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-pro__watermark .logo-shine__sweep::after {
+      animation-duration: 7.5s;
+      animation-delay: 1.5s;
+    }
+
+    .hero-pro__cinema {
+      position: relative;
+      z-index: 3;
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .hero-pro__cinema-inner {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero-pro__eyebrow {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin: 0 0 1rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .hero-pro__mega {
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: clamp(1.85rem, 6.5vw, 4.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.038em;
+      text-align: center;
+      margin: 0 auto 1rem;
+      max-width: min(100%, 22em);
+      color: #fff;
+      text-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-pro__mega-red {
+      color: #ff0000;
+    }
+
+    .hero-pro__mega-sub {
+      text-align: center;
+      font-size: clamp(0.88rem, 2.1vw, 1.02rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.62);
+      max-width: min(100%, 58ch);
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-pro__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(0.85rem, 3vw, 1.75rem);
+      max-width: 56rem;
+      margin: 0 auto;
+      padding-bottom: 0.35rem;
+    }
+
+    .hero-pro__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.65rem;
+      font-family: inherit;
+      font-size: clamp(0.62rem, 1.1vw, 0.68rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .hero-pro__btn--primary {
+      background: #ff0000;
+      color: #fff;
+      border-color: #ff0000;
+      box-shadow: 0 10px 36px rgba(255, 0, 0, 0.4);
+    }
+
+    .hero-pro__btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 44px rgba(255, 0, 0, 0.5);
+    }
+
+    .hero-pro__btn--ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-pro__btn--ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* —— Características (vidrio) —— */
+    .specs {
+      background: var(--void);
+      padding: 4rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .specs__head {
+      display: grid;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .specs__head {
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+      }
+    }
+
+    .specs__head h2 {
+      font-family: var(--font);
+      font-size: clamp(1.75rem, 4vw, 2.85rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .specs__head p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-soft);
+      text-align: left;
+      max-width: 44ch;
+    }
+
+    @media (min-width: 768px) {
+      .specs__head p { text-align: right; justify-self: end; }
+    }
+
+    .specs__panel {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: min(72vw, 520px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0a0a0a;
+    }
+
+    .specs__bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+      display: block;
+    }
+
+    .specs__bg-dim {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      /* Toque mínimo de vidrio; velo un poco más abierto */
+      background: rgba(4, 4, 6, 0.6);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .specs__bg-dim {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.68);
+      }
+    }
+
+    .specs__foreground {
+      position: relative;
+      z-index: 2;
+      min-height: min(72vw, 520px);
+      padding: clamp(1.35rem, 4vw, 2.5rem);
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .specs__foreground {
+        justify-content: flex-start;
+      }
+    }
+
+    .specs__glass {
+      width: 100%;
+      max-width: 420px;
+      margin: 0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .specs__glass-inner {
+      padding: 1.35rem 1.15rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-sizing: border-box;
+    }
+
+    @media (min-width: 600px) {
+      .specs__glass-inner { padding: 1.65rem 1.35rem; }
+    }
+
+    .specs__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.88rem;
+    }
+
+    .specs__row:last-of-type { border-bottom: none; }
+
+    .specs__row span:first-child {
+      font-weight: 600;
+      color: var(--text-soft);
+    }
+
+    .specs__row span:last-child {
+      color: rgba(255, 255, 255, 0.85);
+      text-align: right;
+    }
+
+    .specs__buy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 0.95rem 1.25rem;
+      background: #000;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .specs__buy:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* —— Stats —— */
+    .stats {
+      padding: 2.5rem 0;
+      background: linear-gradient(180deg, var(--void), #0a0a0a);
+      border-block: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .stats__grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .stat__n {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+    }
+    .stat__n em { font-style: normal; color: var(--accent); }
+    .stat__l {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    .stats__strip {
+      margin-top: 2.25rem;
+      padding: 1rem 1.25rem;
+      background: #ff0000;
+      color: #fff;
+    }
+
+    .stats__strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .stats__strip-map {
+      flex-shrink: 0;
+      width: 1.65rem;
+      height: auto;
+      display: block;
+    }
+
+    .stats__strip-text {
+      margin: 0;
+      font-size: clamp(0.68rem, 1.35vw, 0.8rem);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+
+    /* —— Servicios lista —— */
+    .svc-block {
+      padding: 4rem 0;
+      background: #0a0a0a;
+    }
+
+    .svc-block h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 3.5vw, 2.4rem);
+      margin: 0 0 2rem;
+    }
+
+    .svc-list { display: flex; flex-direction: column; gap: 0; }
+
+    .svc-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      align-items: start;
+    }
+
+    .svc-row span.idx {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .svc-row h3 {
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+    }
+
+    .svc-row p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* —— Flotas (sección propia) —— */
+    .flotas {
+      position: relative;
+      padding: 4.5rem 0;
+      background: #060606;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+    }
+
+    .flotas__video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+      filter: blur(3px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .flotas__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .flotas__content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .flotas__tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+
+    .flotas h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4vw, 2.65rem);
+      margin: 0 0 1rem;
+      line-height: 1.1;
+    }
+
+    .flotas__head {
+      text-align: center;
+      max-width: 52rem;
+      margin-inline: auto;
+    }
+
+    .flotas__lead {
+      margin: 0 auto 2.5rem;
+      max-width: 52ch;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .flotas__body {
+      max-width: 40rem;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .flotas__body .flotas__bullets {
+      text-align: left;
+      max-width: 36rem;
+      margin-inline: auto;
+    }
+
+    .flotas__body .flotas__cards {
+      text-align: left;
+      max-width: 40rem;
+      margin-inline: auto;
+    }
+
+    .flotas__body .flotas__actions {
+      justify-content: center;
+    }
+
+    .flotas__bullets {
+      list-style: none;
+      margin: 0 0 1.75rem;
+      padding: 0;
+    }
+
+    .flotas__bullets li {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .flotas__bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 1px;
+      transform: rotate(45deg);
+    }
+
+    .flotas__cards {
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    @media (min-width: 560px) {
+      .flotas__cards { grid-template-columns: 1fr 1fr; }
+    }
+
+    .flota-card {
+      padding: 1.1rem 1.15rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      transition: border-color 0.25s, transform 0.25s var(--ease);
+    }
+
+    .flota-card:hover {
+      border-color: rgba(255, 0, 0, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .flota-card h3 {
+      font-family: var(--font);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: 0.02em;
+    }
+
+    .flota-card p {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .flotas__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-flota {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.9rem 1.35rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .btn-flota--primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(255, 0, 0, 0.35);
+    }
+
+    .btn-flota--primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-flota--ghost {
+      background: transparent;
+      color: var(--text-soft);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-flota--ghost:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: #fff;
+      color: #fff;
+    }
+
+    /* —— Logos clientes flotas (presentación marcas) —— */
+    .flotas-clientes {
+      margin-top: 3rem;
+      padding-top: 2.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .flotas-clientes__head {
+      text-align: center;
+      max-width: 40rem;
+      margin: 0 auto 1.75rem;
+    }
+
+    .flotas-clientes__tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.6rem;
+    }
+
+    .flotas-clientes__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0 0 0.65rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .flotas-clientes__note {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .flotas-clientes__viewport {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .flotas-clientes__track {
+      display: flex;
+      width: max-content;
+      animation: flotas-clientes-marquee 70s linear infinite;
+    }
+
+    .flotas-clientes__viewport:hover .flotas-clientes__track {
+      animation-play-state: paused;
+    }
+
+    .flotas-clientes__group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-right: 1rem;
+    }
+
+    .flotas-clientes__item {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 5.5rem;
+      min-height: 3.15rem;
+      padding: 0.4rem 0.85rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .flotas-clientes__item:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 0, 0, 0.28);
+    }
+
+    .flotas-clientes__item img {
+      display: block;
+      max-height: 2.35rem;
+      max-width: min(9.5rem, 26vw);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(100%) brightness(1.18) opacity(0.85);
+      transition: filter 0.35s ease, transform 0.35s ease;
+    }
+
+    .flotas-clientes__item:hover img {
+      filter: grayscale(0%) brightness(1.05) opacity(1);
+      transform: scale(1.04);
+    }
+
+    @keyframes flotas-clientes-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flotas-clientes__viewport {
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .flotas-clientes__track {
+        animation: none;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      .flotas-clientes__group {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-right: 0;
+        gap: 0.75rem;
+      }
+
+      .flotas-clientes__group--dup {
+        display: none;
+      }
+
+      .flotas-clientes__item:hover img {
+        transform: none;
+      }
+    }
+
+    /* —— Reseñas (estilo Google Maps) —— */
+    .greviews {
+      background: #050506;
+      padding: 4rem 0 4.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .greviews__head {
+      text-align: center;
+      max-width: 44rem;
+      margin: 0 auto 2rem;
+    }
+
+    .greviews__eyebrow {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.65rem;
+    }
+
+    .greviews__head h2 {
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: clamp(1.85rem, 4.5vw, 3rem);
+      letter-spacing: -0.03em;
+      margin: 0 0 0.65rem;
+      line-height: 1.15;
+    }
+
+    .greviews__sub {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .greviews__rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1.35rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .greviews__stars {
+      display: inline-flex;
+      gap: 2px;
+      color: #fbbc04;
+      letter-spacing: 0;
+    }
+
+    .greviews__stars span {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .greviews__maps {
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .greviews__maps-grid {
+      display: grid;
+      gap: 1.35rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 900px) {
+      .greviews__maps-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+    }
+
+    .greviews__map-label {
+      margin: 0 0 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .greviews__map-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      max-height: 320px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0a0a0c;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .greviews__map-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .greviews__carousel-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      position: relative;
+      min-height: min(30vh, 240px);
+      display: flex;
+      align-items: center;
+      padding-block: 0.5rem 1rem;
+      box-sizing: border-box;
+    }
+
+    .greviews__carousel-shell {
+      width: 100%;
+      min-height: min(26vh, 220px);
+      display: block;
+    }
+
+    /* Igual que .flotas-clientes: máscara + marquee linear 70s */
+    .greviews__viewport {
+      overflow: hidden;
+      width: 100%;
+      min-height: min(26vh, 220px);
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .greviews__track {
+      display: flex;
+      width: max-content;
+      align-items: stretch;
+      padding: 0.25rem 0 0.5rem;
+      animation: greviews-marquee 70s linear infinite;
+    }
+
+    .greviews__viewport:hover .greviews__track {
+      animation-play-state: paused;
+    }
+
+    .greviews__group {
+      display: flex;
+      align-items: stretch;
+      gap: 1.65rem;
+      padding-right: 1rem;
+    }
+
+    @keyframes greviews-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 640px) {
+      .greviews__carousel-bleed {
+        min-height: min(28vh, 210px);
+      }
+
+      .greviews__carousel-shell {
+        min-height: min(24vh, 200px);
+      }
+
+      .greviews__viewport {
+        min-height: min(24vh, 200px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .greviews__viewport {
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .greviews__track {
+        animation: none;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        row-gap: 1rem;
+      }
+
+      .greviews__group {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-right: 0;
+        row-gap: 1rem;
+      }
+
+      .greviews__group--dup {
+        display: none;
+      }
+    }
+
+    /* Tarjetas: mismo ancho; alto ~la mitad del diseño anterior */
+    .gmap-card {
+      --gmap-w: min(260px, calc(100vw - 4.75rem));
+      --gmap-h: 150px;
+      flex: 0 0 var(--gmap-w);
+      width: var(--gmap-w);
+      min-width: var(--gmap-w);
+      max-width: var(--gmap-w);
+      height: var(--gmap-h);
+      min-height: var(--gmap-h);
+      max-height: var(--gmap-h);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      background: #c9ccd4;
+      color: #202124;
+      border-radius: 10px;
+      padding: 0.4rem 0.55rem 0.45rem;
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.35),
+        0 2px 14px rgba(0, 0, 0, 0.2);
+      text-align: left;
+      font-family: var(--font);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .gmap-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gmap-card__avatar {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--a-bg, #5f6368);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .gmap-card__who {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .gmap-card__name-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.25rem;
+    }
+
+    .gmap-card__name {
+      font-size: 0.72rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #202124;
+      word-break: break-word;
+    }
+
+    .gmap-card__kebab {
+      flex-shrink: 0;
+      color: #5f6368;
+      font-size: 0.95rem;
+      line-height: 1;
+      padding: 0 0.05rem;
+      user-select: none;
+    }
+
+    .gmap-card__stats {
+      margin: 0.08rem 0 0;
+      font-size: 0.62rem;
+      line-height: 1.3;
+      color: #5f6368;
+    }
+
+    .gmap-card__rating-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.15rem 0.35rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .gmap-card__stars {
+      display: inline-flex;
+      gap: 0;
+      color: #f4b400;
+      font-size: 0.68rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .gmap-card__when {
+      font-size: 0.62rem;
+      color: #5f6368;
+    }
+
+    .gmap-card__text {
+      margin: 0;
+      font-size: 0.62rem;
+      line-height: 1.32;
+      color: #3c4043;
+      flex: 1 1 auto;
+      min-height: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @supports not (-webkit-line-clamp: 1) {
+      .gmap-card__text {
+        display: block;
+        max-height: 3.2rem;
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .gmap-card {
+        --gmap-w: min(260px, calc(100vw - 4.25rem));
+        --gmap-h: 148px;
+      }
+
+      .gmap-card__text {
+        -webkit-line-clamp: 3;
+      }
+    }
+
+    .greviews__fineprint {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .greviews__fineprint--marketing {
+      margin-top: 2.25rem;
+      max-width: 46rem;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 500;
+    }
+
+    /* —— Video band —— */
+    .vid-band {
+      position: relative;
+      min-height: min(85vh, 720px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .vid-band video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      max-width: none;
+      object-fit: cover;
+    }
+
+    .vid-band__dim {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    .vid-band__content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 4rem 1rem;
+    }
+
+    .vid-band__headline {
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: clamp(2rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-align: center;
+      margin: 0 0 2.5rem;
+      text-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .vid-band__headline .slash {
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 300;
+      padding: 0 0.15em;
+    }
+
+    .vid-band__headline em {
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .vid-band--secondary {
+      min-height: min(62vh, 520px);
+    }
+
+    .vid-band--secondary .vid-band__dim {
+      background: rgba(0, 0, 0, 0.38);
+    }
+
+    .vid-band__sub {
+      text-align: center;
+      margin: 0 auto 0;
+      max-width: 40ch;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.55;
+    }
+
+    .vid-band--secondary .vid-band__headline {
+      margin-bottom: 1rem;
+      font-size: clamp(1.65rem, 5vw, 3rem);
+    }
+
+    .vid-widgets {
+      display: grid;
+      gap: 1.25rem;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .vid-widgets { grid-template-columns: 1fr 1fr; align-items: stretch; }
+    }
+
+    .vid-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      padding: 1.25rem 1.35rem;
+    }
+
+    .vid-card h3 {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0 0 1rem;
+      color: var(--text-soft);
+    }
+
+    .vid-stats {
+      margin-top: 0.85rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .vid-stats strong { color: #fff; }
+
+    .progress {
+      height: 6px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress > i {
+      display: block;
+      height: 100%;
+      width: 72%;
+      background: linear-gradient(90deg, var(--accent), #ff6b6b);
+      border-radius: 99px;
+    }
+
+    .vid-sync {
+      width: 100%;
+      padding: 0.85rem;
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.2s;
+    }
+
+    .vid-sync:hover { transform: scale(1.02); }
+
+    /* —— Sedes —— */
+    .sedes {
+      padding: 4rem 0;
+      background: #080808;
+    }
+
+    .sedes h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 3vw, 2.35rem);
+      margin: 0 0 2rem;
+    }
+
+    .sedes__grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .sedes__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .sede {
+      padding: 1.75rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sede h3 { margin: 0 0 0.75rem; font-family: var(--font); font-size: 1.25rem; }
+
+    .sede p { margin: 0 0 0.75rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
+
+    .wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+      padding: 0.75rem 1.2rem;
+      background: #25d366;
+      color: #fff !important;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 999px;
+    }
+
+    .footer__brand-tagline {
+      margin: 0 0 0.55rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 34ch;
+      line-height: 1.6;
+    }
+
+    .footer__hours {
+      margin: 0 0 0.85rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #c4c4c4;
+      max-width: 36ch;
+    }
+
+    .footer__nav-cols {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem 1.5rem;
+    }
+
+    .footer__nav-col h4 {
+      margin: 0 0 0.75rem;
+    }
+
+    .footer__nav-col ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer__nav-col li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Dos columnas verticales: 4 enlaces | 4 enlaces */
+    .footer__nav-col--navegar .footer__nav-list--two-rows {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(5, auto);
+      grid-template-columns: repeat(2, minmax(0, max-content));
+      column-gap: clamp(1.25rem, 4vw, 2.25rem);
+      row-gap: 0.45rem;
+      align-content: start;
+      justify-content: start;
+    }
+
+    .footer__nav-col--navegar .footer__nav-list--two-rows a {
+      font-size: 0.84rem;
+    }
+
+    .footer__nav-col--navegar .footer__nav-list--two-rows li {
+      margin-bottom: 0;
+    }
+    /* —— Footer —— */
+    .footer {
+      position: relative;
+      z-index: 2;
+      padding: 2.75rem 0 0;
+      background: #0a0a0a;
+      border-top: 2px solid #ff0000;
+    }
+
+    .footer__grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+        gap: 3rem;
+        align-items: start;
+      }
+    }
+
+    .footer__brand-logo {
+      width: clamp(160px, 28vw, 220px);
+      min-width: 160px;
+      height: auto;
+      margin-bottom: 1.1rem;
+    }
+
+    .footer a.mail {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    .footer ul { list-style: none; margin: 0; padding: 0; }
+    .footer li { margin-bottom: 0.45rem; }
+    .footer li a { color: var(--text-muted); font-size: 0.84rem; }
+    .footer li a:hover { color: #fff; }
+
+    .footer__social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer__social-icon {
+      display: flex;
+      flex-shrink: 0;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .footer__social-icon svg {
+      width: 1.125rem;
+      height: 1.125rem;
+      display: block;
+    }
+
+    .footer__social:hover .footer__social-icon {
+      color: #fff;
+    }
+
+    .footer h4 {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0 0 1rem;
+    }
+
+    .footer__main {
+      padding-bottom: 2.5rem;
+    }
+
+    .footer__strip {
+      background: #050505;
+      padding: 0.9rem 1.25rem;
+      text-align: center;
+    }
+
+    .footer__strip p {
+      margin: 0;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.38);
+      max-width: none;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.autodealer.com.co/#organization",
+        "name": "Auto Dealer",
+        "url": "https://www.autodealer.com.co/",
+        "logo": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/logo.png",
+        "image": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
+        "email": "servicio@autodealer.com.co",
+        "sameAs": [
+          "https://www.instagram.com/autodealer_col/",
+          "https://www.facebook.com/Autodealercol/"
+        ]
+      },
+      {
+        "@type": "AutoRepair",
+        "@id": "https://www.autodealer.com.co/#sede-cali",
+        "name": "Auto Dealer — Cali",
+        "url": "https://www.autodealer.com.co/#sedes",
+        "image": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
+        "telephone": "+573214414610",
+        "email": "servicio@autodealer.com.co",
+        "parentOrganization": { "@id": "https://www.autodealer.com.co/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9",
+          "addressLocality": "Cali",
+          "addressRegion": "Valle del Cauca",
+          "addressCountry": "CO"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:30",
+            "closes": "17:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:30",
+            "closes": "14:30"
+          }
+        ]
+      },
+      {
+        "@type": "AutoRepair",
+        "@id": "https://www.autodealer.com.co/#sede-bogota",
+        "name": "Auto Dealer — Bogotá",
+        "url": "https://www.autodealer.com.co/#sedes",
+        "image": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
+        "telephone": "+573183419819",
+        "email": "servicio@autodealer.com.co",
+        "parentOrganization": { "@id": "https://www.autodealer.com.co/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cra 27 #63-40, Barrio Quinta Mutis",
+          "addressLocality": "Bogotá",
+          "addressRegion": "Cundinamarca",
+          "addressCountry": "CO"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:30",
+            "closes": "17:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:30",
+            "closes": "14:30"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+
+  <div class="page-wrap">
+    <header class="nav" id="nav">
+      <a
+        class="nav__flotas-strip"
+        href="landing-flotas-v2-offline.html"
+        aria-label="Conoce la propuesta Auto Dealer para flotas corporativas"
+      >
+        <span class="nav__flotas-strip-tag">Flotas</span>
+        <span>Conoce nuestra propuesta corporativa</span>
+      </a>
+      <div class="nav__inner">
+        <a class="logo-link" href="#inicio" aria-label="Auto Dealer inicio">
+          <span class="logo-shine">
+            <img src="Bibliotecaimagenesautodealer/logo.png" alt="Auto Dealer" width="200" height="48" />
+            <span class="logo-shine__sweep" aria-hidden="true"></span>
+          </span>
+        </a>
+        <div class="nav__links-wrap">
+          <nav class="nav__links" aria-label="Secciones">
+            <a href="#inicio">Inicio</a>
+            <a href="landing-flotas-v2-offline.html">Flotas</a>
+            <a href="#sobre">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#resenas">Reseñas</a>
+            <a href="#sedes">Sedes</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+        </div>
+        <div class="nav__actions">
+          <a class="nav__cta" href="https://api.whatsapp.com/send?phone=573183419819&text=Hola%2C%20quiero%20agendar%20en%20Auto%20Dealer." aria-label="Agendar cita por WhatsApp">
+            <span class="nav__cta-text">Agendar ahora</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H9M17 7V15" />
+            </svg>
+          </a>
+          <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="drawer" aria-label="Menú">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="nav__drawer" id="drawer" aria-label="Menú móvil">
+        <a href="#inicio">Inicio</a>
+        <a href="landing-flotas-v2-offline.html">Flotas</a>
+        <a href="#sobre">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#sedes">Sedes</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://api.whatsapp.com/send?phone=573183419819&text=Hola%2C%20escribo%20desde%20la%20web." style="margin-top:0.35rem;padding:0.9rem;text-align:center;border-radius:12px;background:rgba(255,0,0,0.18);border:1px solid rgba(255,0,0,0.4);color:#fff;font-weight:700;font-size:0.8rem">WhatsApp rápido</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero: video full-bleed + titular + CTAs -->
+      <section class="hero-pro" id="inicio">
+        <div class="hero-pro__bg">
+          <video
+            id="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="Bibliotecaimagenesautodealer/hero-lift-poster.jpg"
+          >
+            <source src="Bibliotecaimagenesautodealer/hero-lift.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-pro__veil" aria-hidden="true"></div>
+        </div>
+          <div class="hero-pro__watermark" aria-hidden="true">
+            <span class="logo-shine">
+              <img src="Bibliotecaimagenesautodealer/logo.png" alt="" width="200" height="60" />
+              <span class="logo-shine__sweep"></span>
+            </span>
+          </div>
+        <div class="hero-pro__cinema">
+          <div class="hero-pro__cinema-inner">
+            <p class="hero-pro__eyebrow reveal">Taller multimarca · Talleres propios Bogotá &amp; Cali · Flotas con cobertura nacional</p>
+            <h1 class="hero-pro__mega reveal">
+              Un taller para tu carro. Una <span class="hero-pro__mega-red">red</span> para tu flota.
+            </h1>
+            <p class="hero-pro__mega-sub reveal">
+              Sedes propias en Bogotá y Cali. Red de talleres aliados a nivel nacional. Mecánica, diagnóstico, colisión, pintura, detailing y serviteca para particulares y empresas.
+            </p>
+            <div class="hero-pro__ctas reveal" style="--d:60ms">
+              <a class="hero-pro__btn hero-pro__btn--primary" href="https://www.autodealer.com.co/agendar/">Agendar cita</a>
+              <a class="hero-pro__btn hero-pro__btn--ghost" href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp Bogotá</a>
+              <a class="hero-pro__btn hero-pro__btn--ghost" href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp Cali</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Características (entre hero y galería, como el brief) -->
+      <section class="specs" id="sobre">
+        <div class="container">
+          <div class="specs__head reveal">
+            <h2>Qué hace excepcional nuestro taller</h2>
+            <p>
+              Comodidad para ti, estándar alto para tu vehículo: proceso claro, dos sedes y tecnología que respalda cada decisión.
+            </p>
+          </div>
+          <div class="specs__panel reveal">
+            <video
+              id="specs-video"
+              class="specs__bg-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              disablepictureinpicture
+              poster="Bibliotecaimagenesautodealer/servicios-hero.png"
+            >
+              <source src="Bibliotecaimagenesautodealer/specs-excepcional.mp4" type="video/mp4" />
+            </video>
+            <div class="specs__bg-dim" aria-hidden="true"></div>
+            <div class="specs__foreground">
+              <div class="specs__glass">
+                <div class="specs__glass-inner">
+                  <div class="specs__row"><span>Cobertura</span><span>Nacional vía red aliada · Sedes propias Cali &amp; Bogotá</span></div>
+                  <div class="specs__row"><span>Tecnología</span><span>Diagnóstico computarizado</span></div>
+                  <div class="specs__row"><span>Enfoque</span><span>Preventivo, correctivo, colisión y flotas</span></div>
+                  <div class="specs__row"><span>Compromiso</span><span>Trabajos garantizados</span></div>
+                  <button type="button" class="specs__buy" data-scroll="#contacto">
+                    Coordinar ingreso
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M6 6h15v15M6 21L21 6M6 21V9M21 6H9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="container">
+          <div class="stats__grid">
+            <div class="reveal" style="--d:0ms"><div class="stat__n">100%</div><div class="stat__l">Diagnóstico antes de reparar</div></div>
+            <div class="reveal" style="--d:60ms"><div class="stat__n">+5 años</div><div class="stat__l">Respaldando tu vehículo</div></div>
+            <div class="reveal" style="--d:120ms"><div class="stat__n">+30</div><div class="stat__l">Marcas atendidas</div></div>
+            <div class="reveal" style="--d:180ms"><div class="stat__n">Nacional</div><div class="stat__l">Red de talleres aliados</div></div>
+          </div>
+        </div>
+        <div class="stats__strip reveal" style="--d:220ms">
+          <div class="stats__strip-inner container">
+            <svg class="stats__strip-map" viewBox="0 0 100 118" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M72 12c-8-8-22-10-34-6-14 4-24 16-28 30-3 10-1 20 2 30 3 12-2 24-5 36-3 14 2 30 14 38 10 7 24 8 36 4 14-5 24-18 26-32 2-12-4-24-2-36 2-14 12-25 10-40-1-8-8-15-16-18-2 4-7 2-9-2-2-3-1-6 2-7z"/>
+            </svg>
+            <p class="stats__strip-text">Cobertura nacional · Red de talleres aliados en todo el país</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="svc-block" id="servicios">
+        <div class="container">
+          <h2 class="reveal">Servicios</h2>
+          <div class="svc-list">
+            <article class="svc-row reveal" style="--d:0ms">
+              <span class="idx">01</span>
+              <div>
+                <h3>Diagnóstico computarizado</h3>
+                <p>Lectura de fallas y pruebas con informe antes de autorizar trabajo.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:40ms">
+              <span class="idx">02</span>
+              <div>
+                <h3>Mecánica general</h3>
+                <p>Preventivo y correctivo con estándar de taller multimarca.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:80ms">
+              <span class="idx">03</span>
+              <div>
+                <h3>Electrónica automotriz</h3>
+                <p>Módulos, sensores y cableado hasta la causa raíz.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:120ms">
+              <span class="idx">04</span>
+              <div>
+                <h3>Colisión</h3>
+                <p>Reparación de carrocería por impacto: latonería, estructura y dejación lista para pintura.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:160ms">
+              <span class="idx">05</span>
+              <div>
+                <h3>Pintura</h3>
+                <p>Preparación, igualación de color y acabado en cabina para recuperar el aspecto de fábrica.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:200ms">
+              <span class="idx">06</span>
+              <div>
+                <h3>Detailing</h3>
+                <p>Lavado profundo, corrección de pintura, protección y acabados que elevan la presentación.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:240ms">
+              <span class="idx">07</span>
+              <div>
+                <h3>Peritaje técnico</h3>
+                <p>Evaluación objetiva para compra, venta o trámites.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:280ms">
+              <span class="idx">08</span>
+              <div>
+                <h3>Serviteca</h3>
+                <p>Venta de lubricantes, filtros, baterías, llantas y repuestos de línea, con asesoría de compatibilidad para tu vehículo.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="flotas" id="flotas">
+        <video id="flotas-video" class="flotas__video" src="colombia_mapa.mp4" autoplay muted loop playsinline preload="auto"></video>
+        <div class="flotas__overlay" aria-hidden="true"></div>
+        <div class="container flotas__content">
+          <header class="flotas__head reveal">
+            <p class="flotas__tag">Nacional · empresas · transporte</p>
+            <h2>Flotas en todo el país</h2>
+            <p class="flotas__lead">
+              Atendemos <strong style="color:#fff">flotas a nivel nacional</strong> gracias a nuestra
+              <strong style="color:#fff">red de talleres aliados</strong>, con el mismo criterio de servicio y reporte.
+              Nuestros <strong style="color:#fff">talleres propios</strong> están en <strong style="color:#fff">Bogotá y Cali</strong>;
+              fuera de estas ciudades coordinamos tu operación con aliados validados.
+            </p>
+          </header>
+          <div class="flotas__body">
+            <ul class="flotas__bullets reveal">
+              <li><strong style="color:#fff">Red nacional:</strong> cobertura en más ciudades a través de talleres aliados para flotas dispersas.</li>
+              <li><strong style="color:#fff">Ancla en Bogotá y Cali:</strong> sedes propias con diagnóstico, mecánica, colisión, pintura, detailing y serviteca.</li>
+              <li>Interlocutor único y reportes por unidad para trazabilidad y control de costos.</li>
+              <li>Mantenimiento preventivo programado y ventanas de servicio según tu logística.</li>
+            </ul>
+            <div class="flotas__cards">
+              <article class="flota-card reveal" style="--d:0ms">
+                <h3>Red de aliados</h3>
+                <p>Coordinación de servicios fuera de sedes propias con estándar acordado.</p>
+              </article>
+              <article class="flota-card reveal" style="--d:40ms">
+                <h3>Bogotá &amp; Cali</h3>
+                <p>Talleres propios, tecnología de diagnóstico y proceso transparente.</p>
+              </article>
+              <article class="flota-card reveal" style="--d:80ms">
+                <h3>Documentación</h3>
+                <p>Informes técnicos útiles para auditoría y decisiones de flota.</p>
+              </article>
+              <article class="flota-card reveal" style="--d:120ms">
+                <h3>Escalable</h3>
+                <p>Multimarca y crecimiento de parque sin perder un solo canal de contacto.</p>
+              </article>
+            </div>
+            <div class="flotas__actions reveal">
+              <a
+                class="btn-flota btn-flota--primary"
+                href="landing-flotas-v2-offline.html#cotizar-flota"
+                >Cotizar flota</a>
+              <a
+                class="btn-flota btn-flota--ghost"
+                href="landing-flotas-v2-offline.html"
+                >Presentación flotas</a>
+            </div>
+          </div>
+          <div class="flotas-clientes reveal" aria-labelledby="flotas-clientes-title">
+            <div class="flotas-clientes__head">
+              <p class="flotas-clientes__tag">Clientes</p>
+              <h3 class="flotas-clientes__title" id="flotas-clientes-title">Algunos de quienes ya operan con nuestra red</h3>
+              <p class="flotas-clientes__note">Referencias reales de flotas y empresas atendidas vía nuestra red nacional de talleres aliados.</p>
+            </div>
+            <div class="flotas-clientes__viewport" role="region" aria-label="Logos de clientes corporativos y flotas">
+              <div class="flotas-clientes__track">
+                <div class="flotas-clientes__group">
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_01_468x248.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_02_300x300.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_03_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_04_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_05_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_06_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_07_296x171.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_08_364x139.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_09_389x130.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_10_383x132.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_11_447x113.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_12_225x224.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_13_323x156.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_14_327x154.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_15_259x194.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_16_518x97.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_17_255x197.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_18_224x224.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_19_200x200.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_20_200x200.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_21_200x200.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_22_296x98.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_23_170x170.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_24_133x133.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_25_195x90.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_26_137x90.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_27_175x49.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                </div>
+                <div class="flotas-clientes__group flotas-clientes__group--dup" aria-hidden="true">
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_01_468x248.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_02_300x300.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_03_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_04_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_05_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_06_225x225.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_07_296x171.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_08_364x139.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_09_389x130.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_10_383x132.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_11_447x113.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_12_225x224.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_13_323x156.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_14_327x154.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_15_259x194.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_16_518x97.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_17_255x197.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_18_224x224.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_19_200x200.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_20_200x200.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_21_200x200.jpeg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_22_296x98.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_23_170x170.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_24_133x133.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_25_195x90.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_26_137x90.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="flotas-clientes__item">
+                  <img src="Bibliotecaimagenesautodealer/clientes-flotas/marca_27_175x49.png" alt="" loading="lazy" decoding="async" />
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Reseñas Google Maps -->
+      <section class="greviews" id="resenas" aria-labelledby="greviews-title">
+        <div class="container">
+          <header class="greviews__head reveal">
+            <p class="greviews__eyebrow">Confianza verificada</p>
+            <h2 id="greviews-title">Opiniones en Google Maps</h2>
+            <p class="greviews__sub">
+              Resaltamos lo que más valoran quienes ya visitaron nuestras sedes. Abre la ficha para ver todas las reseñas y la
+              calificación actual.
+            </p>
+            <div class="greviews__rating reveal" style="--d:20ms" aria-label="Calificación destacada cinco estrellas">
+              <span class="greviews__stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+              <span>Experiencias positivas en servicio y taller</span>
+            </div>
+          </header>
+        </div>
+        <div class="container greviews__maps reveal" style="--d:30ms">
+          <div class="greviews__maps-grid">
+            <div>
+              <p class="greviews__map-label">Cali — mapa en Google</p>
+              <div class="greviews__map-frame">
+                <iframe
+                  title="Ubicación Auto Dealer Cali en Google Maps"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                  src="https://www.google.com/maps?q=Auto+Dealer+Cra.+15+%2322A-17+Local+1%2C+Cali%2C+Colombia&amp;output=embed&amp;hl=es"
+                ></iframe>
+              </div>
+            </div>
+            <div>
+              <p class="greviews__map-label">Bogotá — mapa en Google</p>
+              <div class="greviews__map-frame">
+                <iframe
+                  title="Ubicación Auto Dealer Bogotá en Google Maps"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                  src="https://www.google.com/maps?q=Auto+Dealer+Cra+27+%2363-40%2C+Quinta+Mutis%2C+Bogot%C3%A1%2C+Colombia&amp;output=embed&amp;hl=es"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="greviews__carousel-bleed reveal">
+          <div class="greviews__carousel-shell">
+            <div class="greviews__viewport" role="region" aria-label="Fragmentos de reseñas de Google Maps">
+              <div class="greviews__track">
+                <div class="greviews__group">
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#6d4c41" aria-label="Roberto Antonio pereza garcia">
+                      <span aria-hidden="true">RA</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">Roberto Antonio pereza garcia</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">1 opinión · 4 fotos</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 11 meses</span>
+                  </div>
+                  <p class="gmap-card__text">Mu buena calidad de servicio y una exelente atención, bien ubicado y cuentan con un taller muy completo para todo tipo de marcas y modelos de vehículos.</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#673ab7" aria-label="María Camila Zuluaga Sánchez">
+                      <span aria-hidden="true">MC</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">MARIA CAMILA ZULUAGA SANCHEZ</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">3 opiniones · 1 foto</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 11 meses</span>
+                  </div>
+                  <p class="gmap-card__text">Gracias AutoDealer! Después de ser robada y estafada en 2 talleres de Cali y estar a punto de tener una pérdida total de mi vehículo por culpa de fuga de aceite .... Me salvaron!! Muy honestos y cumplidos, los recomiendo 100000%</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#1a73e8" aria-label="Cristian Preciado">
+                      <span aria-hidden="true">CP</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">Cristian Preciado</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">1 opinión</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 9 meses</span>
+                  </div>
+                  <p class="gmap-card__text">Excelente servicio en Autodealer Cali. Desde la recepción hasta la entrega del vehículo, la atención fue muy profesional. El personal es amable, transparente con los diagnósticos y cumplen con los tiempos prometidos. Me sentí muy tranquilo dejando mi carro en sus manos. Totalmente recomendados</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#c2185b" aria-label="Paola Martínez O">
+                      <span aria-hidden="true">PM</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">Paola Martinez O</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">6 opiniones · 3 fotos</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 9 meses</span>
+                  </div>
+                  <p class="gmap-card__text">Excelente servicio, puntuales y muy profesionales, de toda mi confianza.</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#34a853" aria-label="Ricardo Quecan">
+                      <span aria-hidden="true">RQ</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">ricardo quecan</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">Local Guide · 12 opiniones · 79 fotos</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 11 meses</span>
+                  </div>
+                  <p class="gmap-card__text">Muy buen servicio. Lo recomiendo totalmente.</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#1a73e8" aria-label="Andrés Vargas">
+                      <span aria-hidden="true">AV</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">Andres Vargas</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">3 opiniones</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 11 meses</span>
+                  </div>
+                  <p class="gmap-card__text">Ecxelente servicio y brindan correctas soluciones</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#7b1fa2" aria-label="Alexandra Moya M.">
+                      <span aria-hidden="true">AM</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">Alexandra Moya M.</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">1 opinión</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 11 meses</span>
+                  </div>
+                  <p class="gmap-card__text">Excelente servicio y atención al cliente</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#795548" aria-label="Miguel Ángel Ortiz Sabogal">
+                      <span aria-hidden="true">MA</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">Miguel Angel Ortiz Sabogal</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">1 opinión</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 2 años</span>
+                  </div>
+                  <p class="gmap-card__text">Muy buena experiencia. Sebastian muy honesto y atento a mis preguntas. Les compré un vehículo usado y está en perfectas condiciones, la asesoría post venta sin quejas. Gracias! Recomendado 100%.</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#5d4037" aria-label="Diana Marcela Aristizábal Sánchez">
+                      <span aria-hidden="true">DM</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">DIANA MARCELA ARISTIZABAL SANCHEZ</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">4 opiniones · 2 fotos</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 2 años</span>
+                  </div>
+                  <p class="gmap-card__text">Excelente atención al cliente y servicios, me cobraron lo justo y sentí confianza con su asesoría y acompañamiento. Recomendados son personas muy honestas y responsables.</p>
+                </article>
+                <article class="gmap-card">
+                  <div class="gmap-card__header">
+                    <div class="gmap-card__avatar" style="--a-bg:#00897b" aria-label="Jaider Muñoz">
+                      <span aria-hidden="true">JM</span>
+                    </div>
+                    <div class="gmap-card__who">
+                      <div class="gmap-card__name-row">
+                        <span class="gmap-card__name">Jaider muñoz</span>
+                        <span class="gmap-card__kebab" aria-hidden="true">⋮</span>
+                      </div>
+                      <p class="gmap-card__stats">1 opinión</p>
+                    </div>
+                  </div>
+                  <div class="gmap-card__rating-row">
+                    <span class="gmap-card__stars" aria-label="5 de 5 estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                    <span class="gmap-card__when">Hace 2 años</span>
+                  </div>
+                  <p class="gmap-card__text">Excelente servicio. mantienen al tanto de los avances del trabajo. La información siempre es clara. los Costos son justos y repuestos de calidad.</p>
+                </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <p class="greviews__fineprint greviews__fineprint--marketing reveal">
+            La mejor carta de presentación es la voz de quienes ya pasaron por nuestro taller: en Google Maps, clientes y flotas destacan la <strong style="color:#fff">honestidad</strong>, la <strong style="color:#fff">claridad en la cotización</strong> y el <strong style="color:#fff">acompañamiento en cada servicio</strong> en Cali y Bogotá. Esas opiniones nos impulsan a seguir ofreciendo un servicio transparente, con respaldo y calidad de taller multimarca.
+          </p>
+        </div>
+      </section>
+
+      <!-- Segundo video (taller) — sin duplicar tarjetas del hero -->
+      <section class="vid-band vid-band--secondary" id="video" aria-label="Video del taller">
+        <video autoplay muted loop playsinline preload="auto" poster="Bibliotecaimagenesautodealer/servicios-cover.jpg" id="band-video">
+          <source src="Bibliotecaimagenesautodealer/taller-video.mp4" type="video/mp4" />
+        </video>
+        <div class="vid-band__dim" aria-hidden="true"></div>
+        <div class="vid-band__content container">
+          <h2 class="vid-band__headline reveal">
+            proceso<span class="slash">/</span><em>equipo real</em>
+          </h2>
+          <p class="vid-band__sub reveal">Tecnología profesional, mecánicos certificados y atención directa — a nivel nacional.</p>
+        </div>
+      </section>
+
+      <section class="sedes" id="sedes">
+        <div class="container">
+          <h2 class="reveal">Sedes</h2>
+          <div class="sedes__grid">
+            <article class="sede reveal">
+              <h3>Cali</h3>
+              <p>Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9, Valle del Cauca</p>
+              <p><strong>Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+              <a class="wa" href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp · 321 4414610</a>
+            </article>
+            <article class="sede reveal" style="--d:60ms">
+              <h3>Bogotá</h3>
+              <p>Cra 27 #63-40, Barrio Quinta Mutis</p>
+              <p><strong>Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+              <a class="wa" href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp · 318 3413819</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer" id="contacto">
+        <div class="container footer__main">
+          <div class="footer__grid">
+            <div class="footer__brand reveal">
+              <span class="logo-shine">
+                <img
+                  class="footer__brand-logo"
+                  src="Bibliotecaimagenesautodealer/logo.png"
+                  alt="Auto Dealer"
+                  width="220"
+                  height="57"
+                  loading="lazy"
+                />
+                <span class="logo-shine__sweep" aria-hidden="true"></span>
+              </span>
+              <p class="footer__brand-tagline">Taller multimarca — cobertura nacional.</p>
+              <p class="footer__hours">Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+              <a class="mail" href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a>
+            </div>
+            <div class="footer__nav reveal" style="--d:40ms">
+              <div class="footer__nav-cols">
+                <div class="footer__nav-col footer__nav-col--navegar">
+                  <h4>Navegar</h4>
+                  <ul class="footer__nav-list footer__nav-list--two-rows">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="landing-flotas-v2-offline.html">Flotas</a></li>
+                    <li><a href="#resenas">Reseñas</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#sedes">Sedes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="politicas-de-garantias.html">Garantías</a></li>
+                    <li><a href="politica-tratamiento-datos.html">Política de tratamiento de datos</a></li>
+                  </ul>
+                </div>
+                <div class="footer__nav-col">
+                  <h4>Contáctanos</h4>
+                  <ul>
+                    <li><a href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp Bogotá</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp Cali</a></li>
+                    <li>
+                      <a class="footer__social" href="https://www.instagram.com/autodealer_col/" rel="noopener noreferrer" target="_blank">
+                        <span class="footer__social-icon" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none"/></svg>
+                        </span>
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a class="footer__social" href="https://www.facebook.com/Autodealercol/" rel="noopener noreferrer" target="_blank">
+                        <span class="footer__social-icon" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </span>
+                        Facebook
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__strip" aria-label="Copyright">
+          <p>© 2026 Auto Dealer. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) document.body.classList.add("motion-reduce");
+
+      /* Nav */
+      var nav = document.getElementById("nav");
+      var toggle = nav.querySelector(".nav__toggle");
+      var drawer = document.getElementById("drawer");
+
+      function setOpen(o) {
+        nav.classList.toggle("nav--open", o);
+        toggle.setAttribute("aria-expanded", o ? "true" : "false");
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(!nav.classList.contains("nav--open"));
+      });
+
+      drawer.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { setOpen(false); });
+      });
+
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("scrolled", window.scrollY > 20);
+      }, { passive: true });
+
+      document.querySelectorAll("[data-scroll]").forEach(function (el) {
+        el.addEventListener("click", function () {
+          var t = document.querySelector(el.getAttribute("data-scroll"));
+          if (t) t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+          setOpen(false);
+        });
+      });
+
+      /* Partículas estilo fibra (líneas //) */
+      var c = document.getElementById("fx-canvas");
+      if (!c || reduce) {
+        if (c) c.style.display = "none";
+      } else {
+        var ctx = c.getContext("2d");
+        var flakes = [];
+        var mx = 0, my = 0;
+
+        function resize() {
+          c.width = innerWidth;
+          c.height = innerHeight;
+        }
+        resize();
+        window.addEventListener("resize", resize);
+
+        for (var i = 0; i < 70; i++) {
+          flakes.push({
+            x: Math.random() * innerWidth,
+            y: Math.random() * innerHeight,
+            l: 10 + Math.random() * 22,
+            a: (Math.random() - 0.5) * 0.8,
+            s: 0.35 + Math.random() * 0.85,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: 0.15 + Math.random() * 0.5
+          });
+        }
+
+        window.addEventListener("mousemove", function (e) {
+          mx = e.clientX;
+          my = e.clientY;
+        }, { passive: true });
+
+        function tick() {
+          ctx.clearRect(0, 0, c.width, c.height);
+          ctx.strokeStyle = "rgba(255,255,255,0.14)";
+          ctx.lineWidth = 1.2;
+
+          for (var j = 0; j < flakes.length; j++) {
+            var f = flakes[j];
+            var dx = f.x - mx;
+            var dy = f.y - my;
+            var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            if (dist < 160) {
+              f.x += (dx / dist) * 1.6;
+              f.y += (dy / dist) * 1.6;
+            }
+            f.x += f.vx;
+            f.y += f.y > c.height + 20 ? -c.height - 40 : f.vy;
+
+            ctx.save();
+            ctx.translate(f.x, f.y);
+            ctx.rotate(f.a);
+            ctx.scale(f.s, f.s);
+            ctx.beginPath();
+            ctx.moveTo(-f.l * 0.35, f.l * 0.35);
+            ctx.lineTo(f.l * 0.35, -f.l * 0.35);
+            ctx.moveTo(-f.l * 0.15 + 5, f.l * 0.35);
+            ctx.lineTo(f.l * 0.55 + 5, -f.l * 0.35);
+            ctx.stroke();
+            ctx.restore();
+          }
+          requestAnimationFrame(tick);
+        }
+        tick();
+      }
+
+      /* Video: pausar si reduce motion; si no, forzar reproducción (políticas de autoplay + iOS) */
+      var v = document.getElementById("band-video");
+      var heroVid = document.getElementById("hero-video");
+      var specsVid = document.getElementById("specs-video");
+      var flotasVid = document.getElementById("flotas-video");
+      function kickVideo(el) {
+        if (!el) return;
+        el.muted = true;
+        el.defaultMuted = true;
+        el.setAttribute("muted", "");
+        function tryPlay() {
+          var p = el.play();
+          if (p && typeof p.catch === "function") {
+            p.catch(function () {
+              setTimeout(function () {
+                var p2 = el.play();
+                if (p2 && typeof p2.catch === "function") {
+                  p2.catch(function () {});
+                }
+              }, 250);
+            });
+          }
+        }
+        tryPlay();
+      }
+      function wireVideo(el) {
+        if (!el) return;
+        kickVideo(el);
+        el.addEventListener(
+          "loadeddata",
+          function () {
+            kickVideo(el);
+          },
+          { once: true }
+        );
+        if ("IntersectionObserver" in window) {
+          var vio = new IntersectionObserver(
+            function (ents) {
+              ents.forEach(function (en) {
+                if (en.isIntersecting) kickVideo(el);
+              });
+            },
+            { rootMargin: "80px 0px 80px 0px", threshold: 0.01 }
+          );
+          vio.observe(el);
+        }
+      }
+      /* Hero: observar la sección (más estable que el <video> antes de metadata) + canplay + quitar poster al reproducir */
+      function wireHeroVideo(el) {
+        if (!el) return;
+        kickVideo(el);
+        el.addEventListener(
+          "loadeddata",
+          function () {
+            kickVideo(el);
+          },
+          { once: true }
+        );
+        el.addEventListener(
+          "canplay",
+          function () {
+            kickVideo(el);
+          },
+          { once: true }
+        );
+        el.addEventListener(
+          "playing",
+          function () {
+            try {
+              el.removeAttribute("poster");
+            } catch (e) {}
+          },
+          { once: true }
+        );
+        var rootHero = el.closest(".hero-pro");
+        var observeTarget = rootHero || el;
+        if ("IntersectionObserver" in window) {
+          var vioH = new IntersectionObserver(
+            function (ents) {
+              ents.forEach(function (en) {
+                if (en.isIntersecting) kickVideo(el);
+              });
+            },
+            { rootMargin: "120px 0px 120px 0px", threshold: 0 }
+          );
+          vioH.observe(observeTarget);
+        }
+      }
+      if (reduce) {
+        if (v) {
+          v.pause();
+          v.removeAttribute("autoplay");
+        }
+        if (heroVid) {
+          heroVid.pause();
+          heroVid.removeAttribute("autoplay");
+        }
+        if (specsVid) {
+          specsVid.pause();
+          specsVid.removeAttribute("autoplay");
+        }
+        if (flotasVid) {
+          flotasVid.pause();
+          flotasVid.removeAttribute("autoplay");
+        }
+      } else {
+        wireHeroVideo(heroVid);
+        wireVideo(specsVid);
+        wireVideo(flotasVid);
+        wireVideo(v);
+        document.addEventListener("visibilitychange", function () {
+          if (document.visibilityState === "visible") {
+            kickVideo(heroVid);
+            kickVideo(specsVid);
+            kickVideo(flotasVid);
+            kickVideo(v);
+          }
+        });
+        window.addEventListener(
+          "pageshow",
+          function () {
+            kickVideo(heroVid);
+            kickVideo(specsVid);
+            kickVideo(flotasVid);
+            kickVideo(v);
+          },
+          { passive: true }
+        );
+      }
+
+      /* Reseñas: copia de la cinta (como .flotas-clientes__group--dup) para el marquee CSS */
+      var grTrack = document.querySelector(".greviews .greviews__track");
+      if (grTrack && !reduce) {
+        var grOrig = grTrack.querySelector(".greviews__group:not(.greviews__group--dup)");
+        if (grOrig && !grTrack.querySelector(".greviews__group--dup")) {
+          var grDup = grOrig.cloneNode(true);
+          grDup.classList.add("greviews__group--dup");
+          grDup.setAttribute("aria-hidden", "true");
+          grTrack.appendChild(grDup);
+        }
+      }
+
+      /* Reveal */
+      if (!reduce) {
+        var io = new IntersectionObserver(
+          function (ents) {
+            ents.forEach(function (en) {
+              if (en.isIntersecting) {
+                en.target.classList.add("visible");
+                io.unobserve(en.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -6% 0px", threshold: 0.06 }
+        );
+        document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("visible"); });
+      }
+    })();
+  </script>
+</body>
+</html>

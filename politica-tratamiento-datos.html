@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Política de tratamiento y seguridad de datos personales — Auto Dealer. Ley 1581 de 2012." />
+  <title>Política de tratamiento de datos | Auto Dealer</title>
+  <link rel="icon" type="image/png" href="favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="apple-touch-icon.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="logo-shine.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #000000;
+      --bg: #0d0b0e;
+      --accent: #ff0000;
+      --text: #ffffff;
+      --text-soft: #e0e0e0;
+      --text-muted: rgba(255, 255, 255, 0.58);
+      --nav-h: 64px;
+      --font: "Inter", system-ui, sans-serif;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--void);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .container {
+      width: min(1220px, 100% - 2rem);
+      margin-inline: auto;
+    }
+    .legal-inner {
+      width: min(900px, 100% - 2rem);
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      min-height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(0.75rem, 3vw, 1.5rem);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav__inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo-link .logo-shine > img { height: 34px; width: auto; object-fit: contain; }
+    @media (min-width: 600px) { .logo-link .logo-shine > img { height: 40px; } }
+    .nav__back {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav__back:hover {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(255, 0, 0, 0.12);
+    }
+
+    .legal-hero {
+      padding: calc(var(--nav-h) + 3rem) 0 2.5rem;
+      background: linear-gradient(180deg, #0a0a0a 0%, var(--void) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      text-align: center;
+    }
+    .legal-hero__tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+    .legal-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      line-height: 1.12;
+      max-width: 22ch;
+      margin-inline: auto;
+    }
+    .legal-hero .legal-hero__meta {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-hero .legal-hero__version {
+      margin: 1rem 0 0;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.42);
+    }
+
+    .legal-body { padding: 2.5rem 0 4rem; }
+    .legal-body .lead {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin: 0 0 2rem;
+      padding: 1.25rem 1.35rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      border-left: 3px solid var(--accent);
+    }
+    .legal-prose p {
+      margin: 0 0 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .legal-prose p strong { color: #fff; font-weight: 600; }
+
+    .legal-table-wrap {
+      overflow-x: auto;
+      margin: 0 0 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    table.legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .legal-table th,
+    .legal-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      vertical-align: top;
+    }
+    .legal-table th {
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .legal-table tr:last-child td { border-bottom: none; }
+    .legal-table td:first-child { font-weight: 600; color: #fff; max-width: 11rem; }
+
+    .legal-section h2 {
+      font-family: var(--font);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 2.25rem 0 1rem;
+    }
+    .legal-section h2:first-child { margin-top: 0; }
+
+    .legal-h3 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-soft);
+      margin: 1.35rem 0 0.65rem;
+    }
+
+    .legal-bullets {
+      margin: 1rem 0 1.5rem;
+      padding: 0;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .legal-bullets li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.85rem;
+      line-height: 1.55;
+    }
+    .legal-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 1px;
+      transform: rotate(45deg);
+    }
+
+    .legal-callout {
+      margin: 1.5rem 0 2rem;
+      padding: 1.15rem 1.25rem;
+      background: rgba(255, 0, 0, 0.08);
+      border: 1px solid rgba(255, 0, 0, 0.22);
+      border-radius: 14px;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .legal-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .legal-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.4rem;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(255, 0, 0, 0.35);
+      transition: transform 0.2s;
+    }
+    .legal-cta a:hover { transform: translateY(-2px); }
+    .legal-cta a.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: none;
+      color: var(--text-soft);
+    }
+
+    .footer__brand-tagline {
+      margin: 0 0 0.55rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 34ch;
+      line-height: 1.6;
+    }
+    .footer__hours {
+      margin: 0 0 0.85rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #c4c4c4;
+      max-width: 36ch;
+    }
+    .footer__nav-cols {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem 1.5rem;
+    }
+    .footer__nav-col h4 { margin: 0 0 0.75rem; }
+    .footer__nav-col ul { margin: 0; padding: 0; list-style: none; }
+    .footer__nav-col li { margin-bottom: 0.5rem; }
+    .footer__nav-col--navegar .footer__nav-list--two-rows {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(5, auto);
+      grid-template-columns: repeat(2, minmax(0, max-content));
+      column-gap: clamp(1.25rem, 4vw, 2.25rem);
+      row-gap: 0.45rem;
+      align-content: start;
+      justify-content: start;
+    }
+    .footer__nav-col--navegar .footer__nav-list--two-rows a { font-size: 0.84rem; }
+    .footer__nav-col--navegar .footer__nav-list--two-rows li { margin-bottom: 0; }
+    .footer {
+      position: relative;
+      z-index: 2;
+      padding: 2.75rem 0 0;
+      margin-top: 0;
+      background: #0a0a0a;
+      border-top: 2px solid #ff0000;
+    }
+    .footer__grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+        gap: 3rem;
+        align-items: start;
+      }
+    }
+    .footer__brand-logo {
+      width: clamp(160px, 28vw, 220px);
+      min-width: 160px;
+      height: auto;
+      margin-bottom: 1.1rem;
+    }
+    .footer a.mail {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+    .footer ul { list-style: none; margin: 0; padding: 0; }
+    .footer li { margin-bottom: 0.45rem; }
+    .footer li a { color: var(--text-muted); font-size: 0.84rem; }
+    .footer li a:hover { color: #fff; }
+    .footer__social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer__social-icon {
+      display: flex;
+      flex-shrink: 0;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .footer__social-icon svg {
+      width: 1.125rem;
+      height: 1.125rem;
+      display: block;
+    }
+    .footer__social:hover .footer__social-icon { color: #fff; }
+    .footer h4 {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0 0 1rem;
+    }
+    .footer__main { padding-bottom: 2.5rem; }
+    .footer__strip {
+      background: #050505;
+      padding: 0.9rem 1.25rem;
+      text-align: center;
+    }
+    .footer__strip p {
+      margin: 0;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.38);
+      max-width: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="logo-link" href="index.html" aria-label="Auto Dealer inicio">
+        <span class="logo-shine">
+          <img src="Bibliotecaimagenesautodealer/logo.png" alt="Auto Dealer" width="200" height="48" />
+          <span class="logo-shine__sweep" aria-hidden="true"></span>
+        </span>
+      </a>
+      <a class="nav__back" href="index.html">← Volver al sitio</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="legal-hero">
+      <div class="container">
+        <p class="legal-hero__tag">Habeas data · protección de datos</p>
+        <h1>Política de tratamiento y seguridad de datos personales</h1>
+        <p class="legal-hero__meta">
+          <strong style="color:#fff">Auto Dealer</strong><br />
+          Canal de flotas — cobertura nacional
+        </p>
+        <p class="legal-hero__version">Versión 1.0 · Mayo de 2026</p>
+      </div>
+    </div>
+
+    <div class="legal-body">
+      <div class="legal-inner legal-prose">
+        <p class="lead">
+          Esta política da cumplimiento a la <strong>Ley 1581 de 2012</strong>, el <strong>Decreto 1377 de 2013</strong> y las normas concordantes expedidas por la <strong>Superintendencia de Industria y Comercio (SIC)</strong>.
+        </p>
+
+        <section class="legal-section" aria-labelledby="sec-1">
+          <h2 id="sec-1">1. Objeto</h2>
+          <p>
+            La presente política establece los lineamientos y mecanismos adoptados por <strong>Auto Dealer</strong> para garantizar la protección, tratamiento adecuado y seguridad de los datos personales de clientes, conductores, proveedores, trabajadores y demás titulares con quienes la empresa mantiene relación en el desarrollo de su actividad de gestión y mantenimiento de flotas vehiculares a nivel nacional.
+          </p>
+        </section>
+
+        <section class="legal-section" aria-labelledby="sec-2">
+          <h2 id="sec-2">2. Ámbito de aplicación</h2>
+          <p>
+            Esta política aplica a todos los trabajadores, contratistas, aliados comerciales y talleres de la red nacional de Auto Dealer que, en razón de sus funciones, tengan acceso, traten o custodien datos personales de titulares vinculados a la operación de flotas.
+          </p>
+        </section>
+
+        <section class="legal-section" aria-labelledby="sec-3">
+          <h2 id="sec-3">3. Datos personales que se recopilan y tratan</h2>
+          <div class="legal-table-wrap">
+            <table class="legal-table">
+              <thead>
+                <tr>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Datos tratados</th>
+                  <th scope="col">Titulares</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Datos de contacto e identificación</td>
+                  <td>Nombre, cédula, cargo, correo, teléfono, dirección</td>
+                  <td>Clientes, conductores, proveedores</td>
+                </tr>
+                <tr>
+                  <td>Datos de vehículos de flota</td>
+                  <td>Placa, VIN, marca, modelo, kilometraje, historial de mantenimiento</td>
+                  <td>Clientes — empresas de flota</td>
+                </tr>
+                <tr>
+                  <td>Datos financieros y de facturación</td>
+                  <td>RUT, NIT, datos bancarios, órdenes de compra, facturas</td>
+                  <td>Clientes y proveedores</td>
+                </tr>
+                <tr>
+                  <td>Datos de conductores</td>
+                  <td>Licencia de conducción, categoría, vigencia, nombre completo, cédula</td>
+                  <td>Conductores de flota</td>
+                </tr>
+                <tr>
+                  <td>Datos de seguimiento operativo</td>
+                  <td>Registro de intervenciones, diagnósticos, fechas de servicio, alertas de mantenimiento</td>
+                  <td>Clientes — gestores de flota</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="legal-section" aria-labelledby="sec-4">
+          <h2 id="sec-4">4. Finalidades del tratamiento</h2>
+          <p>Los datos personales recopilados por Auto Dealer serán tratados exclusivamente para las siguientes finalidades:</p>
+          <ul class="legal-bullets">
+            <li>Gestión y programación del mantenimiento preventivo y correctivo de vehículos de flota.</li>
+            <li>Emisión de órdenes de servicio, cotizaciones, remisiones y facturas.</li>
+            <li>Comunicación con los responsables de flota y conductores vinculados.</li>
+            <li>Coordinación con talleres aliados de la red nacional para la prestación del servicio.</li>
+            <li>Cumplimiento de obligaciones legales, tributarias y comerciales.</li>
+            <li>Generación de reportes históricos de mantenimiento para el cliente.</li>
+            <li>Envío de alertas, notificaciones y comunicaciones relacionadas con el servicio contratado.</li>
+          </ul>
+          <div class="legal-callout">
+            Queda <strong>prohibido</strong> el uso de los datos para finalidades distintas a las aquí declaradas sin autorización previa y expresa del titular.
+          </div>
+        </section>
+
+        <section class="legal-section" aria-labelledby="sec-5">
+          <h2 id="sec-5">5. Derechos de los titulares</h2>
+          <p>
+            De conformidad con el artículo 8 de la Ley 1581 de 2012, los titulares de datos personales tienen los siguientes derechos:
+          </p>
+          <ul class="legal-bullets">
+            <li>Conocer, actualizar y rectificar sus datos personales.</li>
+            <li>Solicitar prueba de la autorización otorgada para el tratamiento.</li>
+            <li>Ser informados sobre el uso que se ha dado a sus datos.</li>
+            <li>Presentar quejas ante la Superintendencia de Industria y Comercio por infracciones a la ley.</li>
+            <li>Revocar la autorización y/o solicitar la supresión de sus datos cuando no exista obligación legal o contractual que lo impida.</li>
+            <li>Acceder gratuitamente a sus datos personales que hayan sido objeto de tratamiento.</li>
+          </ul>
+          <p>
+            Para ejercer estos derechos, el titular podrá dirigirse a Auto Dealer a través del <strong>correo oficial de la empresa</strong> (<a href="mailto:servicio@autodealer.com.co" style="color:var(--accent);border-bottom:1px solid rgba(255,0,0,0.5)">servicio@autodealer.com.co</a>) o mediante <strong>comunicación escrita</strong> dirigida al Responsable de Tratamiento de Datos.
+          </p>
+        </section>
+
+        <section class="legal-section" aria-labelledby="sec-6">
+          <h2 id="sec-6">6. Deberes y medidas de seguridad</h2>
+          <p>Auto Dealer adopta las siguientes medidas para garantizar la seguridad e integridad de los datos personales tratados:</p>
+
+          <h3 class="legal-h3">6.1. Medidas organizativas</h3>
+          <ul class="legal-bullets">
+            <li>Designación de un Responsable interno de Tratamiento de Datos con funciones de supervisión y atención al titular.</li>
+            <li>Capacitación periódica a todo el personal sobre obligaciones en protección de datos.</li>
+            <li>Suscripción de cláusulas de confidencialidad en contratos con trabajadores, contratistas y talleres aliados.</li>
+            <li>Procedimiento interno para atención de solicitudes, quejas y reclamos de titulares (PQRS).</li>
+          </ul>
+
+          <h3 class="legal-h3">6.2. Medidas técnicas</h3>
+          <ul class="legal-bullets">
+            <li>Acceso a información de titulares restringido al personal que lo requiera para el cumplimiento de sus funciones (principio de necesidad).</li>
+            <li>Uso de contraseñas robustas y controles de acceso en los equipos donde se almacene información de clientes o conductores.</li>
+            <li>Prohibición de transmitir datos personales por canales no seguros sin cifrado o acuerdo de confidencialidad previo.</li>
+            <li>Respaldo periódico de la información crítica de operación de flotas.</li>
+            <li>Destrucción segura de documentos físicos con datos personales cuando ya no sean necesarios.</li>
+          </ul>
+
+          <h3 class="legal-h3">6.3. Transferencia a terceros</h3>
+          <p>
+            Cuando Auto Dealer requiera compartir datos personales con talleres aliados de la red nacional para la prestación del servicio, lo hará bajo acuerdo de tratamiento de datos que obligue al aliado a las mismas condiciones de seguridad y confidencialidad establecidas en esta política. No se cederán datos a terceros no vinculados al servicio sin autorización del titular.
+          </p>
+        </section>
+
+        <section class="legal-section" aria-labelledby="sec-7">
+          <h2 id="sec-7">7. Vigencia y conservación de los datos</h2>
+          <p>
+            Los datos personales serán conservados durante el tiempo necesario para cumplir la finalidad que motivó su recopilación y las obligaciones legales aplicables. Finalizada la relación comercial, los datos serán conservados por un período mínimo de <strong>cinco (5) años</strong> para efectos de auditoría, garantías y cumplimiento tributario, tras lo cual serán suprimidos de manera segura.
+          </p>
+        </section>
+
+        <div class="legal-cta" style="margin-top:2.5rem">
+            <a href="mailto:servicio@autodealer.com.co?subject=Ejercicio%20de%20derechos%20habeas%20data">Escribir por datos personales</a>
+            <a class="secondary" href="politicas-de-garantias.html">Ver políticas de garantías</a>
+            <a class="secondary" href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="contacto">
+        <div class="container footer__main">
+          <div class="footer__grid">
+            <div class="footer__brand">
+              <span class="logo-shine">
+                <img
+                  class="footer__brand-logo"
+                  src="Bibliotecaimagenesautodealer/logo.png"
+                  alt="Auto Dealer"
+                  width="220"
+                  height="57"
+                  loading="lazy"
+                />
+                <span class="logo-shine__sweep" aria-hidden="true"></span>
+              </span>
+              <p class="footer__brand-tagline">Taller multimarca — cobertura nacional.</p>
+              <p class="footer__hours">Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+              <a class="mail" href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a>
+            </div>
+            <div class="footer__nav">
+              <div class="footer__nav-cols">
+                <div class="footer__nav-col footer__nav-col--navegar">
+                  <h4>Navegar</h4>
+                  <ul class="footer__nav-list footer__nav-list--two-rows">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#sobre">Nosotros</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="landing-flotas-v2-offline.html">Flotas</a></li>
+                    <li><a href="index.html#resenas">Reseñas</a></li>
+                    <li><a href="index.html#video">Video</a></li>
+                    <li><a href="index.html#sedes">Sedes</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="politicas-de-garantias.html">Garantías</a></li>
+                    <li><a href="politica-tratamiento-datos.html">Política de tratamiento de datos</a></li>
+                  </ul>
+                </div>
+                <div class="footer__nav-col">
+                  <h4>Contáctanos</h4>
+                  <ul>
+                    <li><a href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp Bogotá</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp Cali</a></li>
+                    <li>
+                      <a class="footer__social" href="https://www.instagram.com/autodealer_col/" rel="noopener noreferrer" target="_blank">
+                        <span class="footer__social-icon" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none"/></svg>
+                        </span>
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a class="footer__social" href="https://www.facebook.com/Autodealercol/" rel="noopener noreferrer" target="_blank">
+                        <span class="footer__social-icon" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </span>
+                        Facebook
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__strip" aria-label="Copyright">
+          <p>© <span id="yr"></span> Auto Dealer. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

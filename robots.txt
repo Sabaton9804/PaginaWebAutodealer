@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Si subís esta carpeta a public_html/autodealer-nuevo/, el sitemap útil para esta versión estática es:
+Sitemap: https://www.autodealer.com.co/autodealer-nuevo/sitemap.xml
