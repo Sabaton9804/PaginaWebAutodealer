@@ -43,7 +43,13 @@ $FLOTA_LEAD_EMAIL = 'servicio@autodealer.com.co';
 
 La cuenta debe existir en hPanel → **Correos**.
 
-## Si ya no hay 404 pero no llega el correo
+## Para que el correo LLEGUE a la bandeja (obligatorio)
 
-- Revisa **spam** en `servicio@autodealer.com.co`
-- En Hostinger, el `mail()` de PHP a veces falla; avisa para configurar SMTP.
+El mensaje verde del formulario solo confirma que PHP respondió OK. En Hostinger el correo **debe** salir por SMTP.
+
+1. En **public_html/** crea el archivo **`flota-lead-secrets.php`** (copia de `flota-lead-secrets.php.example`).
+2. Pega la **contraseña** de la cuenta `servicio@autodealer.com.co` (hPanel → Correos).
+3. Sube también **`flota-lead-mail.php`** y el **`flota-lead.php`** actualizado.
+4. Prueba el formulario y revisa la bandeja de `servicio@autodealer.com.co` (y spam).
+
+Sin `flota-lead-secrets.php` con contraseña, el envío suele **no llegar** aunque la web diga “recibimos tu solicitud”.
