@@ -24,6 +24,9 @@
     }
 
     if (host === "www.autodealer.com.co" || host === "autodealer.com.co") {
+      /* Producción: sitio en public_html/ (CanalFlotas/, flota-lead.php en raíz) */
+      pushUnique(location.origin + "/flota-lead.php");
+      pushUnique(location.origin + "/api/flota-lead.php");
       pushUnique(location.origin + "/autodealer-nuevo/flota-lead.php");
       pushUnique(location.origin + "/autodealer-nuevo/api/flota-lead.php");
       return urls;

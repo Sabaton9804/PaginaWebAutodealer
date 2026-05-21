@@ -27,7 +27,8 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./
-          server-dir: /public_html/autodealer-nuevo/
+          # Hostinger FTP suele abrir ya en public_html → despliegue en raíz del sitio
+          server-dir: /
           dangerous-clean-slate: false
           exclude: |
             **/.git*

@@ -1,7 +1,7 @@
 # Desplegar desde GitHub a Hostinger (automático)
 
-Cada **push a `main`** puede subir todo el sitio a  
-`public_html/autodealer-nuevo/` (incluye `flota-lead.php`, `api/`, `CanalFlotas/`, etc.).
+Cada **push a `main`** sube todo el sitio a la **raíz de `public_html/`**  
+(donde ya están `CanalFlotas/`, `flota-lead.php`, `index.html`, etc.).
 
 ## 1. Datos FTP en Hostinger
 
@@ -10,8 +10,7 @@ Cada **push a `main`** puede subir todo el sitio a
    - **Servidor / Host** (IP o `ftp.tudominio.com`)
    - **Usuario** (ej. `u270697239`)
    - **Contraseña**
-3. La carpeta del sitio nuevo debe ser: **`public_html/autodealer-nuevo/`**  
-   (créala en el administrador de archivos si no existe).
+3. Al conectar por FTP, la carpeta de destino es la **raíz del sitio** (normalmente ya estás dentro de `public_html/`).
 
 ## 2. Secrets en GitHub
 
@@ -31,7 +30,7 @@ Repo: https://github.com/Sabaton9804/PaginaWebAutodealer
 1. Haz **push** a `main` (o en GitHub: **Actions** → **Deploy to Hostinger** → **Run workflow**).
 2. En **Actions** debe salir en verde **Deploy to Hostinger**.
 3. Prueba:  
-   `https://www.autodealer.com.co/autodealer-nuevo/flota-lead.php`  
+   `https://www.autodealer.com.co/flota-lead.php`  
    (debe decir “Método no permitido”, no 404).
 
 ## 4. Redirección `/agendar/` en la raíz del dominio
