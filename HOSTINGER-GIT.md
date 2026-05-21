@@ -26,7 +26,9 @@ Repo: https://github.com/Sabaton9804/PaginaWebAutodealer
 | `FTP_PASSWORD` | Contraseña FTP |
 | `FLOTA_SMTP_PASS` | Contraseña del **correo** `servicio@autodealer.com.co` (hPanel → Correos) |
 
-El workflow **genera y sube** `flota-lead-secrets.php` al servidor; no hace falta crearlo a mano en File Manager.
+El workflow **genera y sube** `flota-lead-secrets.php` al servidor.
+
+**Importante:** sin el secret `FLOTA_SMTP_PASS`, el deploy **no debe ejecutarse** (falla a propósito). Si subes el sitio por FTP a mano sin ese archivo, el formulario de flotas muestra: *“Falta flota-lead-secrets.php…”*. Comprueba: `https://www.autodealer.com.co/flota-lead-estado.php` → debe decir `"listo": true`.
 
 ## 3. Activar el despliegue
 

@@ -29,7 +29,7 @@ jobs:
           php -r '$p=getenv("FLOTA_SMTP_PASS"); file_put_contents("flota-lead-secrets.php","<?php\n".chr(36)."FLOTA_SMTP_PASS = ".var_export($p,true).";\n");'
           echo "flota-lead-secrets.php generado (no va a git, solo al FTP)."
 
-      - name: Deploy via FTP
+      - name: Deploy sitio (sin borrar secrets en el servidor)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -48,4 +48,19 @@ jobs:
             **/deploy-raiz-dominio/**
             DEPLOY-HOSTINGER.md
             HOSTINGER-GIT.md
+            flota-lead-secrets.php
             flota-lead-secrets.php.example
+
+      - name: Subir flota-lead-secrets.php (SMTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./
+          server-dir: /
+          dangerous-clean-slate: false
+          include: |
+            flota-lead-secrets.php
