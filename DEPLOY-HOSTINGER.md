@@ -53,3 +53,16 @@ El mensaje verde del formulario solo confirma que PHP respondió OK. En Hostinge
 4. Prueba el formulario y revisa la bandeja de `servicio@autodealer.com.co` (y spam).
 
 Sin `flota-lead-secrets.php` con contraseña, el envío suele **no llegar** aunque la web diga “recibimos tu solicitud”.
+
+## Archivos PHP que debes tener en public_html (todos)
+
+- `flota-lead.php` (versión 4+)
+- `flota-lead-mail.php`
+- `flota-lead-config.php`
+- `flota-lead-secrets.php` (solo en servidor, con contraseña)
+- `flota-lead-estado.php` (diagnóstico)
+
+Comprueba: abre `https://www.autodealer.com.co/flota-lead-estado.php`  
+Debe mostrar `"listo": true` y `"smtp_pass_set": true`.
+
+Tras enviar el formulario, si falla revisa `flota-lead.log` en el mismo directorio.

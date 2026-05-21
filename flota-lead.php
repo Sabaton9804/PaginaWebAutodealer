@@ -31,10 +31,12 @@ $config_file = __DIR__ . '/flota-lead-config.php';
 $to          = 'servicio@autodealer.com.co';
 $from_email  = 'servicio@autodealer.com.co';
 $from_name   = 'Auto Dealer — Formulario flotas';
-$smtp_host   = 'smtp.hostinger.com';
-$smtp_port   = 587;
-$smtp_user   = 'servicio@autodealer.com.co';
-$smtp_pass   = '';
+$smtp_host    = 'smtp.hostinger.com';
+$smtp_port    = 465;
+$smtp_secure  = 'ssl';
+$smtp_user    = 'servicio@autodealer.com.co';
+$smtp_pass    = '';
+$flota_version = 4;
 
 if (is_readable($config_file)) {
 	require $config_file;
@@ -52,6 +54,9 @@ if (is_readable($config_file)) {
 	}
 	if (! empty($FLOTA_SMTP_PORT)) {
 		$smtp_port = (int) $FLOTA_SMTP_PORT;
+	}
+	if (! empty($FLOTA_SMTP_SECURE)) {
+		$smtp_secure = (string) $FLOTA_SMTP_SECURE;
 	}
 	if (! empty($FLOTA_SMTP_USER)) {
 		$smtp_user = (string) $FLOTA_SMTP_USER;
@@ -115,13 +120,16 @@ $body    = sprintf(
 	$ip
 );
 
-$host_check = isset($_SERVER['HTTP_HOST']) ? strtolower((string) $_SERVER['HTTP_HOST']) : '';
-$is_prod    = (strpos($host_check, 'autodealer.com.co') !== false);
-if ($is_prod && $smtp_pass === '') {
+$secrets_file = __DIR__ . '/flota-lead-secrets.php';
+$host_check   = isset($_SERVER['HTTP_HOST']) ? strtolower((string) $_SERVER['HTTP_HOST']) : '';
+$is_prod      = (strpos($host_check, 'autodealer.com.co') !== false);
+
+if ($is_prod && (! is_readable($secrets_file) || $smtp_pass === '')) {
 	http_response_code(503);
 	echo json_encode(array(
 		'ok'    => false,
-		'error' => 'Falta configurar el envío SMTP en el servidor (archivo flota-lead-secrets.php con la contraseña del correo).',
+		'v'     => $flota_version,
+		'error' => 'Falta flota-lead-secrets.php en public_html con la contraseña SMTP de servicio@autodealer.com.co',
 	));
 	exit;
 }
@@ -135,6 +143,7 @@ $result = flota_lead_send_mail(
 	$from_name,
 	$smtp_host,
 	$smtp_port,
+	$smtp_secure,
 	$smtp_user,
 	$smtp_pass !== '' ? $smtp_pass : null
 );
@@ -144,9 +153,15 @@ if (! $result['ok']) {
 	$err = isset($result['error']) ? $result['error'] : 'No se pudo enviar el correo.';
 	echo json_encode(array(
 		'ok'    => false,
+		'v'     => $flota_version,
+		'via'   => isset($result['via']) ? $result['via'] : null,
 		'error' => $err . ' Escríbenos a servicio@autodealer.com.co',
 	));
 	exit;
 }
 
-echo json_encode(array('ok' => true));
+echo json_encode(array(
+	'ok'  => true,
+	'v'   => $flota_version,
+	'via' => isset($result['via']) ? $result['via'] : 'unknown',
+));
