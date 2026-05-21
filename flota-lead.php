@@ -85,8 +85,10 @@ if (! is_array($params)) {
 	$params = array();
 }
 
-$honeypot = isset($params['company']) ? trim((string) $params['company']) : '';
+/* Campo trampa: antes se llamaba "company" y el autocompletado del navegador lo llenaba → ok sin correo */
+$honeypot = isset($params['_flota_hp']) ? trim((string) $params['_flota_hp']) : '';
 if ($honeypot !== '') {
+	flota_lead_log('SKIP honeypot len=' . strlen($honeypot));
 	echo json_encode(array('ok' => true));
 	exit;
 }

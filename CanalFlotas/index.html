@@ -682,7 +682,7 @@ img{max-width:100%;height:auto;display:block}
     <h3 id="fpModalTitle">Hablemos de tu operación.</h3>
     <p class="sub">Un asesor comercial especializado en flotas te contacta en menos de 24 horas hábiles.</p>
     <form id="fpForm" data-flota-lead novalidate>
-      <label class="fp-hp" aria-hidden="true">Empresa<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+      <label class="fp-hp" aria-hidden="true">Dejar vacío<input type="text" name="_flota_hp" tabindex="-1" autocomplete="new-password" inputmode="none" /></label>
       <input type="text" name="nombre" placeholder="Nombre completo" required autocomplete="name" />
       <input type="email" name="email" placeholder="Correo corporativo" required autocomplete="email" />
       <input type="tel" name="tel" placeholder="Teléfono de contacto" required autocomplete="tel" />
@@ -700,7 +700,7 @@ img{max-width:100%;height:auto;display:block}
 </div>
 <div class="fp-toast" id="fpToast" role="status"><i class="fa-solid fa-circle-check" style="color:#86efac"></i> <span id="fpToastMsg"></span></div>
 
-<script src="../flota-lead.js?v=5"></script>
+<script src="../flota-lead.js?v=6"></script>
 <script>
 (function(){
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

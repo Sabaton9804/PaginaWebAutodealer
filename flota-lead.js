@@ -99,7 +99,7 @@
       email: String(fd.get("email") || "").trim(),
       tel: String(fd.get("tel") || "").trim(),
       size: String(fd.get("size") || "").trim(),
-      company: String(fd.get("company") || "").trim(),
+      _flota_hp: String(fd.get("_flota_hp") || "").trim(),
     };
   }
 
