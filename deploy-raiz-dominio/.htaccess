@@ -1,0 +1,11 @@
+# Auto Dealer — reglas para la RAÍZ del dominio (public_html)
+# Copia este archivo a public_html/.htaccess
+# o fusiona estas líneas con tu .htaccess existente (antes de reglas de WordPress, si aplica).
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # /agendar y /agendar/ → redirección al sitio nuevo (abre modal de cita)
+  RewriteRule ^agendar/?$ /autodealer-nuevo/agendar/ [R=301,L]
+</IfModule>

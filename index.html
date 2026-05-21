@@ -75,8 +75,6 @@
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-
     /* Solo imágenes: `height:auto` en todos los <video> rompe el cover 100% en fondos full-bleed */
     img { display: block; max-width: 100%; height: auto; }
     video { display: block; }
@@ -357,14 +355,7 @@
       padding: 0.75rem 0.65rem;
       font-weight: 500;
       font-size: 0.9rem;
-      color: var(--text-muted);
-      border-radius: 10px;
       border: 1px solid transparent;
-    }
-
-    .nav__drawer a:hover {
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
     }
 
     @media (min-width: 900px) {
@@ -423,16 +414,14 @@
     }
 
     .hero-pro__watermark {
-      position: absolute;
-      left: 50%;
-      top: 40%;
-      transform: translate(-50%, -50%);
-      width: clamp(260px, 48vw, 640px);
-      max-width: 92%;
-      opacity: 0.9;
+      position: relative;
+      width: clamp(200px, 34vw, 380px);
+      max-width: 100%;
+      margin: 0 auto 0.5rem;
+      opacity: 0.88;
       pointer-events: none;
-      z-index: 2;
       line-height: 0;
+      text-align: center;
     }
 
     .hero-pro__watermark .logo-shine,
@@ -473,6 +462,10 @@
       margin: 0 0 1rem;
       text-align: center;
       line-height: 1.5;
+    }
+
+    .hero-pro__watermark + .hero-pro__eyebrow {
+      margin-top: 0;
     }
 
     .hero-pro__mega {
@@ -552,6 +545,70 @@
       background: rgba(255, 255, 255, 0.08);
       border-color: #fff;
       transform: translateY(-2px);
+    }
+
+    @media (max-width: 767px) {
+      .hero-pro {
+        min-height: 100svh;
+        padding-bottom: 1.25rem;
+      }
+
+      .hero-pro__watermark {
+        width: min(78vw, 240px);
+        margin-bottom: 0.55rem;
+        opacity: 0.78;
+      }
+
+      .hero-pro__veil {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.38) 0%,
+          rgba(0, 0, 0, 0.55) 45%,
+          rgba(0, 0, 0, 0.78) 100%
+        );
+      }
+
+      .hero-pro__eyebrow {
+        font-size: 0.5rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 0.6rem;
+      }
+
+      .hero-pro__mega {
+        font-size: clamp(1.45rem, 7.2vw, 2rem);
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-pro__mega-sub {
+        font-size: 0.84rem;
+        margin-bottom: 1.15rem;
+        line-height: 1.55;
+      }
+
+      .hero-pro__ctas {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+        width: 100%;
+        max-width: 18rem;
+      }
+
+      .hero-pro__btn {
+        width: 100%;
+        padding: 0.82rem 1.1rem;
+        font-size: 0.6rem;
+        white-space: normal;
+        line-height: 1.35;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero-pro__watermark {
+        width: min(76vw, 220px);
+        margin-bottom: 0.45rem;
+        opacity: 0.68;
+      }
     }
 
     /* —— Características (vidrio) —— */
@@ -1803,25 +1860,25 @@
       }
     }
 
-    .footer__brand-logo {
-      width: clamp(160px, 28vw, 220px);
-      min-width: 160px;
-      height: auto;
+    .footer__brand .logo-shine {
+      display: inline-block;
       margin-bottom: 1.1rem;
+    }
+
+    .footer__brand .logo-shine > img {
+      width: clamp(140px, 18vw, 180px);
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     .footer a.mail {
       display: inline-block;
       margin-top: 0.35rem;
-      font-weight: 600;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 2px;
     }
 
     .footer ul { list-style: none; margin: 0; padding: 0; }
     .footer li { margin-bottom: 0.45rem; }
-    .footer li a { color: var(--text-muted); font-size: 0.84rem; }
-    .footer li a:hover { color: #fff; }
 
     .footer__social {
       display: inline-flex;
@@ -1870,7 +1927,191 @@
       color: rgba(255, 255, 255, 0.38);
       max-width: none;
     }
+
+    /* —— Modal agendar cita —— */
+    .agendar-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(0.65rem, 3vw, 1.25rem);
+      background: rgba(0, 0, 0, 0.82);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.28s var(--ease), visibility 0.28s;
+    }
+
+    .agendar-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .agendar-modal__panel {
+      width: min(480px, 100%);
+      max-height: min(92vh, 720px);
+      overflow: auto;
+      border-radius: 18px;
+      background: #101012;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.65);
+    }
+
+    .agendar-modal__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .agendar-modal__head h2 {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .agendar-modal__close {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .agendar-modal__close:hover {
+      background: rgba(255, 0, 0, 0.2);
+      border-color: rgba(255, 0, 0, 0.45);
+    }
+
+    .agendar-modal__body {
+      padding: 1.25rem 1.15rem 1.15rem;
+    }
+
+    .agendar-modal__lead {
+      margin: 0 0 1.15rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .agendar-modal__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 1rem;
+    }
+
+    .agendar-modal__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.88rem 1.1rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s, background 0.2s;
+    }
+
+    .agendar-modal__btn--wa {
+      background: #25d366;
+      color: #fff;
+      border-color: #25d366;
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35);
+    }
+
+    .agendar-modal__btn--wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
+    }
+
+    .agendar-modal__btn--primary {
+      background: var(--red);
+      color: #fff;
+      border-color: var(--red);
+      box-shadow: 0 8px 28px rgba(255, 0, 0, 0.35);
+    }
+
+    .agendar-modal__btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 0, 0, 0.45);
+    }
+
+    .agendar-modal__btn--ghost {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .agendar-modal__btn--ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .agendar-modal__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    .agendar-modal__list li {
+      padding: 0.55rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .agendar-modal__list li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .agendar-modal__list a {
+      font-weight: 600;
+    }
+
+    .agendar-modal__note {
+      margin: 0 0 0.75rem;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .agendar-modal__foot {
+      margin: 0;
+      padding-top: 0.85rem;
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.45;
+    }
   </style>
+  <link rel="stylesheet" href="site-links.css?v=3" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1961,7 +2202,7 @@
     <header class="nav" id="nav">
       <a
         class="nav__flotas-strip"
-        href="landing-flotas-v2-offline.html"
+        href="CanalFlotas/"
         aria-label="Conoce la propuesta Auto Dealer para flotas corporativas"
       >
         <span class="nav__flotas-strip-tag">Flotas</span>
@@ -1977,7 +2218,7 @@
         <div class="nav__links-wrap">
           <nav class="nav__links" aria-label="Secciones">
             <a href="#inicio">Inicio</a>
-            <a href="landing-flotas-v2-offline.html">Flotas</a>
+            <a href="CanalFlotas/">Flotas</a>
             <a href="#sobre">Nosotros</a>
             <a href="#servicios">Servicios</a>
             <a href="#resenas">Reseñas</a>
@@ -1986,7 +2227,7 @@
           </nav>
         </div>
         <div class="nav__actions">
-          <a class="nav__cta" href="https://api.whatsapp.com/send?phone=573183419819&text=Hola%2C%20quiero%20agendar%20en%20Auto%20Dealer." target="_blank" rel="noopener noreferrer" aria-label="Agendar cita por WhatsApp">
+          <a class="nav__cta" href="#agendar" data-agendar-modal aria-label="Agendar cita">
             <span class="nav__cta-text">Agendar ahora</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
               <path d="M7 17L17 7M17 7H9M17 7V15" />
@@ -1999,7 +2240,7 @@
       </div>
       <nav class="nav__drawer" id="drawer" aria-label="Menú móvil">
         <a href="#inicio">Inicio</a>
-        <a href="landing-flotas-v2-offline.html">Flotas</a>
+        <a href="CanalFlotas/">Flotas</a>
         <a href="#sobre">Nosotros</a>
         <a href="#servicios">Servicios</a>
         <a href="#resenas">Reseñas</a>
@@ -2026,14 +2267,14 @@
           </video>
           <div class="hero-pro__veil" aria-hidden="true"></div>
         </div>
-          <div class="hero-pro__watermark" aria-hidden="true">
-            <span class="logo-shine">
-              <img src="Bibliotecaimagenesautodealer/logo.png?v=4" alt="" width="200" height="60" />
-              <span class="logo-shine__sweep"></span>
-            </span>
-          </div>
         <div class="hero-pro__cinema">
           <div class="hero-pro__cinema-inner">
+            <div class="hero-pro__watermark reveal" aria-hidden="true">
+              <span class="logo-shine">
+                <img src="Bibliotecaimagenesautodealer/logo.png?v=4" alt="" width="200" height="60" />
+                <span class="logo-shine__sweep"></span>
+              </span>
+            </div>
             <p class="hero-pro__eyebrow reveal">Taller multimarca · Talleres propios Bogotá &amp; Cali · Flotas con cobertura nacional</p>
             <h1 class="hero-pro__mega reveal">
               Un taller para tu carro. Una <span class="hero-pro__mega-red">red</span> para tu flota.
@@ -2042,7 +2283,7 @@
               Sedes propias en Bogotá y Cali. Red de talleres aliados a nivel nacional. Mecánica, diagnóstico, colisión, pintura, detailing y serviteca para particulares y empresas.
             </p>
             <div class="hero-pro__ctas reveal" style="--d:60ms">
-              <a class="hero-pro__btn hero-pro__btn--primary" href="https://www.autodealer.com.co/agendar/" target="_blank" rel="noopener noreferrer">Agendar cita</a>
+              <a class="hero-pro__btn hero-pro__btn--primary" href="#agendar" data-agendar-modal>Agendar cita</a>
               <a class="hero-pro__btn hero-pro__btn--ghost" href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp Bogotá</a>
               <a class="hero-pro__btn hero-pro__btn--ghost" href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp Cali</a>
             </div>
@@ -2219,11 +2460,11 @@
             <div class="flotas__actions reveal">
               <a
                 class="btn-flota btn-flota--primary"
-                href="landing-flotas-v2-offline.html#cotizar-flota"
+                href="CanalFlotas/#cotizar-flota"
                 >Cotizar flota</a>
               <a
                 class="btn-flota btn-flota--ghost"
-                href="landing-flotas-v2-offline.html"
+                href="CanalFlotas/"
                 >Presentación flotas</a>
             </div>
           </div>
@@ -2720,13 +2961,13 @@
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#sobre">Nosotros</a></li>
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="landing-flotas-v2-offline.html">Flotas</a></li>
+                    <li><a href="CanalFlotas/">Flotas</a></li>
                     <li><a href="#resenas">Reseñas</a></li>
-                    <li><a href="https://api.whatsapp.com/send?phone=573183419819&amp;text=Hola%2C%20quiero%20agendar%20en%20Auto%20Dealer." target="_blank" rel="noopener noreferrer">Agendar cita</a></li>
+                    <li><a href="#agendar" data-agendar-modal>Agendar cita</a></li>
                     <li><a href="#sedes">Sedes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="politicas-de-garantias.html">Garantías</a></li>
-                    <li><a href="politica-tratamiento-datos.html">Política de tratamiento de datos</a></li>
+                    <li><a href="Garantias/">Garantías</a></li>
+                    <li><a href="TratamientoDatos/">Política de tratamiento de datos</a></li>
                   </ul>
                 </div>
                 <div class="footer__nav-col">
@@ -2763,10 +3004,121 @@
     </main>
   </div>
 
+  <div class="agendar-modal" id="agendarModal" role="dialog" aria-modal="true" aria-labelledby="agendarModalTitle">
+    <div class="agendar-modal__panel">
+      <div class="agendar-modal__head">
+        <h2 id="agendarModalTitle">Agendar cita</h2>
+        <button type="button" class="agendar-modal__close" data-agendar-close aria-label="Cerrar ventana">×</button>
+      </div>
+      <div class="agendar-modal__body">
+        <p class="agendar-modal__lead">
+          Atendemos a nivel nacional con nuestra red de talleres aliados. Cuéntanos tu ciudad y el servicio que necesitas; un asesor te confirma el punto más cercano y el horario.
+        </p>
+        <p class="agendar-modal__note">
+          Sedes propias en <strong style="color:#fff">Bogotá</strong> y <strong style="color:#fff">Cali</strong>. En el resto del país coordinamos contigo a través de aliados validados.
+        </p>
+        <div class="agendar-modal__actions">
+          <a
+            class="agendar-modal__btn agendar-modal__btn--wa"
+            href="https://api.whatsapp.com/send?phone=573183419819&amp;text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Auto%20Dealer.%20Ciudad%3A%20.%20Servicio%3A%20."
+            target="_blank"
+            rel="noopener noreferrer"
+          >Agendar por WhatsApp</a>
+          <a
+            class="agendar-modal__btn agendar-modal__btn--primary"
+            href="mailto:servicio@autodealer.com.co?subject=Agendar%20cita%20Auto%20Dealer&amp;body=Ciudad%3A%20%0AServicio%3A%20%0AVeh%C3%ADculo%3A%20"
+          >Escribir por correo</a>
+          <a class="agendar-modal__btn agendar-modal__btn--ghost" href="#sedes" data-agendar-close>Sedes propias Bogotá y Cali</a>
+        </div>
+        <ul class="agendar-modal__list">
+          <li>Correo: <a class="mail" href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a></li>
+          <li>¿Flota o varios vehículos? <a href="CanalFlotas/">Canal flotas</a></li>
+        </ul>
+        <p class="agendar-modal__foot">Horario sedes propias: Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduce) document.body.classList.add("motion-reduce");
+
+      /* Modal agendar (#agendar — enlaces desde correo y web) */
+      (function () {
+        var modal = document.getElementById("agendarModal");
+        var lastFocus = null;
+
+        function openAgendar() {
+          if (!modal) return;
+          lastFocus = document.activeElement;
+          modal.classList.add("is-open");
+          document.body.style.overflow = "hidden";
+          if (location.hash !== "#agendar") {
+            history.pushState({ agendar: true }, "", "#agendar");
+          }
+          var closeBtn = modal.querySelector("[data-agendar-close]");
+          if (closeBtn) closeBtn.focus();
+        }
+
+        function closeAgendar() {
+          if (!modal) return;
+          modal.classList.remove("is-open");
+          document.body.style.overflow = "";
+          if (location.hash === "#agendar") {
+            history.replaceState(null, "", location.pathname + location.search);
+          }
+          if (lastFocus && typeof lastFocus.focus === "function") {
+            try {
+              lastFocus.focus();
+            } catch (e) {}
+          }
+        }
+
+        function shouldOpenFromUrl() {
+          if (location.hash === "#agendar") return true;
+          return /(?:^|[?&])agendar(?:=1)?(?:&|$)/i.test(location.search);
+        }
+
+        document.querySelectorAll("[data-agendar-modal]").forEach(function (el) {
+          el.addEventListener("click", function (e) {
+            e.preventDefault();
+            openAgendar();
+          });
+        });
+
+        if (modal) {
+          modal.addEventListener("click", function (e) {
+            if (e.target === modal) closeAgendar();
+          });
+          modal.querySelectorAll("[data-agendar-close]").forEach(function (btn) {
+            btn.addEventListener("click", closeAgendar);
+          });
+        }
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
+            closeAgendar();
+          }
+        });
+
+        window.addEventListener("hashchange", function () {
+          if (location.hash === "#agendar") openAgendar();
+          else if (modal && modal.classList.contains("is-open")) closeAgendar();
+        });
+
+        window.addEventListener("popstate", function () {
+          if (location.hash !== "#agendar" && modal && modal.classList.contains("is-open")) {
+            closeAgendar();
+          }
+        });
+
+        if (shouldOpenFromUrl()) {
+          window.addEventListener("load", function () {
+            openAgendar();
+          });
+        }
+      })();
 
       /* Nav */
       var nav = document.getElementById("nav");

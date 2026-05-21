@@ -1,0 +1,240 @@
+/* Auto Dealer — hipervínculos (cargar al final del <head>) */
+
+:root {
+  --link: rgba(255, 255, 255, 0.86);
+  --link-hover: #ffffff;
+  --link-muted: rgba(255, 255, 255, 0.62);
+  --link-accent: #ff2a2a;
+  --link-line: rgba(255, 0, 0, 0.55);
+  --link-line-hover: #ff0000;
+  --link-bg-hover: rgba(255, 0, 0, 0.1);
+  --link-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Anula azul/morado del navegador */
+a:any-link {
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0.15);
+}
+
+a:link,
+a:visited {
+  color: var(--link);
+}
+
+/* —— Enlace de texto (predeterminado) —— */
+a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--link-line);
+  padding-bottom: 1px;
+  transition:
+    color 0.2s var(--link-ease),
+    border-color 0.2s var(--link-ease),
+    background-color 0.2s var(--link-ease),
+    box-shadow 0.2s var(--link-ease),
+    transform 0.2s var(--link-ease);
+}
+
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-line-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* —— Sin borde inferior: botones, logos, nav CTA —— */
+a.nav__cta,
+a[data-agendar-modal],
+a.agendar-modal__btn,
+a.agendar-modal__btn--primary,
+a.hero-pro__btn,
+a.nav__flotas-strip,
+a.logo-link,
+a.fp-nav__logo,
+a.fp-nav__cta,
+a.fp-btn,
+a.btn-flota,
+a.wa,
+a.nav__back,
+a.footer__social,
+.legal-cta a {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* —— Nav escritorio (subrayado animado) —— */
+.nav__links a,
+.fp-nav__lk a {
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: none;
+  padding: 0.4rem 0.15rem;
+  position: relative;
+}
+
+.nav__links a::after,
+.fp-nav__lk a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.15rem;
+  height: 1px;
+  background: var(--link-line-hover);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--link-ease);
+}
+
+.nav__links a:hover,
+.nav__links a:focus-visible,
+.fp-nav__lk a:hover,
+.fp-nav__lk a:focus-visible {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.nav__links a:hover::after,
+.nav__links a:focus-visible::after,
+.fp-nav__lk a:hover::after,
+.fp-nav__lk a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* —— Menú móvil —— */
+.nav__drawer a {
+  color: var(--link-muted);
+  border-bottom: none;
+  border-radius: 10px;
+  padding: 0.75rem 0.65rem;
+}
+
+.nav__drawer a:hover,
+.nav__drawer a:focus-visible {
+  color: var(--link-hover);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav__drawer a[style*="background"] {
+  color: #fff !important;
+  background: rgba(255, 0, 0, 0.18) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4) !important;
+}
+
+/* —— Correo —— */
+a.mail,
+.footer a.mail {
+  color: #fff;
+  font-weight: 600;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--link-line-hover);
+}
+
+a.mail:hover,
+.footer a.mail:hover {
+  border-bottom-color: #fff;
+  background: var(--link-bg-hover);
+  border-radius: 2px;
+}
+
+/* —— Footer —— */
+.footer li a:not(.footer__social) {
+  display: inline-block;
+  color: var(--link-muted);
+  font-size: 0.84rem;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  padding: 0.15rem 0;
+}
+
+.footer li a:not(.footer__social):hover,
+.footer li a:not(.footer__social):focus-visible {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-line-hover);
+  transform: translateX(3px);
+}
+
+.footer__social {
+  color: var(--link);
+  font-weight: 500;
+  border-bottom: none;
+}
+
+.footer__social:hover,
+.footer__social:focus-visible {
+  color: var(--link-hover);
+}
+
+/* —— Contacto landing flotas (tel, web, WhatsApp) —— */
+.fp-clist .vl a {
+  display: inline-block;
+  color: var(--link-hover);
+  font-weight: 600;
+  font-size: 0.86rem;
+  padding: 0.2rem 0.55rem;
+  margin: 0.1rem 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.35);
+  background: rgba(255, 0, 0, 0.08);
+}
+
+.fp-clist .vl a:hover,
+.fp-clist .vl a:focus-visible {
+  color: #fff;
+  background: rgba(255, 0, 0, 0.18);
+  border-color: rgba(255, 0, 0, 0.65);
+  transform: translateY(-1px);
+}
+
+.fp-form-intro a {
+  color: var(--link-hover) !important;
+  font-weight: 600;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--link-line-hover) !important;
+}
+
+.fp-form-intro a:hover {
+  background: var(--link-bg-hover);
+  border-radius: 3px;
+}
+
+/* —— Contenido legal —— */
+.legal-body a:not(.legal-cta a) {
+  color: var(--link-hover);
+  font-weight: 600;
+  border-bottom-width: 2px;
+}
+
+.legal-body a:not(.legal-cta a):hover {
+  background: var(--link-bg-hover);
+  border-radius: 3px;
+}
+
+/* —— Teléfono —— */
+a[href^="tel:"] {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* —— Enlaces externos en nueva pestaña —— */
+a[target="_blank"]:not(.footer__social):not(.nav__cta):not(.hero-pro__btn):not(.fp-btn):not(.wa):not(.fp-nav__cta) {
+  border-bottom-width: 2px;
+}
+
+a[target="_blank"]:not(.footer__social):not(.nav__cta):not(.hero-pro__btn):not(.fp-btn):not(.wa):not(.fp-nav__cta):hover {
+  background: var(--link-bg-hover);
+  border-radius: 3px;
+}
+
+.agendar-modal__foot a {
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer li a:not(.footer__social):hover,
+  .fp-clist .vl a:hover {
+    transform: none;
+  }
+}

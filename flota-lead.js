@@ -25,7 +25,8 @@
     }
 
     try {
-      return new URL("api/flota-lead.php", location.href).href;
+      var apiPath = /\/CanalFlotas\/?/i.test(path) ? "../api/flota-lead.php" : "api/flota-lead.php";
+      return new URL(apiPath, location.href).href;
     } catch (e) {
       return null;
     }

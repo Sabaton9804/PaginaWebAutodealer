@@ -1,0 +1,19 @@
+# Auto Dealer — URLs limpias
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteBase /autodealer-nuevo/
+
+  # Redirecciones permanentes (URLs antiguas → limpias)
+  RewriteRule ^landing-flotas-v2-offline\.html$ CanalFlotas/ [R=301,L,NC]
+  RewriteRule ^politicas-de-garantias\.html$ Garantias/ [R=301,L,NC]
+  RewriteRule ^politica-tratamiento-datos\.html$ TratamientoDatos/ [R=301,L,NC]
+
+  # Servir carpetas sin index.html en la barra (opcional)
+  RewriteRule ^CanalFlotas$ CanalFlotas/ [R=301,L]
+  RewriteRule ^Garantias$ Garantias/ [R=301,L]
+  RewriteRule ^TratamientoDatos$ TratamientoDatos/ [R=301,L]
+
+  # /autodealer-nuevo/agendar/ → página que abre el modal en la home
+  RewriteRule ^agendar$ agendar/ [R=301,L]
+</IfModule>
