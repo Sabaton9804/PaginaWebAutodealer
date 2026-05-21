@@ -13,7 +13,8 @@ $checks = array(
 	'flota_lead_php' => is_file($root . '/flota-lead.php'),
 	'flota_lead_mail'=> is_file($root . '/flota-lead-mail.php'),
 	'config'         => is_readable($root . '/flota-lead-config.php'),
-	'secrets'        => is_readable($root . '/flota-lead-secrets.php'),
+	'secrets'        => false,
+	'secrets_path'   => null,
 	'log_writable'   => is_writable($root) || (is_file($root . '/flota-lead.log') && is_writable($root . '/flota-lead.log')),
 );
 
@@ -21,6 +22,20 @@ $smtp_port   = 465;
 $smtp_secure = 'ssl';
 $smtp_user   = '';
 $smtp_pass_set = false;
+
+$secret_candidates = array(
+	$root . '/flota-lead-secrets.php',
+	$root . '/autodealer-nuevo/flota-lead-secrets.php',
+);
+foreach ($secret_candidates as $sp) {
+	if (is_readable($sp)) {
+		$checks['secrets']      = true;
+		$checks['secrets_path'] = basename(dirname($sp)) === 'autodealer-nuevo'
+			? 'autodealer-nuevo/flota-lead-secrets.php'
+			: 'flota-lead-secrets.php';
+		break;
+	}
+}
 
 if ($checks['config']) {
 	require $root . '/flota-lead-config.php';

@@ -120,11 +120,22 @@ $body    = sprintf(
 	$ip
 );
 
-$secrets_file = __DIR__ . '/flota-lead-secrets.php';
-$host_check   = isset($_SERVER['HTTP_HOST']) ? strtolower((string) $_SERVER['HTTP_HOST']) : '';
-$is_prod      = (strpos($host_check, 'autodealer.com.co') !== false);
+$secrets_candidates = array(
+	__DIR__ . '/flota-lead-secrets.php',
+	__DIR__ . '/autodealer-nuevo/flota-lead-secrets.php',
+	dirname(__DIR__) . '/flota-lead-secrets.php',
+);
+$secrets_file       = null;
+foreach ($secrets_candidates as $candidate) {
+	if (is_readable($candidate)) {
+		$secrets_file = $candidate;
+		break;
+	}
+}
+$host_check = isset($_SERVER['HTTP_HOST']) ? strtolower((string) $_SERVER['HTTP_HOST']) : '';
+$is_prod    = (strpos($host_check, 'autodealer.com.co') !== false);
 
-if ($is_prod && (! is_readable($secrets_file) || $smtp_pass === '')) {
+if ($is_prod && ($secrets_file === null || $smtp_pass === '')) {
 	http_response_code(503);
 	echo json_encode(array(
 		'ok'    => false,

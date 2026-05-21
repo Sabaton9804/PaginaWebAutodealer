@@ -1,8 +1,8 @@
-# Despliega main → public_html/autodealer-nuevo/ en Hostinger (FTP)
-# Secrets en GitHub: Repo → Settings → Secrets → Actions
-#   FTP_SERVER   (ej. 82.25.x.x o ftp.autodealer.com.co — ver hPanel → FTP)
-#   FTP_USERNAME (ej. u270697239)
-#   FTP_PASSWORD
+# Despliega main → public_html/ (raíz del sitio en Hostinger)
+#
+# Secrets en GitHub → Settings → Secrets → Actions:
+#   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD  (cuenta FTP Hostinger)
+#   FLOTA_SMTP_PASS                         (contraseña de servicio@autodealer.com.co)
 
 name: Deploy to Hostinger
 
@@ -18,6 +18,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Crear flota-lead-secrets.php en la raíz del deploy
+        env:
+          FLOTA_SMTP_PASS: ${{ secrets.FLOTA_SMTP_PASS }}
+        run: |
+          if [ -z "$FLOTA_SMTP_PASS" ]; then
+            echo "::error::Falta el secret FLOTA_SMTP_PASS en GitHub (contraseña del correo servicio@autodealer.com.co)"
+            exit 1
+          fi
+          php -r '$p=getenv("FLOTA_SMTP_PASS"); file_put_contents("flota-lead-secrets.php","<?php\n".chr(36)."FLOTA_SMTP_PASS = ".var_export($p,true).";\n");'
+          echo "flota-lead-secrets.php generado (no va a git, solo al FTP)."
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -27,7 +38,6 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./
-          # Hostinger FTP suele abrir ya en public_html → despliegue en raíz del sitio
           server-dir: /
           dangerous-clean-slate: false
           exclude: |
@@ -38,3 +48,4 @@ jobs:
             **/deploy-raiz-dominio/**
             DEPLOY-HOSTINGER.md
             HOSTINGER-GIT.md
+            flota-lead-secrets.php.example

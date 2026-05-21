@@ -11,6 +11,14 @@ $FLOTA_SMTP_SECURE = 'ssl';
 $FLOTA_SMTP_USER   = 'servicio@autodealer.com.co';
 $FLOTA_SMTP_PASS   = '';
 
-if (is_readable(__DIR__ . '/flota-lead-secrets.php')) {
-	require __DIR__ . '/flota-lead-secrets.php';
+$flota_secret_paths = array(
+	__DIR__ . '/flota-lead-secrets.php',
+	__DIR__ . '/autodealer-nuevo/flota-lead-secrets.php',
+	dirname(__DIR__) . '/flota-lead-secrets.php',
+);
+foreach ($flota_secret_paths as $flota_secret_file) {
+	if (is_readable($flota_secret_file)) {
+		require $flota_secret_file;
+		break;
+	}
 }

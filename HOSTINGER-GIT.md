@@ -17,13 +17,16 @@ Cada **push a `main`** sube todo el sitio a la **raíz de `public_html/`**
 Repo: https://github.com/Sabaton9804/PaginaWebAutodealer  
 
 1. **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
-2. Crea tres secrets:
+2. Crea **cuatro** secrets:
 
 | Nombre | Valor |
 |--------|--------|
 | `FTP_SERVER` | Host del paso 1 (sin `ftp://`) |
 | `FTP_USERNAME` | Usuario FTP |
 | `FTP_PASSWORD` | Contraseña FTP |
+| `FLOTA_SMTP_PASS` | Contraseña del **correo** `servicio@autodealer.com.co` (hPanel → Correos) |
+
+El workflow **genera y sube** `flota-lead-secrets.php` al servidor; no hace falta crearlo a mano en File Manager.
 
 ## 3. Activar el despliegue
 
