@@ -4,32 +4,46 @@
 (function (global) {
   "use strict";
 
-  function flotaLeadEndpoint() {
+  function flotaLeadEndpoints() {
     if (global.AD_FLOTA_LEAD && global.AD_FLOTA_LEAD.endpoint) {
-      return global.AD_FLOTA_LEAD.endpoint;
+      return [global.AD_FLOTA_LEAD.endpoint];
     }
 
     if (location.protocol === "file:") {
-      return null;
+      return [];
     }
 
     var host = (location.hostname || "").toLowerCase();
     var path = location.pathname || "";
+    var urls = [];
+
+    function pushUnique(href) {
+      if (href && urls.indexOf(href) === -1) {
+        urls.push(href);
+      }
+    }
 
     if (host === "www.autodealer.com.co" || host === "autodealer.com.co") {
-      return location.origin + "/autodealer-nuevo/api/flota-lead.php";
+      pushUnique(location.origin + "/autodealer-nuevo/flota-lead.php");
+      pushUnique(location.origin + "/autodealer-nuevo/api/flota-lead.php");
+      return urls;
     }
 
     if (path.indexOf("/autodealer-nuevo/") !== -1) {
-      return location.origin + "/autodealer-nuevo/api/flota-lead.php";
+      pushUnique(location.origin + "/autodealer-nuevo/flota-lead.php");
+      pushUnique(location.origin + "/autodealer-nuevo/api/flota-lead.php");
+      return urls;
     }
 
     try {
-      var apiPath = /\/CanalFlotas\/?/i.test(path) ? "../api/flota-lead.php" : "api/flota-lead.php";
-      return new URL(apiPath, location.href).href;
+      pushUnique(new URL("../flota-lead.php", location.href).href);
+      pushUnique(new URL("../api/flota-lead.php", location.href).href);
+      pushUnique(new URL("flota-lead.php", location.href).href);
+      pushUnique(new URL("api/flota-lead.php", location.href).href);
     } catch (e) {
-      return null;
+      return [];
     }
+    return urls;
   }
 
   function encodeBody(data) {
@@ -58,8 +72,8 @@
     }
     if (status === 404) {
       return (
-        "No encontramos api/flota-lead.php en el servidor (404). " +
-        "Sube la carpeta api/ dentro de autodealer-nuevo."
+        "No encontramos flota-lead.php en el servidor (404). " +
+        "Sube flota-lead.php y flota-lead-config.php a public_html/autodealer-nuevo/ (ver DEPLOY-HOSTINGER.md)."
       );
     }
     return (
@@ -112,8 +126,8 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var url = flotaLeadEndpoint();
-      if (!url) {
+      var urls = flotaLeadEndpoints();
+      if (!urls.length) {
         showToast(
           "Este formulario solo envía correo cuando la página está en internet (autodealer.com.co), no abriendo el archivo en tu PC.",
           true
@@ -129,24 +143,44 @@
         btn.innerHTML = "Enviando…";
       }
 
-      fetch(url, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-        },
-        body: encodeBody(data),
-      })
-        .then(function (res) {
+      function postAt(index) {
+        var url = urls[index];
+        return fetch(url, {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body: encodeBody(data),
+        }).then(function (res) {
           return res
             .json()
             .catch(function () {
               return {};
             })
             .then(function (body) {
-              return { ok: res.ok, status: res.status, body: body };
+              return { ok: res.ok, status: res.status, body: body, url: url };
             });
-        })
+        });
+      }
+
+      function tryNext(index) {
+        if (index >= urls.length) {
+          return Promise.reject(
+            new Error(
+              "No encontramos flota-lead.php en el servidor (404). Sube flota-lead.php y flota-lead-config.php a public_html/autodealer-nuevo/."
+            )
+          );
+        }
+        return postAt(index).then(function (result) {
+          if (result.status === 404 && index + 1 < urls.length) {
+            return tryNext(index + 1);
+          }
+          return result;
+        });
+      }
+
+      tryNext(0)
         .then(function (result) {
           var body = result.body || {};
           if (!result.ok || !body.ok) {
@@ -179,7 +213,7 @@
   }
 
   global.ADFlotaLead = {
-    endpoint: flotaLeadEndpoint,
+    endpoints: flotaLeadEndpoints,
     bindForm: bindForm,
     openModal: function () {
       var modal = document.getElementById("fpModal");

@@ -1,0 +1,39 @@
+# Despliega main → public_html/autodealer-nuevo/ en Hostinger (FTP)
+# Secrets en GitHub: Repo → Settings → Secrets → Actions
+#   FTP_SERVER   (ej. 82.25.x.x o ftp.autodealer.com.co — ver hPanel → FTP)
+#   FTP_USERNAME (ej. u270697239)
+#   FTP_PASSWORD
+
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./
+          server-dir: /public_html/autodealer-nuevo/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/.cursor/**
+            **/deploy-raiz-dominio/**
+            DEPLOY-HOSTINGER.md
+            HOSTINGER-GIT.md
