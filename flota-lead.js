@@ -76,7 +76,7 @@
     if (status === 404) {
       return (
         "No encontramos flota-lead.php en el servidor (404). " +
-        "Sube flota-lead.php y flota-lead-config.php a public_html/autodealer-nuevo/ (ver DEPLOY-HOSTINGER.md)."
+        "Sube flota-lead.php y flota-lead-config.php a public_html/ (ver DEPLOY-HOSTINGER.md)."
       );
     }
     return (
@@ -171,7 +171,7 @@
         if (index >= urls.length) {
           return Promise.reject(
             new Error(
-              "No encontramos flota-lead.php en el servidor (404). Sube flota-lead.php y flota-lead-config.php a public_html/autodealer-nuevo/."
+              "No encontramos flota-lead.php en el servidor (404). Sube flota-lead.php y flota-lead-config.php a public_html/."
             )
           );
         }

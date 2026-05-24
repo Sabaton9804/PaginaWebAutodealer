@@ -1,19 +1,26 @@
-# Auto Dealer — URLs limpias
+# Auto Dealer — raíz del dominio (public_html)
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
 
-  RewriteBase /autodealer-nuevo/
+  # Canonical: non-www → www
+  RewriteCond %{HTTP_HOST} ^autodealer\.com\.co$ [NC]
+  RewriteRule ^(.*)$ https://www.autodealer.com.co/$1 [R=301,L]
 
-  # Redirecciones permanentes (URLs antiguas → limpias)
+  # Legacy: /autodealer-nuevo/* → raíz
+  RewriteRule ^autodealer-nuevo/(.*)$ /$1 [R=301,L]
+  RewriteRule ^autodealer-nuevo/?$ / [R=301,L]
+
+  # URLs antiguas → limpias
   RewriteRule ^landing-flotas-v2-offline\.html$ CanalFlotas/ [R=301,L,NC]
   RewriteRule ^politicas-de-garantias\.html$ Garantias/ [R=301,L,NC]
   RewriteRule ^politica-tratamiento-datos\.html$ TratamientoDatos/ [R=301,L,NC]
 
-  # Servir carpetas sin index.html en la barra (opcional)
+  # Carpetas sin barra final
   RewriteRule ^CanalFlotas$ CanalFlotas/ [R=301,L]
   RewriteRule ^Garantias$ Garantias/ [R=301,L]
   RewriteRule ^TratamientoDatos$ TratamientoDatos/ [R=301,L]
-
-  # /autodealer-nuevo/agendar/ → página que abre el modal en la home
+  RewriteRule ^taller-cali$ taller-cali/ [R=301,L]
+  RewriteRule ^taller-bogota$ taller-bogota/ [R=301,L]
   RewriteRule ^agendar$ agendar/ [R=301,L]
 </IfModule>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Taller multimarca en Cali y Bogotá: diagnóstico computarizado, mecánica, electrónica, pintura y detailing. Flotas con red nacional. Agenda cita en Auto Dealer." />
+  <meta name="description" content="Taller multimarca y serviteca en Cali y Bogotá: diagnóstico computarizado, mecánica, frenos, suspensión, pintura y detailing. Flotas con red nacional. Agenda cita en Auto Dealer." />
   <title>Auto Dealer | Taller multimarca — Cali &amp; Bogotá</title>
   <link rel="canonical" href="https://www.autodealer.com.co/" />
   <!-- Favicon: logo completo escalado (no recorte del auto a 32px) -->
@@ -12,22 +12,21 @@
   <link rel="icon" type="image/png" href="apple-touch-icon.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
   <link rel="stylesheet" href="logo-shine.css" />
-  <link rel="preload" href="Bibliotecaimagenesautodealer/hero-lift.mp4" as="video" type="video/mp4" />
-  <link rel="preload" href="Bibliotecaimagenesautodealer/hero-lift-poster.jpg" as="image" />
+  <link rel="preload" href="Bibliotecaimagenesautodealer/hero-lift-poster.jpg" as="image" fetchpriority="high" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CO" />
   <meta property="og:url" content="https://www.autodealer.com.co/" />
   <meta property="og:site_name" content="Auto Dealer" />
   <meta property="og:title" content="Auto Dealer | Taller multimarca — Cali &amp; Bogotá" />
-  <meta property="og:description" content="Taller multimarca en Cali y Bogotá: diagnóstico computarizado, mecánica, electrónica, pintura y detailing. Flotas con red nacional. Agenda cita en Auto Dealer." />
-  <meta property="og:image" content="https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
+  <meta property="og:description" content="Taller multimarca y serviteca en Cali y Bogotá: diagnóstico, mecánica, frenos, suspensión, pintura y detailing. Flotas con red nacional." />
+  <meta property="og:image" content="https://www.autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
   <meta property="og:image:width" content="1920" />
   <meta property="og:image:height" content="1080" />
   <meta property="og:image:alt" content="Auto Dealer — instantánea del video del taller (elevación)" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Auto Dealer | Taller multimarca — Cali &amp; Bogotá" />
-  <meta name="twitter:description" content="Taller multimarca en Cali y Bogotá: diagnóstico, mecánica, pintura y detailing. Flotas con cobertura nacional." />
-  <meta name="twitter:image" content="https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
+  <meta name="twitter:description" content="Taller multimarca y serviteca en Cali y Bogotá: diagnóstico, mecánica, frenos, suspensión y pintura. Flotas con cobertura nacional." />
+  <meta name="twitter:image" content="https://www.autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -1318,6 +1317,25 @@
       color: rgba(255, 255, 255, 0.55);
     }
 
+    .greviews__map-cta {
+      margin: 0 0 0.65rem;
+      font-size: 0.82rem;
+    }
+
+    .greviews__map-cta a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .greviews__map-cta a:hover { text-decoration: underline; }
+
+    .sede a:not(.wa) {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.88rem;
+    }
+
+    .sede a:not(.wa):hover { color: var(--accent); }
+
     .greviews__map-frame {
       position: relative;
       width: 100%;
@@ -2121,8 +2139,8 @@
         "@id": "https://www.autodealer.com.co/#organization",
         "name": "Auto Dealer",
         "url": "https://www.autodealer.com.co/",
-        "logo": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/logo.png",
-        "image": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
+        "logo": "https://www.autodealer.com.co/Bibliotecaimagenesautodealer/logo.png",
+        "image": "https://www.autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
         "email": "servicio@autodealer.com.co",
         "sameAs": [
           "https://www.instagram.com/autodealer_col/",
@@ -2133,10 +2151,18 @@
         "@type": "AutoRepair",
         "@id": "https://www.autodealer.com.co/#sede-cali",
         "name": "Auto Dealer — Cali",
-        "url": "https://www.autodealer.com.co/#sedes",
-        "image": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
+        "url": "https://www.autodealer.com.co/taller-cali/",
+        "image": "https://www.autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
         "telephone": "+573214414610",
         "email": "servicio@autodealer.com.co",
+        "priceRange": "$$",
+        "areaServed": { "@type": "City", "name": "Cali" },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Auto+Dealer+Cra.+15+%2322A-17+Local+1+Cali+Colombia",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 3.4378,
+          "longitude": -76.5222
+        },
         "parentOrganization": { "@id": "https://www.autodealer.com.co/#organization" },
         "address": {
           "@type": "PostalAddress",
@@ -2164,10 +2190,18 @@
         "@type": "AutoRepair",
         "@id": "https://www.autodealer.com.co/#sede-bogota",
         "name": "Auto Dealer — Bogotá",
-        "url": "https://www.autodealer.com.co/#sedes",
-        "image": "https://www.autodealer.com.co/autodealer-nuevo/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
+        "url": "https://www.autodealer.com.co/taller-bogota/",
+        "image": "https://www.autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
         "telephone": "+573183419819",
         "email": "servicio@autodealer.com.co",
+        "priceRange": "$$",
+        "areaServed": { "@type": "City", "name": "Bogotá" },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Auto+Dealer+Cra+27+%2363-40+Bogota+Colombia",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 4.6530,
+          "longitude": -74.0836
+        },
         "parentOrganization": { "@id": "https://www.autodealer.com.co/#organization" },
         "address": {
           "@type": "PostalAddress",
@@ -2260,7 +2294,7 @@
             muted
             loop
             playsinline
-            preload="auto"
+            preload="metadata"
             poster="Bibliotecaimagenesautodealer/hero-lift-poster.jpg"
           >
             <source src="Bibliotecaimagenesautodealer/hero-lift.mp4" type="video/mp4" />
@@ -2280,7 +2314,7 @@
               Un taller para tu carro. Una <span class="hero-pro__mega-red">red</span> para tu flota.
             </h1>
             <p class="hero-pro__mega-sub reveal">
-              Sedes propias en Bogotá y Cali. Red de talleres aliados a nivel nacional. Mecánica, diagnóstico, colisión, pintura, detailing y serviteca para particulares y empresas.
+              Sedes propias en Bogotá y Cali. Red de talleres aliados a nivel nacional. Mecánica, diagnóstico, frenos, suspensión, colisión, pintura, detailing y serviteca para particulares y empresas.
             </p>
             <div class="hero-pro__ctas reveal" style="--d:60ms">
               <a class="hero-pro__btn hero-pro__btn--primary" href="#agendar" data-agendar-modal>Agendar cita</a>
@@ -2308,7 +2342,7 @@
               muted
               loop
               playsinline
-              preload="auto"
+              preload="metadata"
               disablepictureinpicture
               poster="Bibliotecaimagenesautodealer/servicios-hero.png"
             >
@@ -2414,12 +2448,26 @@
                 <p>Venta de lubricantes, filtros, baterías, llantas y repuestos de línea, con asesoría de compatibilidad para tu vehículo.</p>
               </div>
             </article>
+            <article class="svc-row reveal" style="--d:320ms">
+              <span class="idx">09</span>
+              <div>
+                <h3>Frenos</h3>
+                <p>Pastillas, discos, líquido de frenos y revisión del sistema de frenado con repuestos de calidad.</p>
+              </div>
+            </article>
+            <article class="svc-row reveal" style="--d:360ms">
+              <span class="idx">10</span>
+              <div>
+                <h3>Suspensión y dirección</h3>
+                <p>Amortiguadores, bujes, terminales y alineación para estabilidad y confort en la vía.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="flotas" id="flotas">
-        <video id="flotas-video" class="flotas__video" src="colombia_mapa.mp4" autoplay muted loop playsinline preload="auto"></video>
+        <video id="flotas-video" class="flotas__video" src="colombia_mapa.mp4" autoplay muted loop playsinline preload="metadata"></video>
         <div class="flotas__overlay" aria-hidden="true"></div>
         <div class="container flotas__content">
           <header class="flotas__head reveal">
@@ -2656,8 +2704,10 @@
             <p class="greviews__eyebrow">Confianza verificada</p>
             <h2 id="greviews-title">Opiniones en Google Maps</h2>
             <p class="greviews__sub">
-              Resaltamos lo que más valoran quienes ya visitaron nuestras sedes. Abre la ficha para ver todas las reseñas y la
-              calificación actual.
+              Resaltamos lo que más valoran quienes ya visitaron nuestras sedes.
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Dealer+Cra.+15+%2322A-17+Local+1+Cali+Colombia" rel="noopener noreferrer" target="_blank">Ver reseñas en Google — Cali</a>
+              ·
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Dealer+Cra+27+%2363-40+Bogota+Colombia" rel="noopener noreferrer" target="_blank">Bogotá</a>
             </p>
             <div class="greviews__rating reveal" style="--d:20ms" aria-label="Calificación destacada cinco estrellas">
               <span class="greviews__stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
@@ -2669,6 +2719,7 @@
           <div class="greviews__maps-grid">
             <div>
               <p class="greviews__map-label">Cali — mapa en Google</p>
+              <p class="greviews__map-cta"><a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Dealer+Cra.+15+%2322A-17+Local+1+Cali+Colombia" rel="noopener noreferrer" target="_blank">Abrir ficha en Google Maps</a></p>
               <div class="greviews__map-frame">
                 <iframe
                   title="Ubicación Auto Dealer Cali en Google Maps"
@@ -2681,6 +2732,7 @@
             </div>
             <div>
               <p class="greviews__map-label">Bogotá — mapa en Google</p>
+              <p class="greviews__map-cta"><a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Dealer+Cra+27+%2363-40+Bogota+Colombia" rel="noopener noreferrer" target="_blank">Abrir ficha en Google Maps</a></p>
               <div class="greviews__map-frame">
                 <iframe
                   title="Ubicación Auto Dealer Bogotá en Google Maps"
@@ -2902,7 +2954,7 @@
 
       <!-- Segundo video (taller) — sin duplicar tarjetas del hero -->
       <section class="vid-band vid-band--secondary" id="video" aria-label="Video del taller">
-        <video autoplay muted loop playsinline preload="auto" poster="Bibliotecaimagenesautodealer/servicios-cover.jpg" id="band-video">
+        <video autoplay muted loop playsinline preload="metadata" poster="Bibliotecaimagenesautodealer/servicios-cover.jpg" id="band-video">
           <source src="Bibliotecaimagenesautodealer/taller-video.mp4" type="video/mp4" />
         </video>
         <div class="vid-band__dim" aria-hidden="true"></div>
@@ -2922,12 +2974,14 @@
               <h3>Cali</h3>
               <p>Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9, Valle del Cauca</p>
               <p><strong>Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+              <p><a href="taller-cali/">Taller mecánico y serviteca en Cali</a></p>
               <a class="wa" href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp · 321 4414610</a>
             </article>
             <article class="sede reveal" style="--d:60ms">
               <h3>Bogotá</h3>
               <p>Cra 27 #63-40, Barrio Quinta Mutis</p>
               <p><strong>Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+              <p><a href="taller-bogota/">Taller mecánico y serviteca en Bogotá</a></p>
               <a class="wa" href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp · 318 3413819</a>
             </article>
           </div>
@@ -2964,6 +3018,8 @@
                     <li><a href="CanalFlotas/">Flotas</a></li>
                     <li><a href="#resenas">Reseñas</a></li>
                     <li><a href="#agendar" data-agendar-modal>Agendar cita</a></li>
+                    <li><a href="taller-cali/">Taller Cali</a></li>
+                    <li><a href="taller-bogota/">Taller Bogotá</a></li>
                     <li><a href="#sedes">Sedes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="Garantias/">Garantías</a></li>
