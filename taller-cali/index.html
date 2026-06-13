@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Taller mecánico multimarca y serviteca en Cali: diagnóstico computarizado, frenos, suspensión, pintura, detailing y mecánica general. Auto Dealer, Barrio Obrero." />
-  <title>Taller mecánico y serviteca en Cali | Auto Dealer</title>
+  <meta name="description" content="Taller mecánico multimarca en Cali, Valle del Cauca. Mecánica general, diagnóstico computarizado, frenos, suspensión, pintura, detailing y serviteca. Barrio Obrero. Auto Dealer — particulares y flotas." />
+  <title>Taller mecánico en Cali | Mecánica multimarca y serviteca | Auto Dealer</title>
   <link rel="canonical" href="https://autodealer.com.co/taller-cali/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:url" content="https://autodealer.com.co/taller-cali/" />
+  <meta property="og:title" content="Taller mecánico en Cali | Auto Dealer" />
+  <meta property="og:description" content="Mecánica multimarca, diagnóstico computarizado, frenos, suspensión, pintura y serviteca en Cali, Barrio Obrero." />
+  <meta property="og:image" content="https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Taller mecánico en Cali | Auto Dealer" />
+  <meta name="twitter:description" content="Mecánica general, diagnóstico, frenos, suspensión y serviteca en Cali. Atención a particulares y flotas." />
+  <meta name="twitter:image" content="https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
   <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32" />
   <link rel="stylesheet" href="../logo-shine.css" />
   <link rel="stylesheet" href="../site-links.css?v=3" />
@@ -15,25 +25,58 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AutoRepair",
-    "name": "Auto Dealer — Taller Cali",
-    "url": "https://autodealer.com.co/taller-cali/",
-    "image": "https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
-    "telephone": "+573214414610",
-    "email": "servicio@autodealer.com.co",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9",
-      "addressLocality": "Cali",
-      "addressRegion": "Valle del Cauca",
-      "addressCountry": "CO"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 3.4378, "longitude": -76.5222 },
-    "hasMap": "https://www.google.com/maps/search/?api=1&query=Auto+Dealer+Cra.+15+%2322A-17+Local+1+Cali+Colombia",
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "17:30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:30", "closes": "14:30" }
+    "@graph": [
+      {
+        "@type": "AutoRepair",
+        "@id": "https://autodealer.com.co/taller-cali/#local",
+        "name": "Auto Dealer — Taller mecánico Cali",
+        "description": "Taller mecánico multimarca y serviteca en Cali, Barrio Obrero. Mecánica general, diagnóstico computarizado, frenos, suspensión, pintura y detailing.",
+        "url": "https://autodealer.com.co/taller-cali/",
+        "image": "https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
+        "telephone": "+573214414610",
+        "email": "servicio@autodealer.com.co",
+        "priceRange": "$$",
+        "areaServed": { "@type": "City", "name": "Cali" },
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Auto Dealer",
+          "url": "https://autodealer.com.co/"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9",
+          "addressLocality": "Cali",
+          "addressRegion": "Valle del Cauca",
+          "addressCountry": "CO"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 3.4378, "longitude": -76.5222 },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Auto+Dealer+Cra.+15+%2322A-17+Local+1+Cali+Colombia",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "17:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:30", "closes": "14:30" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué servicios de mecánica ofrece Auto Dealer en Cali?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Diagnóstico computarizado, mecánica general, electrónica automotriz, frenos, suspensión, colisión, pintura, detailing, peritaje técnico y serviteca con repuestos, lubricantes, baterías y llantas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Atienden flotas en Cali?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Auto Dealer Cali atiende particulares, empresas y flotas corporativas con mecánica preventiva y correctiva, y acceso a la red nacional de talleres aliados."
+            }
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -49,26 +92,32 @@
     .nav a:hover { color:#fff; }
     .hero { padding:2.5rem 0 1.5rem; }
     .tag { font-size:.65rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin:0 0 .75rem; }
-    h1 { font-size:clamp(1.75rem,4vw,2.35rem); line-height:1.12; margin:0 0 1rem; max-width:22ch; }
-    .lead { margin:0 0 1.5rem; color:var(--muted); max-width:58ch; }
+    h1 { font-size:clamp(1.75rem,4vw,2.35rem); line-height:1.12; margin:0 0 1rem; max-width:24ch; }
+    .lead { margin:0 0 1.5rem; color:var(--muted); max-width:62ch; }
     .grid { display:grid; gap:1rem; margin:2rem 0; }
     @media (min-width:720px) { .grid { grid-template-columns:1fr 1fr; } }
     .card { padding:1.15rem 1.2rem; border-radius:14px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); }
     .card h2 { margin:0 0 .65rem; font-size:1.05rem; }
+    .card h3 { margin:1rem 0 .5rem; font-size:.95rem; }
     .card ul { margin:0; padding-left:1.1rem; color:var(--muted); font-size:.92rem; }
     .card li { margin:.35rem 0; }
+    .card p { margin:0; color:var(--muted); font-size:.92rem; line-height:1.55; }
     .cta { display:flex; flex-wrap:wrap; gap:.65rem; margin:1.75rem 0 2.5rem; }
     .btn { display:inline-flex; align-items:center; justify-content:center; padding:.75rem 1.15rem; border-radius:999px; font-weight:700; font-size:.82rem; text-decoration:none; }
     .btn--primary { background:var(--accent); color:#fff; border:1px solid var(--accent); }
     .btn--ghost { color:#fff; border:1px solid rgba(255,255,255,.25); }
     .map { border:0; width:100%; height:280px; border-radius:14px; }
+    .faq { margin:2rem 0; }
+    .faq h2 { font-size:1.25rem; margin:0 0 1rem; }
+    .faq article { padding:1rem 0; border-top:1px solid rgba(255,255,255,.08); }
+    .faq h3 { margin:0 0 .45rem; font-size:.98rem; }
     footer { padding:1.5rem 0 2rem; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); font-size:.82rem; }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="container nav__in">
-      <a href="../" aria-label="Auto Dealer inicio"><img src="../Bibliotecaimagenesautodealer/logo.png" alt="Auto Dealer" width="200" height="48" /></a>
+      <a href="../" aria-label="Auto Dealer inicio"><img src="../Bibliotecaimagenesautodealer/logo.png" alt="Auto Dealer taller mecánico Cali" width="200" height="48" /></a>
       <a href="../">← Volver al sitio</a>
     </div>
   </header>
@@ -76,11 +125,12 @@
   <main>
     <section class="hero">
       <div class="container">
-        <p class="tag">Sede Cali · Valle del Cauca</p>
+        <p class="tag">Taller mecánico Cali · Valle del Cauca · Colombia</p>
         <h1>Taller mecánico multimarca y serviteca en Cali</h1>
         <p class="lead">
-          En Auto Dealer Cali atendemos particulares, empresas y flotas con diagnóstico computarizado, mecánica general,
-          frenos, suspensión, pintura, detailing y repuestos en serviteca. Proceso transparente y cotización clara antes de reparar.
+          Auto Dealer Cali es tu taller de confianza en Barrio Obrero: mecánica general, diagnóstico computarizado,
+          frenos, suspensión, pintura, detailing y serviteca para carros particulares, empresas y flotas.
+          Diagnóstico antes de reparar y cotización clara.
         </p>
         <div class="cta">
           <a class="btn btn--primary" href="https://api.whatsapp.com/send?phone=573214414610&amp;text=Hola%2C%20quiero%20agendar%20en%20Auto%20Dealer%20Cali.">WhatsApp Cali</a>
@@ -93,30 +143,45 @@
     <section class="container">
       <div class="grid">
         <article class="card">
-          <h2>Servicios en Cali</h2>
+          <h2>Servicios de mecánica en Cali</h2>
           <ul>
-            <li>Diagnóstico computarizado</li>
-            <li>Mecánica general y electrónica</li>
-            <li>Frenos y suspensión</li>
+            <li>Diagnóstico computarizado multimarca</li>
+            <li>Mecánica general y electrónica automotriz</li>
+            <li>Frenos, suspensión y dirección</li>
             <li>Colisión, pintura y detailing</li>
             <li>Peritaje técnico</li>
             <li>Serviteca: lubricantes, filtros, baterías y llantas</li>
           </ul>
+          <h3>Mecánica para particulares y flotas</h3>
+          <p>Atendemos conductores individuales y empresas con flotas en Cali y Valle del Cauca. Si necesitas cobertura nacional, conoce nuestra <a href="../CanalFlotas/">propuesta para flotas corporativas</a>.</p>
         </article>
         <article class="card">
-          <h2>Ubicación y horario</h2>
-          <p style="margin:0 0 .75rem;color:var(--muted);font-size:.92rem;">
-            Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9, Cali<br />
+          <h2>Ubicación, horario y contacto</h2>
+          <p style="margin:0 0 .75rem;">
+            Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9, Cali, Valle del Cauca<br />
             Tel: <a href="tel:+573214414610">+57 321 441 4610</a><br />
             Email: <a href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a>
           </p>
-          <p style="margin:0;color:var(--muted);font-size:.92rem;"><strong style="color:#fff">Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
-          <p style="margin:.85rem 0 0;font-size:.88rem;"><a href="../taller-bogota/">También atendemos en Bogotá</a> · <a href="../CanalFlotas/">Flotas corporativas</a></p>
+          <p><strong style="color:#fff">Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
+          <p style="margin-top:.85rem;"><a href="../taller-bogota/">Taller mecánico en Bogotá</a> · <a href="../">Sitio principal Auto Dealer</a></p>
         </article>
       </div>
+
+      <section class="faq" aria-labelledby="faq-cali">
+        <h2 id="faq-cali">Preguntas frecuentes — taller mecánico Cali</h2>
+        <article>
+          <h3>¿Qué marcas de carros atienden en Cali?</h3>
+          <p>Somos taller multimarca: atendemos más de 30 marcas con diagnóstico computarizado y mecánica especializada.</p>
+        </article>
+        <article>
+          <h3>¿Dónde queda el taller en Cali?</h3>
+          <p>En Barrio Obrero, Cra. 15 #22A-17 Local 1. Fácil acceso y estacionamiento cercano.</p>
+        </article>
+      </section>
+
       <iframe
         class="map"
-        title="Auto Dealer Cali en Google Maps"
+        title="Auto Dealer taller mecánico Cali en Google Maps"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen
@@ -126,7 +191,7 @@
   </main>
 
   <footer>
-    <div class="container">© Auto Dealer · <a href="../">autodealer.com.co</a></div>
+    <div class="container">© Auto Dealer · <a href="../">Taller mecánico Cali y Bogotá — autodealer.com.co</a></div>
   </footer>
 </body>
 </html>

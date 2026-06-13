@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Taller multimarca y serviteca en Cali y Bogotá: diagnóstico computarizado, mecánica, frenos, suspensión, pintura y detailing. Flotas con red nacional. Agenda cita en Auto Dealer." />
-  <title>Auto Dealer | Taller multimarca — Cali &amp; Bogotá</title>
+  <meta name="description" content="Taller mecánico multimarca en Cali y Bogotá, Colombia. Mecánica general, diagnóstico computarizado, frenos, suspensión, pintura, detailing y serviteca para particulares. Mantenimiento de flotas corporativas con red nacional. Agenda cita en Auto Dealer." />
+  <title>Taller mecánico Cali y Bogotá | Mecánica, serviteca y flotas | Auto Dealer Colombia</title>
   <link rel="canonical" href="https://autodealer.com.co/" />
   <!-- Favicon: logo completo escalado (no recorte del auto a 32px) -->
   <link rel="icon" type="image/png" href="favicon-16.png" sizes="16x16" />
@@ -17,15 +17,15 @@
   <meta property="og:locale" content="es_CO" />
   <meta property="og:url" content="https://autodealer.com.co/" />
   <meta property="og:site_name" content="Auto Dealer" />
-  <meta property="og:title" content="Auto Dealer | Taller multimarca — Cali &amp; Bogotá" />
-  <meta property="og:description" content="Taller multimarca y serviteca en Cali y Bogotá: diagnóstico, mecánica, frenos, suspensión, pintura y detailing. Flotas con red nacional." />
+  <meta property="og:title" content="Taller mecánico Cali y Bogotá | Mecánica, serviteca y flotas | Auto Dealer" />
+  <meta property="og:description" content="Taller mecánico multimarca en Cali y Bogotá: mecánica, diagnóstico, frenos, suspensión, pintura y serviteca. Mantenimiento de flotas corporativas en Colombia." />
   <meta property="og:image" content="https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
   <meta property="og:image:width" content="1920" />
   <meta property="og:image:height" content="1080" />
   <meta property="og:image:alt" content="Auto Dealer — instantánea del video del taller (elevación)" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Auto Dealer | Taller multimarca — Cali &amp; Bogotá" />
-  <meta name="twitter:description" content="Taller multimarca y serviteca en Cali y Bogotá: diagnóstico, mecánica, frenos, suspensión y pintura. Flotas con cobertura nacional." />
+  <meta name="twitter:title" content="Taller mecánico Cali y Bogotá | Auto Dealer Colombia" />
+  <meta name="twitter:description" content="Mecánica general, diagnóstico, frenos, suspensión, pintura y serviteca en Cali y Bogotá. Flotas corporativas con cobertura nacional." />
   <meta name="twitter:image" content="https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1801,6 +1801,54 @@
       border-radius: 999px;
     }
 
+    /* —— FAQ SEO —— */
+    .faq {
+      padding: 4rem 0;
+      background: #0a0a0a;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .faq h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 3vw, 2.35rem);
+      margin: 0 0 0.75rem;
+    }
+
+    .faq__intro {
+      margin: 0 0 2rem;
+      max-width: 58ch;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .faq__list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .faq__item {
+      padding: 1.35rem 1.5rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .faq__item h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+
+    .faq__item p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .faq__item a { color: #fff; }
+
     .footer__brand-tagline {
       margin: 0 0 0.55rem;
       font-size: 0.88rem;
@@ -2139,6 +2187,7 @@
         "@id": "https://autodealer.com.co/#organization",
         "name": "Auto Dealer",
         "url": "https://autodealer.com.co/",
+        "description": "Taller mecánico multimarca en Cali y Bogotá, Colombia. Mecánica general, diagnóstico computarizado, serviteca y mantenimiento de flotas corporativas con red nacional.",
         "logo": "https://autodealer.com.co/Bibliotecaimagenesautodealer/logo.png",
         "image": "https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
         "email": "servicio@autodealer.com.co",
@@ -2151,6 +2200,7 @@
         "@type": "AutoRepair",
         "@id": "https://autodealer.com.co/#sede-cali",
         "name": "Auto Dealer — Cali",
+        "description": "Taller mecánico multimarca y serviteca en Cali, Valle del Cauca. Mecánica general, diagnóstico computarizado, frenos, suspensión, pintura y detailing.",
         "url": "https://autodealer.com.co/taller-cali/",
         "image": "https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
         "telephone": "+573214414610",
@@ -2190,6 +2240,7 @@
         "@type": "AutoRepair",
         "@id": "https://autodealer.com.co/#sede-bogota",
         "name": "Auto Dealer — Bogotá",
+        "description": "Taller mecánico multimarca y serviteca en Bogotá, Quinta Mutis. Mecánica general, diagnóstico computarizado, frenos, suspensión, pintura y detailing.",
         "url": "https://autodealer.com.co/taller-bogota/",
         "image": "https://autodealer.com.co/Bibliotecaimagenesautodealer/hero-lift-poster.jpg",
         "telephone": "+573183419819",
@@ -2222,6 +2273,61 @@
             "dayOfWeek": "Saturday",
             "opens": "08:30",
             "closes": "14:30"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://autodealer.com.co/#website",
+        "url": "https://autodealer.com.co/",
+        "name": "Auto Dealer — Taller mecánico Cali y Bogotá",
+        "description": "Taller mecánico multimarca, serviteca y mantenimiento de flotas en Colombia.",
+        "publisher": { "@id": "https://autodealer.com.co/#organization" },
+        "inLanguage": "es-CO"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://autodealer.com.co/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Dónde queda el taller mecánico Auto Dealer en Cali?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Auto Dealer Cali está en Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9. Atendemos mecánica general, diagnóstico computarizado, frenos, suspensión, pintura, detailing y serviteca. Horario: Lun–Vie 8:30am–5:30pm, Sáb 8:30am–2:30pm."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Dónde queda el taller mecánico Auto Dealer en Bogotá?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Auto Dealer Bogotá está en Cra 27 #63-40, Barrio Quinta Mutis. Ofrecemos mecánica multimarca, diagnóstico, frenos, suspensión, colisión, pintura y serviteca. Horario: Lun–Vie 8:30am–5:30pm, Sáb 8:30am–2:30pm."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Auto Dealer atiende flotas corporativas en Colombia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Auto Dealer es aliado nacional en mantenimiento de flotas corporativas con sedes propias en Cali y Bogotá y red de talleres aliados en todo el país. Ofrecemos mecánica preventiva y correctiva, gestión centralizada y documentación para empresas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué servicios ofrece el taller mecánico Auto Dealer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Diagnóstico computarizado, mecánica general, electrónica automotriz, frenos, suspensión y dirección, colisión, pintura, detailing, peritaje técnico y serviteca con repuestos, lubricantes, baterías y llantas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo agendo una cita en Auto Dealer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puedes agendar cita en autodealer.com.co desde el botón Agendar cita, por WhatsApp en Cali (+57 321 441 4610) o Bogotá (+57 318 341 9819), o escribiendo a servicio@autodealer.com.co."
+            }
           }
         ]
       }
@@ -2311,10 +2417,10 @@
             </div>
             <p class="hero-pro__eyebrow reveal">Taller multimarca · Talleres propios Bogotá &amp; Cali · Flotas con cobertura nacional</p>
             <h1 class="hero-pro__mega reveal">
-              Un taller para tu carro. Una <span class="hero-pro__mega-red">red</span> para tu flota.
+              Taller mecánico multimarca en Cali y Bogotá
             </h1>
             <p class="hero-pro__mega-sub reveal">
-              Sedes propias en Bogotá y Cali. Red de talleres aliados a nivel nacional. Mecánica, diagnóstico, frenos, suspensión, colisión, pintura, detailing y serviteca para particulares y empresas.
+              Un taller para tu carro. Una <strong style="color:#fff;font-weight:700">red</strong> para tu flota. Sedes propias en Bogotá y Cali, red de talleres aliados a nivel nacional. Mecánica, diagnóstico, frenos, suspensión, colisión, pintura, detailing y serviteca para particulares y empresas.
             </p>
             <div class="hero-pro__ctas reveal" style="--d:60ms">
               <a class="hero-pro__btn hero-pro__btn--primary" href="#agendar" data-agendar-modal>Agendar cita</a>
@@ -2705,9 +2811,9 @@
             <h2 id="greviews-title">Opiniones en Google Maps</h2>
             <p class="greviews__sub">
               Resaltamos lo que más valoran quienes ya visitaron nuestras sedes.
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Dealer+Cra.+15+%2322A-17+Local+1+Cali+Colombia" rel="noopener noreferrer" target="_blank">Ver reseñas en Google — Cali</a>
+              <a href="taller-cali/">Ver reseñas en Google — Cali</a>
               ·
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Dealer+Cra+27+%2363-40+Bogota+Colombia" rel="noopener noreferrer" target="_blank">Bogotá</a>
+              <a href="taller-bogota/">Bogotá</a>
             </p>
             <div class="greviews__rating reveal" style="--d:20ms" aria-label="Calificación destacada cinco estrellas">
               <span class="greviews__stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
@@ -2971,18 +3077,47 @@
           <h2 class="reveal">Sedes</h2>
           <div class="sedes__grid">
             <article class="sede reveal">
-              <h3>Cali</h3>
+              <h3>Taller mecánico Cali</h3>
               <p>Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9, Valle del Cauca</p>
               <p><strong>Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
               <p><a href="taller-cali/">Taller mecánico y serviteca en Cali</a></p>
               <a class="wa" href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp · 321 4414610</a>
             </article>
             <article class="sede reveal" style="--d:60ms">
-              <h3>Bogotá</h3>
+              <h3>Taller mecánico Bogotá</h3>
               <p>Cra 27 #63-40, Barrio Quinta Mutis</p>
               <p><strong>Horario:</strong> Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
               <p><a href="taller-bogota/">Taller mecánico y serviteca en Bogotá</a></p>
               <a class="wa" href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp · 318 3413819</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" id="preguntas-frecuentes" aria-labelledby="faq-title">
+        <div class="container">
+          <h2 id="faq-title" class="reveal">Preguntas frecuentes sobre nuestro taller mecánico</h2>
+          <p class="faq__intro reveal">Respuestas claras para quien busca mecánica en Cali, Bogotá o mantenimiento de flotas en Colombia.</p>
+          <div class="faq__list">
+            <article class="faq__item reveal">
+              <h3>¿Dónde queda el taller mecánico Auto Dealer en Cali?</h3>
+              <p>En Cra. 15 #22A-17 Local 1, Barrio Obrero, Comuna 9. Atendemos particulares, empresas y flotas con mecánica general, diagnóstico, frenos, suspensión, pintura y serviteca. <a href="taller-cali/">Ver taller mecánico en Cali</a>.</p>
+            </article>
+            <article class="faq__item reveal">
+              <h3>¿Dónde queda el taller mecánico Auto Dealer en Bogotá?</h3>
+              <p>En Cra 27 #63-40, Barrio Quinta Mutis. Taller multimarca con diagnóstico computarizado, mecánica, colisión, pintura y repuestos. <a href="taller-bogota/">Ver taller mecánico en Bogotá</a>.</p>
+            </article>
+            <article class="faq__item reveal">
+              <h3>¿Atienden flotas corporativas en Colombia?</h3>
+              <p>Sí. Somos aliado nacional en mantenimiento de flotas con sedes en Cali y Bogotá y red de talleres aliados en todo el país. Mecánica preventiva, correctiva y gestión centralizada para empresas. <a href="CanalFlotas/">Conocer propuesta para flotas</a>.</p>
+            </article>
+            <article class="faq__item reveal">
+              <h3>¿Qué servicios de mecánica ofrecen?</h3>
+              <p>Diagnóstico computarizado, mecánica general, electrónica automotriz, frenos, suspensión, colisión, pintura, detailing, peritaje técnico y serviteca con lubricantes, filtros, baterías y llantas.</p>
+            </article>
+            <article class="faq__item reveal">
+              <h3>¿Cómo agendo una cita?</h3>
+              <p>Usa el botón <a href="#agendar" data-agendar-modal>Agendar cita</a>, WhatsApp Cali o Bogotá, o escribe a <a href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a>.</p>
             </article>
           </div>
         </div>
@@ -3003,7 +3138,7 @@
                 />
                 <span class="logo-shine__sweep" aria-hidden="true"></span>
               </span>
-              <p class="footer__brand-tagline">Taller multimarca — cobertura nacional.</p>
+              <p class="footer__brand-tagline">Taller mecánico multimarca en Cali y Bogotá — mecánica, serviteca y flotas en Colombia.</p>
               <p class="footer__hours">Lun–Vie 8:30am–5:30pm · Sáb 8:30am–2:30pm</p>
               <a class="mail" href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a>
             </div>
@@ -3020,6 +3155,7 @@
                     <li><a href="#agendar" data-agendar-modal>Agendar cita</a></li>
                     <li><a href="taller-cali/">Taller Cali</a></li>
                     <li><a href="taller-bogota/">Taller Bogotá</a></li>
+                    <li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li>
                     <li><a href="#sedes">Sedes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="Garantias/">Garantías</a></li>
