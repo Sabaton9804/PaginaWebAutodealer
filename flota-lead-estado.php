@@ -1,7 +1,7 @@
 <?php
 /**
  * Diagnóstico rápido (no expone contraseñas).
- * Abre: https://www.autodealer.com.co/flota-lead-estado.php
+ * Abre: https://autodealer.com.co/flota-lead-estado.php
  */
 declare(strict_types=1);
 

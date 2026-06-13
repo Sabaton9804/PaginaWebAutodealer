@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.autodealer.com.co/</loc>
+    <loc>https://autodealer.com.co/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.autodealer.com.co/taller-cali/</loc>
+    <loc>https://autodealer.com.co/taller-cali/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.autodealer.com.co/taller-bogota/</loc>
+    <loc>https://autodealer.com.co/taller-bogota/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.autodealer.com.co/CanalFlotas/</loc>
+    <loc>https://autodealer.com.co/CanalFlotas/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.autodealer.com.co/agendar/</loc>
+    <loc>https://autodealer.com.co/agendar/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.autodealer.com.co/Garantias/</loc>
+    <loc>https://autodealer.com.co/Garantias/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.autodealer.com.co/TratamientoDatos/</loc>
+    <loc>https://autodealer.com.co/TratamientoDatos/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

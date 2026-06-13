@@ -3,9 +3,9 @@
   RewriteEngine On
   RewriteBase /
 
-  # Canonical: non-www → www
-  RewriteCond %{HTTP_HOST} ^autodealer\.com\.co$ [NC]
-  RewriteRule ^(.*)$ https://www.autodealer.com.co/$1 [R=301,L]
+  # Canonical: www → non-www (certificado SSL solo cubre autodealer.com.co)
+  RewriteCond %{HTTP_HOST} ^www\.autodealer\.com\.co$ [NC]
+  RewriteRule ^(.*)$ https://autodealer.com.co/$1 [R=301,L]
 
   # Legacy: /autodealer-nuevo/* → raíz
   RewriteRule ^autodealer-nuevo/(.*)$ /$1 [R=301,L]

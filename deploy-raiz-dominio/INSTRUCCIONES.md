@@ -2,7 +2,7 @@
 
 ## Qué hace esto
 
-La URL `https://www.autodealer.com.co/agendar/` dejará de mostrar 404 y redirigirá a la home del sitio nuevo con el popup **Agendar cita** abierto.
+La URL `https://autodealer.com.co/agendar/` dejará de mostrar 404 y redirigirá a la home del sitio nuevo con el popup **Agendar cita** abierto.
 
 ## Pasos en Hostinger (File Manager o FTP)
 
@@ -25,7 +25,7 @@ RewriteRule ^agendar/?$ /autodealer-nuevo/agendar/ [R=301,L]
 
 ### 3. Comprobar
 
-- `https://www.autodealer.com.co/agendar/` → debe ir a `.../autodealer-nuevo/agendar/` y luego abrir el modal en la home.
+- `https://autodealer.com.co/agendar/` → debe ir a `.../autodealer-nuevo/agendar/` y luego abrir el modal en la home.
 - En la home: botón **Agendar cita** → modal con WhatsApp Bogotá/Cali.
 
 ## Alternativa sin tocar .htaccess de la raíz
@@ -34,7 +34,7 @@ En el panel de Hostinger → **Dominios** → **Redirecciones**:
 
 | Origen | Destino |
 |--------|---------|
-| `/agendar` | `https://www.autodealer.com.co/autodealer-nuevo/agendar/` |
+| `/agendar` | `https://autodealer.com.co/autodealer-nuevo/agendar/` |
 
 Tipo: **301 permanente**.
 
@@ -42,6 +42,6 @@ Tipo: **301 permanente**.
 
 Usa cualquiera de estos (todos abren el modal):
 
-- `https://www.autodealer.com.co/agendar/`
-- `https://www.autodealer.com.co/autodealer-nuevo/#agendar`
-- `https://www.autodealer.com.co/autodealer-nuevo/agendar/`
+- `https://autodealer.com.co/agendar/`
+- `https://autodealer.com.co/autodealer-nuevo/#agendar`
+- `https://autodealer.com.co/autodealer-nuevo/agendar/`

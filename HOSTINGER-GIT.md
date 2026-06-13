@@ -28,14 +28,14 @@ Repo: https://github.com/Sabaton9804/PaginaWebAutodealer
 
 El workflow **genera y sube** `flota-lead-secrets.php` al servidor.
 
-**Importante:** sin el secret `FLOTA_SMTP_PASS`, el deploy **no debe ejecutarse** (falla a propósito). Si subes el sitio por FTP a mano sin ese archivo, el formulario de flotas muestra: *“Falta flota-lead-secrets.php…”*. Comprueba: `https://www.autodealer.com.co/flota-lead-estado.php` → debe decir `"listo": true`.
+**Importante:** sin el secret `FLOTA_SMTP_PASS`, el deploy **no debe ejecutarse** (falla a propósito). Si subes el sitio por FTP a mano sin ese archivo, el formulario de flotas muestra: *“Falta flota-lead-secrets.php…”*. Comprueba: `https://autodealer.com.co/flota-lead-estado.php` → debe decir `"listo": true`.
 
 ## 3. Activar el despliegue
 
 1. Haz **push** a `main` (o en GitHub: **Actions** → **Deploy to Hostinger** → **Run workflow**).
 2. En **Actions** debe salir en verde **Deploy to Hostinger**.
 3. Prueba:  
-   `https://www.autodealer.com.co/flota-lead.php`  
+   `https://autodealer.com.co/flota-lead.php`  
    (debe decir “Método no permitido”, no 404).
 
 ## 4. Redirección `/agendar/` en la raíz del dominio

@@ -21,7 +21,7 @@ autodealer-nuevo/
 
 Abre (debe **no** salir 404):
 
-- `https://www.autodealer.com.co/autodealer-nuevo/flota-lead.php`  
+- `https://autodealer.com.co/autodealer-nuevo/flota-lead.php`  
   → puede decir "Método no permitido" (normal, solo acepta POST).
 
 Si da **404**, el archivo **no está subido** o está en otra carpeta.
@@ -62,7 +62,7 @@ Sin `flota-lead-secrets.php` con contraseña, el envío suele **no llegar** aunq
 - `flota-lead-secrets.php` (solo en servidor, con contraseña)
 - `flota-lead-estado.php` (diagnóstico)
 
-Comprueba: abre `https://www.autodealer.com.co/flota-lead-estado.php`  
+Comprueba: abre `https://autodealer.com.co/flota-lead-estado.php`  
 Debe mostrar `"listo": true` y `"smtp_pass_set": true`.
 
 Tras enviar el formulario, si falla revisa `flota-lead.log` en el mismo directorio.

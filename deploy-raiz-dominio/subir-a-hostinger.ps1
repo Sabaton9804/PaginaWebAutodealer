@@ -38,4 +38,4 @@ if (-not (Test-Path $htDest)) {
 
 Write-Host ""
 Write-Host "Listo. Sube tambien public_html/autodealer-nuevo/ desde el repo (FTP)."
-Write-Host "Prueba: https://www.autodealer.com.co/agendar/"
+Write-Host "Prueba: https://autodealer.com.co/agendar/"
