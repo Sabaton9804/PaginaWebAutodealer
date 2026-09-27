@@ -99,6 +99,9 @@
       email: String(fd.get("email") || "").trim(),
       tel: String(fd.get("tel") || "").trim(),
       size: String(fd.get("size") || "").trim(),
+      origen: String(fd.get("origen") || "").trim(),
+      servicios: String(fd.get("servicios") || "").trim(),
+      mensaje: String(fd.get("mensaje") || "").trim(),
       _flota_hp: String(fd.get("_flota_hp") || "").trim(),
     };
   }

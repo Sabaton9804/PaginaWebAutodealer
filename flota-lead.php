@@ -97,6 +97,9 @@ $nombre = isset($params['nombre']) ? trim((string) $params['nombre']) : '';
 $email  = isset($params['email']) ? trim((string) $params['email']) : '';
 $tel    = isset($params['tel']) ? trim((string) $params['tel']) : '';
 $size   = isset($params['size']) ? trim((string) $params['size']) : '';
+$origen = isset($params['origen']) ? trim((string) $params['origen']) : '';
+$servicios = isset($params['servicios']) ? trim((string) $params['servicios']) : '';
+$mensaje = isset($params['mensaje']) ? trim((string) $params['mensaje']) : '';
 
 if ($nombre === '' || $email === '' || ! filter_var($email, FILTER_VALIDATE_EMAIL) || $tel === '' || $size === '') {
 	http_response_code(400);
@@ -112,14 +115,22 @@ if (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 	$ip = (string) $_SERVER['REMOTE_ADDR'];
 }
 
-$subject = sprintf('[AutoDealer Flotas] Nueva solicitud de %s', $nombre);
+$is_taller = ($origen === 'taller');
+$subject = $is_taller
+	? sprintf('[Auto Dealer] Taller quiere entrar a la red: %s', $nombre)
+	: sprintf('[Auto Dealer Flotas] Nueva solicitud de %s', $nombre);
 $body    = sprintf(
-	"Nueva solicitud de cotización (flotas)\n\nNombre: %s\nCorreo: %s\nTeléfono: %s\nTamaño de flota: %s\n\nIP: %s\nOrigen: landing autodealer-nuevo\n",
+	"%s\n\nNombre: %s\nCorreo: %s\nTeléfono: %s\n%s: %s\n%s%s\nIP: %s\nOrigen: %s\n",
+	$is_taller ? "Postulación de taller a la red Auto Dealer" : "Nueva solicitud de cotización (flotas)",
 	$nombre,
 	$email,
 	$tel,
+	$is_taller ? "Ciudad" : "Tamaño de flota",
 	$size,
-	$ip
+	$servicios !== '' ? "Servicios: " . $servicios . "\n" : "",
+	$mensaje !== '' ? "Mensaje: " . $mensaje . "\n" : "",
+	$ip,
+	$is_taller ? "ser-taller" : "landing flotas"
 );
 
 $secrets_candidates = array(

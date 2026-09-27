@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Postula tu taller a la red Auto Dealer. Atención de flotas con tarifa y estándar nacional." />
+  <title>Quiero ser taller de la red | Auto Dealer</title>
+  <link rel="canonical" href="https://autodealer.com.co/ser-taller/" />
+  <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { margin:0; font-family:Inter,system-ui,sans-serif; background:#000; color:#fff; line-height:1.55; }
+    a { color:#fff; }
+    header, footer { padding:1.1rem 1.25rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    footer { border-bottom:0; border-top:1px solid rgba(255,255,255,.08); color:rgba(255,255,255,.55); font-size:.82rem; }
+    .nav { display:flex; justify-content:space-between; align-items:center; gap:1rem; width:min(1100px,100% - 2rem); margin:0 auto; }
+    .brand { font-weight:800; letter-spacing:.08em; text-decoration:none; }
+    .wrap { width:min(720px,100% - 2rem); margin:0 auto; padding:2.5rem 0 3.5rem; }
+    h1 { font-size:clamp(1.8rem,4vw,2.5rem); line-height:1.15; margin:0 0 .75rem; }
+    p.lead { color:rgba(255,255,255,.75); margin-top:0; }
+    form { display:grid; gap:.7rem; margin-top:1.5rem; }
+    input, select, textarea {
+      width:100%; box-sizing:border-box; background:#111; color:#fff;
+      border:1px solid rgba(255,255,255,.16); border-radius:12px; padding:.85rem 1rem; font:inherit;
+    }
+    textarea { min-height:110px; resize:vertical; }
+    button {
+      border:0; border-radius:999px; background:#ff0000; color:#fff; font-weight:800;
+      letter-spacing:.06em; text-transform:uppercase; padding:.9rem 1.2rem; cursor:pointer; font-family:inherit;
+    }
+    button:disabled { opacity:.6; cursor:wait; }
+    .hp { position:absolute; left:-9999px; height:0; overflow:hidden; }
+    .toast {
+      position:fixed; left:50%; bottom:1.25rem; transform:translateX(-50%);
+      background:#141414; border:1px solid rgba(255,255,255,.16); border-radius:999px;
+      padding:.7rem 1rem; font-size:.88rem; opacity:0; pointer-events:none; transition:opacity .2s;
+    }
+    .toast.fp-show { opacity:1; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="../">Auto Dealer</a>
+      <a href="https://appautodealer.com">Ingresar</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <p style="letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;font-weight:800;color:#ff3b3b;margin-bottom:.4rem">Red Auto Dealer</p>
+    <h1>Quiero ser taller de la red</h1>
+    <p class="lead">Si tienes un taller y quieres atender flotas con la tarifa y el estándar de Auto Dealer, deja tus datos. Te contactamos para revisar ciudad, servicios y capacidad. Esta página es para talleres, no para agendar un vehículo.</p>
+    <form id="tallerForm" data-flota-lead novalidate>
+      <label class="hp" aria-hidden="true">Dejar vacío<input type="text" name="_flota_hp" tabindex="-1" autocomplete="new-password" /></label>
+      <input type="hidden" name="origen" value="taller" />
+      <input type="text" name="nombre" placeholder="Nombre del taller" required autocomplete="organization" />
+      <input type="text" name="size" placeholder="Ciudad" required autocomplete="address-level2" />
+      <input type="email" name="email" placeholder="Correo" required autocomplete="email" />
+      <input type="tel" name="tel" placeholder="WhatsApp o teléfono" required autocomplete="tel" />
+      <select name="servicios" required>
+        <option value="">Servicios que prestas</option>
+        <option>Mecánica</option>
+        <option>Latonería y pintura</option>
+        <option>Mecánica y latonería</option>
+      </select>
+      <textarea name="mensaje" placeholder="Capacidad, marcas o lo que quieras contarnos (opcional)"></textarea>
+      <button type="submit">Enviar postulación</button>
+    </form>
+    <p style="font-size:.84rem;color:rgba(255,255,255,.55)">Al enviar aceptas que te contactemos por correo o WhatsApp. También puedes escribir a <a href="mailto:servicio@autodealer.com.co">servicio@autodealer.com.co</a>.</p>
+  </main>
+  <footer>
+    <div class="nav">
+      <span>© 2026 Auto Dealer · Inversiones Aristizábal Velasco S.A.S. · NIT 901.514.910-2</span>
+    </div>
+  </footer>
+  <div class="toast" id="fpToast" role="status"><span id="fpToastMsg"></span></div>
+  <script src="../flota-lead.js?v=7"></script>
+</body>
+</html>

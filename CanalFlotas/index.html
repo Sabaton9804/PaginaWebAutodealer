@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es-CO">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10783749991"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-10783749991');
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Mantenimiento de flotas corporativas en Colombia. Taller mecánico multimarca con red nacional, mecánica preventiva y correctiva, gestión centralizada y sedes en Cali y Bogotá. Cotiza con Auto Dealer." />
@@ -59,6 +67,8 @@ img{max-width:100%;height:auto;display:block}
 .fp-nav__lk{display:none;flex-wrap:wrap;gap:.65rem 1rem;align-items:center;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 @media(min-width:900px){.fp-nav__lk{display:flex}}
 .fp-nav__cta{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.62rem 1.05rem;border-radius:999px;font-size:.58rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;border:1px solid var(--accent);cursor:pointer;font-family:inherit;box-shadow:0 6px 28px rgba(255,0,0,.35);white-space:nowrap;text-decoration:none}
+.fp-nav__login{flex-shrink:0;color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.4rem .55rem;white-space:nowrap}
+.fp-nav__login:hover{color:#fff}
 .fp-nav__cta:hover{filter:brightness(1.06);transform:translateY(-1px)}
 @media(min-width:600px){.fp-nav__cta{padding:.68rem 1.2rem;font-size:.62rem}}
 @media (prefers-reduced-motion:reduce){.fp-nav__cta:hover{transform:none}}
@@ -186,7 +196,8 @@ img{max-width:100%;height:auto;display:block}
 .footer__strip{background:#050505;padding:.9rem 1.25rem;text-align:center}
 .footer__strip p{margin:0;font-size:.72rem;line-height:1.5;color:rgba(255,255,255,.38);max-width:none}
 .fp-btns{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.25rem}
-.fp-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem 1.1rem;border-radius:999px;font-size:.62rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;border:1px solid transparent;font-family:inherit;cursor:pointer}
+.fp-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem 1.1rem;border-radius:999px;font-size:.62rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;border:1px solid transparent;font-family:inherit;cursor:pointer;text-decoration:none}
+.fp-credit__tyc a,.fp-tyc-note a,#tarifa a{color:#fff}
 .fp-btn--p{background:var(--accent);color:#fff;border-color:var(--accent)}.fp-btn--g{background:rgba(255,255,255,.07);color:#fff;border-color:rgba(255,255,255,.22)}
 .fp-sec--clientes-logos{border-top:1px solid rgba(255,255,255,.06);background:radial-gradient(120% 80% at 50% 0%,rgba(255,0,0,.06),transparent 55%)}
 .flotas-clientes{margin:0}
@@ -224,7 +235,7 @@ img{max-width:100%;height:auto;display:block}
 .fp-rev.fp-v{opacity:1;transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fp-rev{opacity:1;transform:none;transition:none}.fp-nhero .pulse::before{animation:none}}
 </style>
-<link rel="stylesheet" href="../site-links.css?v=2" />
+<link rel="stylesheet" href="../site-links.css?v=4" />
 </head>
 <body>
 <header class="fp-nav">
@@ -241,6 +252,7 @@ img{max-width:100%;height:auto;display:block}
       <a href="#clientes">Clientes</a>
       <a href="#contacto">Contacto</a>
     </nav>
+    <a class="fp-nav__login" href="https://appautodealer.com">Ingresar</a>
     <a class="fp-nav__cta" href="#cotizar-flota" data-fp-modal role="button">Cotizar flota</a>
   </div>
 </header>
@@ -259,7 +271,7 @@ img{max-width:100%;height:auto;display:block}
           <div class="t">Financiación B2B</div>
           <div class="h">Línea de crédito a <strong>30 días</strong> para tu flota</div>
           <div class="s">Opera sin frenar tu caja. Aprobación directa para clientes corporativos.</div>
-          <p class="fp-credit__tyc">Aplican TyC.</p>
+          <p class="fp-credit__tyc"><a href="../credito-flotas/">Aplican términos del crédito</a>.</p>
         </div>
       </div>
     </div>
@@ -267,7 +279,7 @@ img{max-width:100%;height:auto;display:block}
   <div class="fp-stats">
     <div class="fp-st"><div class="n">60<span>+</span></div><div class="l">Clientes corporativos activos</div></div>
     <div class="fp-st"><div class="n">200<span>+</span></div><div class="l">Vehículos atendidos / mes</div></div>
-    <div class="fp-st"><div class="n">23<span>+</span></div><div class="l">Ciudades con red activa</div></div>
+    <div class="fp-st"><div class="n">24</div><div class="l">Ciudades con red activa</div></div>
     <div class="fp-st"><div class="n">90<span>%</span></div><div class="l">SLA cumplido por contrato</div></div>
   </div>
 </section>
@@ -419,8 +431,8 @@ img{max-width:100%;height:auto;display:block}
     <div class="fp-net fp-rev" style="--d:60ms">
       <div class="fp-nhero">
         <div class="top"><span>Red certificada Auto Dealer</span><span class="pulse">Operando ahora</span></div>
-        <div class="fp-nbig">23<span>+</span></div>
-        <div class="fp-nsub">Talleres certificados con estándar y garantía uniformes</div>
+        <div class="fp-nbig">36</div>
+        <div class="fp-nsub">Talleres en la red, con el mismo estándar. La cita la coordina Auto Dealer.</div>
         <div class="fp-nmini">
           <div class="fp-nm"><div class="v">200+</div><div class="l">Vehículos / mes</div></div>
           <div class="fp-nm"><div class="v">60+</div><div class="l">Clientes corporativos</div></div>
@@ -431,7 +443,7 @@ img{max-width:100%;height:auto;display:block}
         <li><div class="n">01</div><div><h4>Tecnología propia</h4><p>Plataforma de gestión con trazabilidad en tiempo real de cada orden de servicio.</p></div></li>
         <li><div class="n">02</div><div><h4>Estándar uniforme</h4><p>Mismo proceso, garantía y factura electrónica en cualquier ciudad de la red.</p></div></li>
         <li><div class="n">03</div><div><h4>Evidencias fotográficas</h4><p>Antes y después de cada servicio, documentado en el tablero y disponible para auditoría.</p></div></li>
-        <li><div class="n">04</div><div><h4>Tarifa fija nacional</h4><p>Mano de obra estandarizada en toda la red. Cero variaciones de precio por ciudad.</p></div></li>
+        <li><div class="n">04</div><div><h4>Tarifa fija nacional</h4><p>Mano de obra estandarizada en toda la red. Cero variaciones de precio por ciudad. Revisión preventiva <strong>$91.500</strong> IVA incluido, igual en las 24 ciudades.</p></div></li>
         <li><div class="n">05</div><div><h4>Repuestos certificados</h4><p>Catálogo aprobado con proveedores homologados y garantía documentada por escrito.</p></div></li>
         <li><div class="n">06</div><div><h4>Gerente de cuenta</h4><p>Un solo punto de contacto humano. La red opera detrás; tú hablas con una persona.</p></div></li>
       </ul>
@@ -446,10 +458,10 @@ img{max-width:100%;height:auto;display:block}
         <div class="fp-tag">Presencia nacional</div>
         <h2>Atendemos flotas en <em>toda Colombia.</em></h2>
       </div>
-      <p class="sub">23 ciudades con talleres activos y cobertura inmediata. Técnico-mecánica con la misma garantía en cualquier punto del país.</p>
+      <p class="sub">24 ciudades. La operación se agenda con Auto Dealer: un gestor, una tarifa y la red detrás. Técnico-mecánica con la misma garantía en cualquier punto del país.</p>
     </div>
     <div class="fp-cities fp-rev" style="--d:50ms">
-      <span>Bogotá</span><span>Medellín</span><span>Cali</span><span>Barranquilla</span><span>Bucaramanga</span><span>Cartagena</span><span>Santa Marta</span><span>Envigado</span><span>Pereira</span><span>Ibagué</span><span>Villavicencio</span><span>Cúcuta</span><span>Pasto</span><span>Montería</span><span>Valledupar</span><span>Neiva</span><span>Tunja</span><span>Yopal</span><span>Florencia</span><span>Riohacha</span><span>Barrancabermeja</span><span>Manizales</span><span>Quibdó</span>
+      <span>Bogotá</span><span>Chía</span><span>Duitama</span><span>Tunja</span><span>Villavicencio</span><span>Yopal</span><span>Medellín</span><span>Manizales</span><span>Pereira</span><span>Armenia</span><span>Cali</span><span>Ibagué</span><span>Neiva</span><span>Pasto</span><span>Barranquilla</span><span>Cartagena</span><span>Santa Marta</span><span>Montería</span><span>Valledupar</span><span>Riohacha</span><span>Sincelejo</span><span>Bucaramanga</span><span>Barrancabermeja</span><span>Cúcuta</span>
     </div>
   </div>
 </section>
@@ -482,7 +494,7 @@ img{max-width:100%;height:auto;display:block}
         <div class="fp-tag">Política de garantía</div>
         <h3>Respaldo nacional <span style="font-weight:400;color:rgba(255,255,255,.65);font-style:italic">por escrito.</span></h3>
         <p class="sub" style="margin:0">La misma garantía aplica en cualquier punto de la red. Transparencia total, cero letra pequeña.</p>
-        <p style="margin:1rem 0 0;font-size:.82rem;color:var(--muted)"><i class="fa-solid fa-circle" style="font-size:.35rem;vertical-align:middle;color:var(--accent)"></i> Línea de crédito B2B (30 días) <span class="fp-tyc-note">· Aplican TyC.</span> &nbsp;·&nbsp; <i class="fa-solid fa-circle" style="font-size:.35rem;vertical-align:middle;color:var(--accent)"></i> Transparencia total en costos</p>
+        <p style="margin:1rem 0 0;font-size:.82rem;color:var(--muted)"><i class="fa-solid fa-circle" style="font-size:.35rem;vertical-align:middle;color:var(--accent)"></i> Línea de crédito B2B (30 días) <span class="fp-tyc-note">· <a href="../credito-flotas/">Términos del crédito</a>.</span> &nbsp;·&nbsp; <i class="fa-solid fa-circle" style="font-size:.35rem;vertical-align:middle;color:var(--accent)"></i> Transparencia total en costos</p>
       </div>
       <div class="fp-wgrid">
         <div class="fp-wc"><div><span class="big">6</span><span class="u">meses</span></div><div class="d">Mano de obra</div></div>
@@ -493,47 +505,47 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </section>
 
-<section class="fp-sec">
+<section class="fp-sec" id="plataforma">
   <div class="fp-c">
     <div class="fp-head fp-rev">
       <div>
-        <div class="fp-tag">Plataforma</div>
-        <h2>Tu flota, <em>en una sola vista.</em></h2>
+        <div class="fp-tag">Auto Dealer Flota</div>
+        <h2>Tu flota, <em>en una sola consola.</em></h2>
       </div>
-      <p class="sub">Tablero en tiempo real, mantenimientos programados, geolocalización en taller y gerente de cuenta asignado.</p>
+      <p class="sub">La plataforma que ya opera la red. Entras con tu usuario. No hay cifras de muestra: ves las de tu parque.</p>
     </div>
-    <div class="fp-dash fp-rev" style="--d:60ms">
-      <div class="fp-dh"><div class="t"><span></span><span></span><span></span></div><div>app.autodealer.com.co / fleet / overview</div><div></div></div>
-      <div class="fp-db">
-        <aside class="fp-ds">
-          <div class="ac"><i class="fa-solid fa-gauge-high"></i> Resumen</div>
-          <div><i class="fa-solid fa-truck"></i> Vehículos</div>
-          <div><i class="fa-solid fa-calendar-days"></i> Mantenimientos</div>
-          <div><i class="fa-solid fa-receipt"></i> Órdenes activas</div>
-          <div><i class="fa-solid fa-coins"></i> Costos por unidad</div>
-          <div><i class="fa-solid fa-map-location-dot"></i> Geolocalización</div>
-          <div><i class="fa-solid fa-user-tie"></i> Mi gerente</div>
-        </aside>
-        <div class="fp-dm">
-          <div class="fp-dk">
-            <div class="fp-dkp"><div class="lb">Órdenes activas</div><div class="v">14</div><div class="lb" style="margin-top:.35rem;color:#86efac">▲ 3 vs. semana ant.</div></div>
-            <div class="fp-dkp"><div class="lb">Costo / km</div><div class="v">$182</div><div class="lb" style="margin-top:.35rem">▼ 12% YoY</div></div>
-            <div class="fp-dkp"><div class="lb">Disponibilidad</div><div class="v">96.4%</div><div class="lb" style="margin-top:.35rem">SLA cumplido</div></div>
-          </div>
-          <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.5rem">Mantenimientos · últimos 8 meses</div>
-          <div class="fp-bars">
-            <div class="fp-bar" data-l="OCT"><div class="f" style="height:40%"></div></div>
-            <div class="fp-bar" data-l="NOV"><div class="f" style="height:55%"></div></div>
-            <div class="fp-bar" data-l="DIC"><div class="f" style="height:48%"></div></div>
-            <div class="fp-bar" data-l="ENE"><div class="f" style="height:70%"></div></div>
-            <div class="fp-bar" data-l="FEB"><div class="f" style="height:62%"></div></div>
-            <div class="fp-bar" data-l="MAR"><div class="f" style="height:78%"></div></div>
-            <div class="fp-bar" data-l="ABR"><div class="f" style="height:92%"></div></div>
-            <div class="fp-bar" data-l="MAY"><div class="f" style="height:58%"></div></div>
-          </div>
-        </div>
+    <div class="fp-grid fp-rev" style="--d:60ms">
+      <div class="fp-it"><i class="fa-solid fa-gauge-high"></i> Disponibilidad del patio: qué placa puede salir y cuál está en taller</div>
+      <div class="fp-it"><i class="fa-solid fa-clipboard-check"></i> Preoperacional del conductor y bloqueo PESV si el hallazgo es crítico</div>
+      <div class="fp-it"><i class="fa-solid fa-file-shield"></i> SOAT, tecnomecánica y vencimientos por placa</div>
+      <div class="fp-it"><i class="fa-solid fa-coins"></i> Costo por unidad, con el historial de la red</div>
+      <div class="fp-it"><i class="fa-solid fa-calendar-check"></i> Agenda en la red desde la consola, con un gestor</div>
+      <div class="fp-it"><i class="fa-solid fa-location-dot"></i> Mapa GPS durante el turno</div>
+    </div>
+    <p class="fp-rev" style="margin:1.25rem 0 0"><a class="fp-btn fp-btn--p" href="https://appautodealer.com">Ingresar a la consola</a></p>
+  </div>
+</section>
+
+<section class="fp-sec" id="tarifa">
+  <div class="fp-c">
+    <div class="fp-head fp-rev">
+      <div>
+        <div class="fp-tag">Tarifa flota</div>
+        <h2>Un precio. <em>Las 24 ciudades.</em></h2>
       </div>
+      <p class="sub">Ejemplo del tarifario nacional, IVA incluido. No cambia si el servicio es en Bogotá, Cali o Barranquilla.</p>
     </div>
+    <div class="fp-tbl fp-rev" style="--d:60ms">
+      <table>
+        <thead><tr><th>Servicio</th><th>Tarifa flota</th></tr></thead>
+        <tbody>
+          <tr><td>Revisión preventiva</td><td><span class="dur">$91.500</span></td></tr>
+          <tr><td>Diagnóstico de frenos, OBD, suspensión, eléctrico o fugas</td><td><span class="dur">$91.500</span></td></tr>
+          <tr><td>Revisión general + alineación y balanceo</td><td><span class="dur">$242.500</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fp-rev" style="margin:1rem 0 0;font-size:.84rem;color:var(--muted)">El tarifario completo se entrega con la cotización de tu flota. <a href="#cotizar-flota" data-fp-modal>Cotizar flota</a>.</p>
   </div>
 </section>
 
@@ -620,8 +632,8 @@ img{max-width:100%;height:auto;display:block}
           <li><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><div class="lb">Bogotá</div><div class="vl">Cra 27 #63-40, Barrio Quinta Mutis</div></div></li>
           <li><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><div class="lb">Cali</div><div class="vl">Cra. 15 #22A-17 Local 1, Barrio Obrero</div></div></li>
           <li><div class="ico"><i class="fa-solid fa-phone"></i></div><div><div class="lb">Cali</div><div class="vl"><a href="tel:+573214414610">+57 321 441 4610</a></div></div></li>
-          <li><div class="ico"><i class="fa-solid fa-phone"></i></div><div><div class="lb">Bogotá</div><div class="vl"><a href="tel:+573183419819">+57 318 341 3819</a></div></div></li>
-          <li><div class="ico"><i class="fa-brands fa-whatsapp"></i></div><div><div class="lb">WhatsApp (opcional)</div><div class="vl"><a href="https://api.whatsapp.com/send?phone=573214414610" target="_blank" rel="noopener">Cali</a> · <a href="https://api.whatsapp.com/send?phone=573183419819" target="_blank" rel="noopener">Bogotá</a></div></div></li>
+          <li><div class="ico"><i class="fa-solid fa-phone"></i></div><div><div class="lb">Bogotá</div><div class="vl"><a href="tel:+573214414610">+57 321 441 4610</a></div></div></li>
+          <li><div class="ico"><i class="fa-brands fa-whatsapp"></i></div><div><div class="lb">WhatsApp (opcional)</div><div class="vl"><a href="https://api.whatsapp.com/send?phone=573214414610" target="_blank" rel="noopener">Cali</a> · <a href="https://api.whatsapp.com/send?phone=573214414610" target="_blank" rel="noopener">Bogotá</a></div></div></li>
           <li><div class="ico"><i class="fa-solid fa-globe"></i></div><div><div class="lb">Web</div><div class="vl"><a href="https://autodealer.com.co/" target="_blank" rel="noopener">autodealer.com.co</a></div></div></li>
         </ul>
         <div class="fp-btns" id="cotizar-flota">
@@ -671,17 +683,22 @@ img{max-width:100%;height:auto;display:block}
                     <li><a href="../#resenas">Reseñas</a></li>
                     <li><a href="../taller-cali/">Taller mecánico Cali</a></li>
                     <li><a href="../taller-bogota/">Taller mecánico Bogotá</a></li>
-                    <li><a href="https://autodealer.com.co/#agendar">Agendar cita</a></li>
+                    <li><a href="https://appautodealer.com/agendar" target="_blank" rel="noopener">Agendar cita</a></li>
                     <li><a href="../#sedes">Sedes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="../Garantias/">Garantías</a></li>
                     <li><a href="../TratamientoDatos/">Política de tratamiento de datos</a></li>
+                    <li><a href="../condiciones/">Condiciones del servicio</a></li>
+                    <li><a href="../eliminacion-de-datos/">Eliminación de datos</a></li>
+                    <li><a href="https://appautodealer.com">Ingresar</a></li>
+                    <li><a href="../credito-flotas/">Crédito a 30 días</a></li>
+                    <li><a href="../ser-taller/">Tengo un taller</a></li>
                   </ul>
                 </div>
                 <div class="footer__nav-col">
                   <h4>Contáctanos</h4>
                   <ul>
-                    <li><a href="https://api.whatsapp.com/send?phone=573183419819">WhatsApp Bogotá</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp Bogotá</a></li>
                     <li><a href="https://api.whatsapp.com/send?phone=573214414610">WhatsApp Cali</a></li>
                     <li>
                       <a class="footer__social" href="https://www.instagram.com/autodealer_col/" rel="noopener noreferrer" target="_blank">
@@ -706,7 +723,7 @@ img{max-width:100%;height:auto;display:block}
           </div>
         </div>
         <div class="footer__strip" aria-label="Copyright">
-          <p>© 2026 Auto Dealer. Todos los derechos reservados.</p>
+          <p>© 2026 Auto Dealer · Inversiones Aristizábal Velasco S.A.S. · NIT 901.514.910-2</p>
         </div>
       </footer>
 
